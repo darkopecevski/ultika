@@ -1,0 +1,452 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+import PlaceholderImage from '../../../components/PlaceholderImage.astro';
+
+// Services data in Macedonian
+const services = [
+  {
+    id: 'airport-transfers',
+    title: 'Аеродромски Трансфери',
+    description: 'Сигурен и точен превоз до и од аеродромите во Северна Македонија. Уживајте во безгрижно патување со нашите професионални возачи.',
+    icon: 'airport',
+    url: '/mk/services/airport-transfers',
+    features: [
+      'Услуга за пречек и поздрав',
+      'Следење на летови',
+      'Бесплатно време на чекање за задоцнети летови',
+      'Услуга од врата до врата',
+      'Достапни детски седишта',
+      'Помош со багаж'
+    ],
+    longDescription: `
+      Започнете го вашето патување или стигнете до вашата дестинација со стил и удобност со нашата премиум услуга за аеродромски трансфер. Нашите професионални возачи ќе го следат вашиот лет и ќе ги прилагодат времето на подигање во случај на доцнења без дополнителен надомест.
+      
+      Обезбедуваме целосна услуга од врата до врата, помагајќи со вашиот багаж и обезбедувајќи да стигнете до вашата дестинација безбедно и навреме. Детските седишта се достапни на барање без дополнителни трошоци.
+    `
+  },
+  {
+    id: 'executive-transportation',
+    title: 'Бизнис Превоз',
+    description: 'Премиум услуга со шофер за бизнис професионалци. Направете траен впечаток со нашите луксузни седани Mercedes E-класа.',
+    icon: 'executive',
+    url: '/mk/services/executive-transportation',
+    features: [
+      'Професионално обучени шофери',
+      'Возила Mercedes E-класа и S-класа',
+      'Wi-Fi и освежувања',
+      'Приватност и дискреција',
+      'Достапни часовни или дневни тарифи',
+      'Добредојдени се корпоративни сметки'
+    ],
+    longDescription: `
+      Нашата услуга за бизнис превоз е дизајнирана за деловни професионалци кои бараат највисоки стандарди. Патувајте во нашите беспрекорни луксузни возила Mercedes-Benz возени од професионално обучени шофери кои ја разбираат важноста на точноста и дискрецијата.
+      
+      Нудиме бесплатен Wi-Fi и освежувања во сите наши извршни возила, што ви овозможува да работите или да се релаксирате за време на вашето патување. Достапни се корпоративни сметки со опции за прилагодено фактурирање.
+    `
+  },
+  {
+    id: 'self-drive-rental',
+    title: 'Изнајмување Возила',
+    description: 'Истражете ја Северна Македонија во свое темпо со нашите модерни и добро одржувани возила под наем. Достапни се флексибилни услови за изнајмување.',
+    icon: 'selfdrive',
+    url: '/mk/services/self-drive-rental',
+    features: [
+      'Добро одржувани возила Skoda и Opel',
+      'Вклучено сеопфатно осигурување',
+      'Достапна GPS навигација',
+      'Помош на пат 24/7',
+      'Флексибилни периоди на изнајмување',
+      'Конкурентни цени'
+    ],
+    longDescription: `
+      Нашата услуга за самостојно изнајмување возила ви нуди слобода да ја истражите Северна Македонија според сопствениот распоред. Изберете од нашата флота на добро одржувани седани Skoda Octavia и Opel Astra, сите редовно сервисирани и исчистени за ваша удобност и безбедност.
+      
+      Сите изнајмувања вклучуваат сеопфатно осигурување и помош на пат 24/7 за ваш мир. Достапна е GPS навигација за да ви помогне со самодоверба да се движите низ земјата, а нашите конкурентни цени го прават истражувањето достапно.
+    `
+  },
+  {
+    id: 'wedding-transportation',
+    title: 'Свадбен Превоз',
+    description: 'Направете го вашиот посебен ден совршен со нашите елегантни услуги за свадбен превоз. Луксузни возила кои го дополнуваат вашиот свадбен стил.',
+    icon: 'wedding',
+    url: '/mk/services/wedding-transportation',
+    features: [
+      'Декорирани луксузни возила',
+      'Професионални униформирани возачи',
+      'Услуга со црвен тепих',
+      'Гарантирана точност',
+      'Достапни прилагодени рути',
+      'Пакети за целата свадбена придружба'
+    ],
+    longDescription: `
+      Вашиот свадбен ден заслужува посебен превоз, а нашата свадбена услуга нуди луксуз и елеганција кои одговараат на вашиот повод. Нудиме беспрекорно презентирани возила со опционални декорации кои го дополнуваат вашиот свадбен стил.
+      
+      Нашите професионални, униформирани возачи ја разбираат важноста на вашиот ден и се осигуруваат дека секој детаљ е совршен. Можеме да обезбедиме превоз за свадбениот пар и целата свадбена придружба со прилагодени рути и распореди за да ги приспособиме вашите локации за церемонија и прием.
+    `
+  },
+  {
+    id: 'corporate-services',
+    title: 'Корпоративни Услуги',
+    description: 'Прилагодени транспортни решенија за бизниси. Од бизнис трансфери до превоз на вработени, ги покриваме сите ваши деловни потреби.',
+    icon: 'corporate',
+    url: '/mk/services/corporate-services',
+    features: [
+      'Корпоративни сметки со единствено фактурирање',
+      'Можности за управување со флота',
+      'Планирање на транспорт за настани',
+      'Услуги за превоз на вработени',
+      'Услуги за подигање на клиенти',
+      'Посветен менаџер за сметки'
+    ],
+    longDescription: `
+      Нашите корпоративни транспортни услуги се дизајнирани да ги задоволат различните потреби на бизнисите во Северна Македонија. Од бизнис трансфери за вашиот лидерски тим до услуги за превоз на вработени и транспорт за настани, обезбедуваме сигурни и професионални решенија.
+      
+      Корпоративните сметки уживаат во единствено фактурирање, онлајн портали за резервации и посветен менаџер за сметки за да обезбедат дека вашите транспортни потреби се исполнети со највисоките стандарди на услуга. Исто така, можеме да помогнеме со планирање на настани и да обезбедиме групен транспорт за конференции и корпоративни одмори.
+    `
+  },
+  {
+    id: 'day-trips',
+    title: 'Еднодневни Екскурзии и Тури',
+    description: 'Откријте ја убавината на Северна Македонија со нашите водени еднодневни екскурзии и тури. Истражете историски локации, природни чуда и културни атракции.',
+    icon: 'default',
+    url: '/mk/services/day-trips',
+    features: [
+      'Професионални возачи-водичи',
+      'Удобни климатизирани возила',
+      'Покриени популарни дестинации',
+      'Прилагодливи приватни тури',
+      'Подигање и враќање од хотел',
+      'Бесплатна вода во шише'
+    ],
+    longDescription: `
+      Доживејте го најдоброто од Северна Македонија со нашите куратирани еднодневни екскурзии и тури. Нашите професионални возачи-водичи го споделуваат своето знаење за богатата историја, култура и природна убавина на земјата додека вие се релаксирате во нашите удобни, климатизирани возила.
+      
+      Популарните дестинации вклучуваат Охридско Езеро, Национален Парк Маврово, вински региони и историски локации. Нудиме и закажани групни тури и приватни прилагодливи итинерари кои одговараат на вашите интереси и распоред, сите со вклучено подигање и враќање од хотел.
+    `
+  }
+];
+---
+
+<MainLayout 
+  title="Нашите Услуги | Ultika Изнајмување Автомобили и Транспортни Услуги"
+  description="Откријте ги нашите премиум транспортни услуги во Северна Македонија вклучувајќи аеродромски трансфери, бизнис превоз, свадбени услуги и изнајмување автомобили."
+  lang="mk"
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Нашите Услуги</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Доживејте премиум транспортни решенија прилагодени на вашите потреби. Од аеродромски трансфери до свадбен превоз, нашиот професионален тим обезбедува исклучителна услуга секој пат.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Services Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Транспортни Решенија"
+        subtitle="Откријте ја нашата палета на премиум услуги"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {services.slice(0, 3).map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            url={service.url}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.slice(3).map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            url={service.url}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Service: Airport Transfers -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <SectionTitle
+            title="Аеродромски Трансфери"
+            subtitle="Започнете го вашето патување со удобност и стил"
+            alignment="left"
+          />
+          
+          <p class="text-lg mb-6">
+            Нашата услуга за аеродромски трансфер нуди беспрекорно транспортно искуство до и од аеродромите низ Северна Македонија. Нашите професионални возачи го следат вашиот лет и го прилагодуваат времето за подигање во случај на доцнења, без дополнителен надомест.
+          </p>
+          
+          <ul class="space-y-3 mb-8">
+            {services[0].features.map(feature => (
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <a href="/mk/services/airport-transfers" class="btn btn-primary inline-flex items-center">
+            Дознајте Повеќе
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+        
+        <div class="relative">
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <PlaceholderImage width={600} height={400} text="Аеродромски Трансфер" type="service" />
+          </div>
+          
+          <!-- Decorative element -->
+          <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Service: Executive Transportation -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 relative">
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <PlaceholderImage width={600} height={400} text="Бизнис Превоз" type="vehicle" />
+          </div>
+          
+          <!-- Decorative element -->
+          <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
+        </div>
+        
+        <div class="order-1 lg:order-2">
+          <SectionTitle
+            title="Бизнис Превоз"
+            subtitle="Премиум услуга за деловни професионалци"
+            alignment="left"
+          />
+          
+          <p class="text-lg mb-6">
+            Нашата услуга за бизнис превоз е дизајнирана за деловни професионалци кои бараат највисоки стандарди. Патувајте во нашите беспрекорни луксузни возила Mercedes-Benz управувани од професионално обучени шофери.
+          </p>
+          
+          <ul class="space-y-3 mb-8">
+            {services[1].features.map(feature => (
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <a href="/mk/services/executive-transportation" class="btn btn-primary inline-flex items-center">
+            Дознајте Повеќе
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Service Comparison -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Најдете ја Вашата Идеална Услуга"
+        subtitle="Споредете ги нашите транспортни опции"
+      />
+      
+      <div class="mt-12 overflow-x-auto">
+        <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+              <th class="px-6 py-4 text-left">Услуга</th>
+              <th class="px-6 py-4 text-left">Најдобро За</th>
+              <th class="px-6 py-4 text-left">Типови на Возила</th>
+              <th class="px-6 py-4 text-left">Карактеристики</th>
+              <th class="px-6 py-4 text-left">Резервација</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="px-6 py-4 font-medium">Аеродромски Трансфери</td>
+              <td class="px-6 py-4">Патници кои имаат потреба од сигурен аеродромски превоз</td>
+              <td class="px-6 py-4">Седани, Комбиња</td>
+              <td class="px-6 py-4">Следење на летови, Услуга од врата до врата</td>
+              <td class="px-6 py-4"><a href="/mk/contact" class="text-[#D4AF37] hover:underline">Резервирајте Сега</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Бизнис Превоз</td>
+              <td class="px-6 py-4">Деловни професионалци, ВИП</td>
+              <td class="px-6 py-4">Mercedes E-Class, S-Class</td>
+              <td class="px-6 py-4">Wi-Fi, освежувања, професионални шофери</td>
+              <td class="px-6 py-4"><a href="/mk/contact" class="text-[#D4AF37] hover:underline">Резервирајте Сега</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Изнајмување Возила</td>
+              <td class="px-6 py-4">Независни патници</td>
+              <td class="px-6 py-4">Skoda Octavia, Opel Astra</td>
+              <td class="px-6 py-4">GPS, осигурување, 24/7 помош</td>
+              <td class="px-6 py-4"><a href="/mk/contact" class="text-[#D4AF37] hover:underline">Резервирајте Сега</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Свадбен Превоз</td>
+              <td class="px-6 py-4">Свадбени парови и придружба</td>
+              <td class="px-6 py-4">Декорирани луксузни возила</td>
+              <td class="px-6 py-4">Услуга со црвен тепих, униформирани возачи</td>
+              <td class="px-6 py-4"><a href="/mk/contact" class="text-[#D4AF37] hover:underline">Резервирајте Сега</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Корпоративни Услуги</td>
+              <td class="px-6 py-4">Бизниси и организации</td>
+              <td class="px-6 py-4">Целосна флота на располагање</td>
+              <td class="px-6 py-4">Корпоративни сметки, единствено фактурирање</td>
+              <td class="px-6 py-4"><a href="/mk/contact" class="text-[#D4AF37] hover:underline">Резервирајте Сега</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Еднодневни Екскурзии</td>
+              <td class="px-6 py-4">Туристи и истражувачи</td>
+              <td class="px-6 py-4">Удобни туристички возила</td>
+              <td class="px-6 py-4">Професионални водичи, куратирани искуства</td>
+              <td class="px-6 py-4"><a href="/mk/contact" class="text-[#D4AF37] hover:underline">Резервирајте Сега</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Искуства на Клиенти"
+        subtitle="Што велат нашите клиенти за нашите услуги"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37] mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="mb-6 text-gray-300">
+            "Услугата за аеродромски трансфер беше беспрекорна. Нашиот лет доцнеше, но возачот сè уште чекаше со насмевка. Mercedes-от беше беспрекорен, а патувањето удобно. Дефинитивно ќе користиме повторно!"
+          </p>
+          <div>
+            <div class="font-bold">Роберт К.</div>
+            <div class="text-sm text-gray-400">Деловен Патник</div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37] mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="mb-6 text-gray-300">
+            "Го ангажиравме Ultika за превоз на денот на нашата свадба. Возилата беа прекрасно декорирани, а возачите беа професионални и точни. Го направија нашиот посебен ден уште помагичен."
+          </p>
+          <div>
+            <div class="font-bold">Марија и Стефан</div>
+            <div class="text-sm text-gray-400">Свадбени Клиенти</div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37] mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="mb-6 text-gray-300">
+            "Нашата компанија ги користи корпоративните услуги на Ultika повеќе од една година. Единственото фактурирање и посветениот менаџер за сметка го прават управувањето со транспортот безнапорно. Силно препорачано!"
+          </p>
+          <div>
+            <div class="font-bold">Ана Т.</div>
+            <div class="text-sm text-gray-400">Корпоративен Клиент</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Често Поставувани Прашања"
+        subtitle="Вообичаени прашања за нашите услуги"
+      />
+      
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="bg-white shadow-md rounded-lg divide-y divide-gray-200">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Колку време однапред треба да резервирам?</h3>
+            <p class="text-gray-600">
+              Препорачуваме да резервирате најмалку 24-48 часа однапред за да обезбедите достапност. За специјални настани, корпоративни услуги или за време на врвната туристичка сезона, пораното резервирање е препорачливо.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Кои области ги опслужувате?</h3>
+            <p class="text-gray-600">
+              Работиме низ цела Северна Македонија, со фокус на Скопје и главните туристички дестинации. Исто така, нудиме прекугранични услуги до соседните земји на барање.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Што се случува ако мојот лет доцни?</h3>
+            <p class="text-gray-600">
+              За аеродромски трансфери, ги следиме сите пристигнувања на летови и соодветно ги прилагодуваме времињата за подигање без дополнителен надомест. Нашите возачи ќе ве чекаат дури и ако вашиот лет доцни.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Дали нудите детски седишта?</h3>
+            <p class="text-gray-600">
+              Да, обезбедуваме детски седишта на барање без дополнителен трошок. Ве молиме информирајте нѐ за вашите барања при резервирањето за да можеме да обезбедиме соодветна опрема да биде достапна.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Кои начини на плаќање ги прифаќате?</h3>
+            <p class="text-gray-600">
+              Прифаќаме готовина (МКД и ЕУР), главни кредитни картички и банкарски трансфери. За корпоративни клиенти, исто така, нудиме опции за фактурирање со единствено фактурирање.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-gradient-to-r from-black to-gray-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Подготвени да Доживеете Премиум Транспорт?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Контактирајте нѐ денес за да резервирате ваша луксузна транспортна услуга во Северна Македонија.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/contact" class="btn btn-gold text-black">Контактирајте Нѐ</a>
+        <a href="/mk/fleet" class="btn btn-secondary text-white border-white hover:bg-white hover:text-black">Истражете ја Нашата Флота</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,451 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import PlaceholderImage from '../../components/PlaceholderImage.astro';
+
+// Services data
+const services = [
+  {
+    id: 'airport-transfers',
+    title: 'Airport Transfers',
+    description: 'Reliable and punctual transportation to and from airports across North Macedonia. Enjoy a stress-free journey with our professional drivers.',
+    icon: 'airport',
+    url: '/services/airport-transfers',
+    features: [
+      'Meet & Greet service',
+      'Flight monitoring',
+      'Free wait time for delayed flights',
+      'Door-to-door service',
+      'Child seats available',
+      'Help with luggage'
+    ],
+    longDescription: `
+      Start your journey or arrive at your destination in style and comfort with our premium airport transfer service. Our professional drivers will monitor your flight and adjust pickup times in case of delays at no extra charge. 
+      
+      We provide a complete door-to-door service, helping with your luggage and ensuring you reach your destination safely and on time. Child seats are available upon request at no additional cost.
+    `
+  },
+  {
+    id: 'executive-transportation',
+    title: 'Executive Transportation',
+    description: 'Premium chauffeur service for business professionals. Make a lasting impression with our luxury Mercedes E-class sedans.',
+    icon: 'executive',
+    url: '/services/executive-transportation',
+    features: [
+      'Professionally trained chauffeurs',
+      'Mercedes E-class and S-class vehicles',
+      'Wi-Fi and refreshments',
+      'Privacy and discretion',
+      'Hourly or daily rates available',
+      'Corporate accounts welcome'
+    ],
+    longDescription: `
+      Our executive transportation service is designed for business professionals who demand the highest standards. Travel in our immaculate Mercedes-Benz luxury vehicles driven by professionally trained chauffeurs who understand the importance of punctuality and discretion.
+      
+      We offer complimentary Wi-Fi and refreshments in all our executive vehicles, allowing you to work or relax during your journey. Corporate accounts are available with customized billing options.
+    `
+  },
+  {
+    id: 'self-drive-rental',
+    title: 'Self-Drive Car Rental',
+    description: 'Explore North Macedonia at your own pace with our modern and well-maintained rental vehicles. Flexible rental terms available.',
+    icon: 'selfdrive',
+    url: '/services/self-drive-rental',
+    features: [
+      'Well-maintained Skoda and Opel vehicles',
+      'Comprehensive insurance included',
+      'GPS navigation available',
+      '24/7 roadside assistance',
+      'Flexible rental periods',
+      'Competitive rates'
+    ],
+    longDescription: `
+      Our self-drive rental service offers you the freedom to explore North Macedonia on your own schedule. Choose from our fleet of well-maintained Skoda Octavia and Opel Astra sedans, all regularly serviced and cleaned for your comfort and safety.
+      
+      All rentals include comprehensive insurance and 24/7 roadside assistance for peace of mind. GPS navigation is available to help you confidently navigate the country, and our competitive rates make exploring affordable.
+    `
+  },
+  {
+    id: 'wedding-transportation',
+    title: 'Wedding Transportation',
+    description: 'Make your special day perfect with our elegant wedding transportation services. Luxury vehicles to complement your wedding style.',
+    icon: 'wedding',
+    url: '/services/wedding-transportation',
+    features: [
+      'Decorated luxury vehicles',
+      'Professional uniformed drivers',
+      'Red carpet service',
+      'Punctuality guaranteed',
+      'Custom routes available',
+      'Packages for entire wedding party'
+    ],
+    longDescription: `
+      Your wedding day deserves special transportation, and our wedding service delivers the luxury and elegance to match your occasion. We offer immaculately presented vehicles with optional decorations to complement your wedding style.
+      
+      Our professional, uniformed drivers understand the importance of your day and ensure every detail is perfect. We can provide transportation for the wedding couple and the entire wedding party with custom routes and schedules to accommodate your ceremony and reception locations.
+    `
+  },
+  {
+    id: 'corporate-services',
+    title: 'Corporate Services',
+    description: 'Tailored transportation solutions for businesses. From executive transfers to employee shuttles, we\'ve got your business needs covered.',
+    icon: 'corporate',
+    url: '/services/corporate-services',
+    features: [
+      'Corporate accounts with unified billing',
+      'Fleet management capabilities',
+      'Event transportation planning',
+      'Employee shuttle services',
+      'Client pickup services',
+      'Dedicated account manager'
+    ],
+    longDescription: `
+      Our corporate transportation services are designed to meet the diverse needs of businesses in North Macedonia. From executive transfers for your leadership team to employee shuttle services and event transportation, we provide reliable and professional solutions.
+      
+      Corporate accounts enjoy unified billing, online booking portals, and a dedicated account manager to ensure your transportation needs are met with the highest standards of service. We can also assist with event planning and provide group transportation for conferences and corporate retreats.
+    `
+  },
+  {
+    id: 'day-trips',
+    title: 'Day Trips & Tours',
+    description: 'Discover the beauty of North Macedonia with our guided day trips and tours. Explore historical sites, natural wonders, and cultural attractions.',
+    icon: 'default',
+    url: '/services/day-trips',
+    features: [
+      'Professional driver-guides',
+      'Comfortable air-conditioned vehicles',
+      'Popular destinations covered',
+      'Customizable private tours',
+      'Hotel pickup and drop-off',
+      'Complimentary bottled water'
+    ],
+    longDescription: `
+      Experience the best of North Macedonia with our curated day trips and tours. Our professional driver-guides share their knowledge of the country's rich history, culture, and natural beauty while you relax in our comfortable, air-conditioned vehicles.
+      
+      Popular destinations include Ohrid Lake, Mavrovo National Park, wine regions, and historical sites. We offer both scheduled group tours and private customizable itineraries to suit your interests and schedule, all with hotel pickup and drop-off included.
+    `
+  }
+];
+---
+
+<MainLayout 
+  title="Our Services | Ultika Car Rental & Transportation Services"
+  description="Discover our premium transportation services in North Macedonia including airport transfers, executive transportation, wedding services, and self-drive car rentals."
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Experience premium transportation solutions tailored to your needs. From airport transfers to wedding transportation, our professional team delivers exceptional service every time.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Services Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Transportation Solutions"
+        subtitle="Discover our range of premium services"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {services.slice(0, 3).map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            url={service.url}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.slice(3).map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            url={service.url}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Service: Airport Transfers -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <SectionTitle
+            title="Airport Transfers"
+            subtitle="Start your journey in comfort and style"
+            alignment="left"
+          />
+          
+          <p class="text-lg mb-6">
+            Our airport transfer service offers a seamless transportation experience to and from airports across North Macedonia. Our professional drivers monitor your flight and adjust pickup times in case of delays, at no extra charge.
+          </p>
+          
+          <ul class="space-y-3 mb-8">
+            {services[0].features.map(feature => (
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <a href="/services/airport-transfers" class="btn btn-primary inline-flex items-center">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+        
+        <div class="relative">
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <PlaceholderImage width={600} height={400} text="Airport Transfer Service" type="service" />
+          </div>
+          
+          <!-- Decorative element -->
+          <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Service: Executive Transportation -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 relative">
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <PlaceholderImage width={600} height={400} text="Executive Transportation" type="vehicle" />
+          </div>
+          
+          <!-- Decorative element -->
+          <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
+        </div>
+        
+        <div class="order-1 lg:order-2">
+          <SectionTitle
+            title="Executive Transportation"
+            subtitle="Premium service for business professionals"
+            alignment="left"
+          />
+          
+          <p class="text-lg mb-6">
+            Our executive transportation service is designed for business professionals who demand the highest standards. Travel in our immaculate Mercedes-Benz luxury vehicles driven by professionally trained chauffeurs.
+          </p>
+          
+          <ul class="space-y-3 mb-8">
+            {services[1].features.map(feature => (
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <a href="/services/executive-transportation" class="btn btn-primary inline-flex items-center">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Service Comparison -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Find Your Ideal Service"
+        subtitle="Compare our transportation options"
+      />
+      
+      <div class="mt-12 overflow-x-auto">
+        <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+              <th class="px-6 py-4 text-left">Service</th>
+              <th class="px-6 py-4 text-left">Best For</th>
+              <th class="px-6 py-4 text-left">Vehicle Types</th>
+              <th class="px-6 py-4 text-left">Features</th>
+              <th class="px-6 py-4 text-left">Booking</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="px-6 py-4 font-medium">Airport Transfers</td>
+              <td class="px-6 py-4">Travelers needing reliable airport transportation</td>
+              <td class="px-6 py-4">Sedans, Vans</td>
+              <td class="px-6 py-4">Flight monitoring, Door-to-door service</td>
+              <td class="px-6 py-4"><a href="/contact" class="text-[#D4AF37] hover:underline">Book Now</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Executive Transportation</td>
+              <td class="px-6 py-4">Business professionals, VIPs</td>
+              <td class="px-6 py-4">Mercedes E-Class, S-Class</td>
+              <td class="px-6 py-4">Wi-Fi, refreshments, professional chauffeurs</td>
+              <td class="px-6 py-4"><a href="/contact" class="text-[#D4AF37] hover:underline">Book Now</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Self-Drive Rental</td>
+              <td class="px-6 py-4">Independent travelers</td>
+              <td class="px-6 py-4">Skoda Octavia, Opel Astra</td>
+              <td class="px-6 py-4">GPS, insurance, 24/7 assistance</td>
+              <td class="px-6 py-4"><a href="/contact" class="text-[#D4AF37] hover:underline">Book Now</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Wedding Transportation</td>
+              <td class="px-6 py-4">Wedding couples and parties</td>
+              <td class="px-6 py-4">Decorated luxury vehicles</td>
+              <td class="px-6 py-4">Red carpet service, uniformed drivers</td>
+              <td class="px-6 py-4"><a href="/contact" class="text-[#D4AF37] hover:underline">Book Now</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Corporate Services</td>
+              <td class="px-6 py-4">Businesses and organizations</td>
+              <td class="px-6 py-4">Full fleet available</td>
+              <td class="px-6 py-4">Corporate accounts, unified billing</td>
+              <td class="px-6 py-4"><a href="/contact" class="text-[#D4AF37] hover:underline">Book Now</a></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Day Trips & Tours</td>
+              <td class="px-6 py-4">Tourists and explorers</td>
+              <td class="px-6 py-4">Comfortable tour vehicles</td>
+              <td class="px-6 py-4">Professional guides, curated experiences</td>
+              <td class="px-6 py-4"><a href="/contact" class="text-[#D4AF37] hover:underline">Book Now</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Client Testimonials"
+        subtitle="What our clients say about our services"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37] mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="mb-6 text-gray-300">
+            "The airport transfer service was impeccable. Our flight was delayed, but the driver was still waiting with a smile. The Mercedes was immaculate and the journey comfortable. Will definitely use again!"
+          </p>
+          <div>
+            <div class="font-bold">Robert K.</div>
+            <div class="text-sm text-gray-400">Business Traveler</div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37] mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="mb-6 text-gray-300">
+            "We hired Ultika for our wedding day transportation. The vehicles were beautifully decorated, and the drivers were professional and punctual. They made our special day even more magical."
+          </p>
+          <div>
+            <div class="font-bold">Marija & Stefan</div>
+            <div class="text-sm text-gray-400">Wedding Clients</div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-900 p-6 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37] mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="mb-6 text-gray-300">
+            "Our company has been using Ultika's corporate services for over a year now. The unified billing and dedicated account manager make transportation management effortless. Highly recommended!"
+          </p>
+          <div>
+            <div class="font-bold">Ana T.</div>
+            <div class="text-sm text-gray-400">Corporate Client</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Frequently Asked Questions"
+        subtitle="Common questions about our services"
+      />
+      
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="bg-white shadow-md rounded-lg divide-y divide-gray-200">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">How far in advance should I book?</h3>
+            <p class="text-gray-600">
+              We recommend booking at least 24-48 hours in advance to ensure availability. For special events, corporate services, or during peak tourist season, earlier booking is advisable.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">What areas do you serve?</h3>
+            <p class="text-gray-600">
+              We operate throughout North Macedonia, with a focus on Skopje and major tourist destinations. We also offer cross-border services to neighboring countries upon request.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">What happens if my flight is delayed?</h3>
+            <p class="text-gray-600">
+              For airport transfers, we monitor all flight arrivals and adjust pickup times accordingly at no extra charge. Our drivers will wait for you even if your flight is delayed.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Do you offer child seats?</h3>
+            <p class="text-gray-600">
+              Yes, we provide child seats upon request at no additional cost. Please inform us of your requirements when booking so we can ensure the appropriate equipment is available.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">What payment methods do you accept?</h3>
+            <p class="text-gray-600">
+              We accept cash (MKD and EUR), major credit cards, and bank transfers. For corporate clients, we also offer invoicing options with unified billing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-gradient-to-r from-black to-gray-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Experience Premium Transportation?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Contact us today to book your luxury transportation service in North Macedonia.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn btn-gold text-black">Contact Us</a>
+        <a href="/fleet" class="btn btn-secondary text-white border-white hover:bg-white hover:text-black">Explore Our Fleet</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

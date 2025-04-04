@@ -1,0 +1,357 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+import PlaceholderImage from '../../../components/PlaceholderImage.astro';
+
+// Define partner categories in Macedonian
+const partnerCategories = [
+  {
+    id: 'hotels',
+    title: 'Хотелски Партнери',
+    description: 'Соработуваме со премиер хотели во Северна Македонија за да обезбедиме беспрекорни транспортни искуства за нивните гости.',
+    partners: [
+      {
+        name: 'Marriott Скопје',
+        description: 'Луксузен хотел со пет ѕвезди во срцето на Скопје.',
+        logo: '/images/placeholders/partner-marriott.svg',
+        benefits: ['Преферирани тарифи за гостите на хотелот', 'Директно фактурирање на соба', 'Приоритетна услуга'],
+        url: '#'
+      },
+      {
+        name: 'Хотел Александар Палас',
+        description: 'Луксузен хотел кој нуди панорамски поглед на Скопје.',
+        logo: '/images/placeholders/partner-aleksandar.svg',
+        benefits: ['VIP транспортни пакети', 'Резервации преку хотелскиот консиерж', 'Достапност 24/7'],
+        url: '#'
+      },
+      {
+        name: 'Хотел Арка',
+        description: 'Бутик хотел во Старата Чаршија.',
+        logo: '/images/placeholders/partner-arka.svg',
+        benefits: ['Специјални тарифи за гостите на хотелот', 'Прилагодени градски тури', 'Аеродромски трансфери'],
+        url: '#'
+      }
+    ]
+  },
+  {
+    id: 'corporate',
+    title: 'Корпоративни Партнери',
+    description: 'Обезбедуваме сигурни транспортни решенија за бизниси и организации низ Северна Македонија.',
+    partners: [
+      {
+        name: 'Македонски Телеком',
+        description: 'Водечки телекомуникациски провајдер во Северна Македонија.',
+        logo: '/images/placeholders/partner-telekom.svg',
+        benefits: ['Корпоративно управување со сметки', 'Услуги за бизнис превоз', 'Услуги за превоз на вработени'],
+        url: '#'
+      },
+      {
+        name: 'Комерцијална Банка',
+        description: 'Голема банкарска институција со филијали низ целата земја.',
+        logo: '/images/placeholders/partner-banka.svg',
+        benefits: ['VIP услуги за клиенти', 'Координација на транспорт за настани', 'Прилагодени транспортни решенија'],
+        url: '#'
+      },
+      {
+        name: 'ЕВН Македонија',
+        description: 'Енергетски провајдер кој опслужува бизниси и жители.',
+        logo: '/images/placeholders/partner-evn.svg',
+        benefits: ['Транспорт за теренски тимови', 'Решенија за деловни патувања', 'Специјални корпоративни тарифи'],
+        url: '#'
+      }
+    ]
+  },
+  {
+    id: 'travel',
+    title: 'Партнери од Туристичката Индустрија',
+    description: 'Соработуваме со туристички агенции и тур-оператори за да го подобриме искуството на посетителите во Северна Македонија.',
+    partners: [
+      {
+        name: 'Балкан Прајм Турс',
+        description: 'Водечки тур-оператор специјализиран за патувачки искуства на Балканот.',
+        logo: '/images/placeholders/partner-balkan.svg',
+        benefits: ['Интегрирани тур пакети', 'Повеќе-градски итинерари', 'Експертски локални водичи'],
+        url: '#'
+      },
+      {
+        name: 'Македонија Експириенс',
+        description: 'Туристичка агенција фокусирана на автентични културни искуства.',
+        logo: '/images/placeholders/partner-macedonia.svg',
+        benefits: ['Транспорт за културни тури', 'Пакети за вински тури', 'Поддршка за рурален туризам'],
+        url: '#'
+      },
+      {
+        name: 'Адриатик ДМЦ',
+        description: 'Компанија за управување со дестинации за Јадранскиот регион.',
+        logo: '/images/placeholders/partner-adriatic.svg',
+        benefits: ['Прекуграничен транспорт', 'Услуги за патници на крузери', 'Логистика за групни тури'],
+        url: '#'
+      }
+    ]
+  }
+];
+
+// Define partnership benefits in Macedonian
+const partnershipBenefits = [
+  {
+    title: 'Пристап до Премиум Флота',
+    description: 'Партнерите добиваат пристап до нашиот целосен опсег на луксузни возила, вклучувајќи Mercedes-Benz седани и комбиња.',
+    icon: 'vehicle'
+  },
+  {
+    title: 'Приоритетно Резервирање',
+    description: 'Партнерите добиваат приоритетен статус за резервирање, обезбедувајќи достапност дури и во периоди со голема побарувачка.',
+    icon: 'clock'
+  },
+  {
+    title: 'Посветен Менаџер за Сметка',
+    description: 'Секој партнер добива посветен менаџер за сметка за персонализирана услуга и поддршка.',
+    icon: 'person'
+  },
+  {
+    title: 'Прилагодени Решенија',
+    description: 'Развиваме прилагодени транспортни решенија за да ги задоволиме специфичните потреби на секој партнер.',
+    icon: 'customize'
+  },
+  {
+    title: 'Единствено Фактурирање',
+    description: 'Поедноставени процеси за фактурирање и известување за беспрекорно финансиско управување.',
+    icon: 'billing'
+  },
+  {
+    title: 'Обезбедување Квалитет',
+    description: 'Партнерите имаат корист од нашата посветеност кон исклучителна услуга и професионалност.',
+    icon: 'quality'
+  }
+];
+
+// Define icons for benefits
+const icons = {
+  vehicle: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+  </svg>`,
+  clock: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>`,
+  person: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+  </svg>`,
+  customize: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+  </svg>`,
+  billing: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+  </svg>`,
+  quality: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+  </svg>`
+};
+---
+
+<MainLayout 
+  title="Нашите Партнери | Ultika Изнајмување Автомобили и Транспортни Услуги"
+  description="Откријте ја партнерската програма на Ultika и нашата мрежа на хотелски, корпоративни и партнери од туристичката индустрија во Северна Македонија."
+  lang="mk"
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Нашите Партнери</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Соработуваме со водечки хотели, бизниси и туристички организации за да обезбедиме исклучителни транспортни услуги низ цела Северна Македонија.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Partnership Benefits -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Придобивки од Партнерството"
+        subtitle="Зошто да станете партнер со Ultika"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {partnershipBenefits.map(benefit => (
+          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+            <div class="text-[#D4AF37] mb-4 mx-auto" set:html={icons[benefit.icon]} />
+            <h3 class="text-xl font-bold mb-2">{benefit.title}</h3>
+            <p class="text-gray-600">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Hotel Partners -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title={partnerCategories[0].title}
+        subtitle={partnerCategories[0].description}
+      />
+      
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {partnerCategories[0].partners.map(partner => (
+          <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
+              <PlaceholderImage width={200} height={100} text={partner.name + " Лого"} type="general" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
+              <p class="text-gray-600 mb-4">{partner.description}</p>
+              <h4 class="font-bold text-sm text-gray-500 mb-2">ПРИДОБИВКИ ОД ПАРТНЕРСТВОТО:</h4>
+              <ul class="space-y-1 mb-6">
+                {partner.benefits.map(benefit => (
+                  <li class="flex items-start text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#D4AF37] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href={partner.url} class="text-[#D4AF37] hover:underline inline-flex items-center">
+                Дознајте Повеќе
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Corporate Partners -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title={partnerCategories[1].title}
+        subtitle={partnerCategories[1].description}
+      />
+      
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {partnerCategories[1].partners.map(partner => (
+          <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
+              <PlaceholderImage width={200} height={100} text={partner.name + " Лого"} type="general" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
+              <p class="text-gray-600 mb-4">{partner.description}</p>
+              <h4 class="font-bold text-sm text-gray-500 mb-2">ПРИДОБИВКИ ОД ПАРТНЕРСТВОТО:</h4>
+              <ul class="space-y-1 mb-6">
+                {partner.benefits.map(benefit => (
+                  <li class="flex items-start text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#D4AF37] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href={partner.url} class="text-[#D4AF37] hover:underline inline-flex items-center">
+                Дознајте Повеќе
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Travel Industry Partners -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title={partnerCategories[2].title}
+        subtitle={partnerCategories[2].description}
+      />
+      
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {partnerCategories[2].partners.map(partner => (
+          <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
+              <PlaceholderImage width={200} height={100} text={partner.name + " Лого"} type="general" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
+              <p class="text-gray-600 mb-4">{partner.description}</p>
+              <h4 class="font-bold text-sm text-gray-500 mb-2">ПРИДОБИВКИ ОД ПАРТНЕРСТВОТО:</h4>
+              <ul class="space-y-1 mb-6">
+                {partner.benefits.map(benefit => (
+                  <li class="flex items-start text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#D4AF37] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href={partner.url} class="text-[#D4AF37] hover:underline inline-flex items-center">
+                Дознајте Повеќе
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Become a Partner -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl font-bold mb-6">Станете Партнер</h2>
+          <p class="text-xl text-gray-300 mb-6">
+            Приклучете се кон нашата мрежа на партнери и подобрете ги вашите услуги со премиум транспортни решенија. Соработуваме со хотели, бизниси, туристички агенции и организатори на настани низ цела Северна Македонија.
+          </p>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Прилагодени договори за партнерство според вашите потреби</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Специјални тарифи и ексклузивни услуги за вашите клиенти</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Посветен менаџер за сметка и поддршка 24/7</span>
+            </li>
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Маркетинг поддршка и можности за ко-брендирање</span>
+            </li>
+          </ul>
+          <a href="/mk/contact" class="btn btn-gold text-black">Контактирајте Нѐ за Можности за Партнерство</a>
+        </div>
+        
+        <div class="relative">
+          <div class="rounded-lg overflow-hidden shadow-xl">
+            <PlaceholderImage width={600} height={400} text="Можности за Партнерство" type="general" />
+          </div>
+          <!-- Decorative element -->
+          <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

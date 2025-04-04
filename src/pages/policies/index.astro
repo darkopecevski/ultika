@@ -1,0 +1,241 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+
+// Define policy categories
+const policyCategories = [
+  { 
+    id: 'general',
+    title: 'General Policies',
+    policies: [
+      {
+        title: 'Booking Confirmation',
+        description: 'All bookings must be confirmed via email or phone. You will receive a confirmation email with your booking details once your reservation is confirmed.'
+      },
+      {
+        title: 'Changes and Cancellations',
+        description: 'Changes or cancellations must be made at least 24 hours in advance. Cancellations made less than 24 hours before the scheduled service may be subject to a cancellation fee of up to 50% of the total booking value.'
+      },
+      {
+        title: 'Payment Terms',
+        description: 'Payment can be made by cash, credit card, or bank transfer. For airport transfers and chauffeur services, payment is due at the time of service. For multi-day rentals, payment is required at the time of vehicle pickup.'
+      },
+      {
+        title: 'Privacy Policy',
+        description: 'We collect personal information solely for booking and communication purposes. Your information is never shared with third parties except where required by law. For full details, please request our complete privacy policy.'
+      }
+    ]
+  },
+  {
+    id: 'chauffeur-services',
+    title: 'Chauffeur Service Policies',
+    policies: [
+      {
+        title: 'Wait Time',
+        description: 'For airport pickups, we provide 60 minutes of complimentary wait time for international flights and 30 minutes for domestic flights. For all other pickups, we provide 15 minutes of complimentary wait time.'
+      },
+      {
+        title: 'Additional Hours',
+        description: 'If your journey requires additional time beyond what was initially booked, additional hours will be charged at the standard hourly rate for the vehicle type.'
+      },
+      {
+        title: 'Driver Gratuity',
+        description: 'Gratuity for the driver is not included in the fare and is at the client\'s discretion.'
+      },
+      {
+        title: 'Vehicle Substitution',
+        description: 'In the rare event that your requested vehicle is unavailable due to unforeseen circumstances, we reserve the right to substitute a vehicle of equal or greater value.'
+      }
+    ]
+  },
+  {
+    id: 'self-drive-rentals',
+    title: 'Self-Drive Rental Policies',
+    policies: [
+      {
+        title: 'Driver Requirements',
+        description: 'All drivers must be at least 21 years of age, hold a valid driver\'s license for at least 2 years, and present a valid ID or passport.'
+      },
+      {
+        title: 'Security Deposit',
+        description: 'A security deposit is required for all rentals. The amount varies by vehicle type and will be refunded within 3-5 business days after the vehicle is returned in the same condition.'
+      },
+      {
+        title: 'Fuel Policy',
+        description: 'All vehicles are provided with a full tank of fuel and must be returned with a full tank. If the vehicle is not returned with a full tank, a refueling fee will be charged.'
+      },
+      {
+        title: 'Mileage Limits',
+        description: 'Our standard rental includes 200 kilometers per day. Additional kilometers will be charged at €0.20 per kilometer.'
+      },
+      {
+        title: 'Insurance Coverage',
+        description: 'Basic insurance is included in the rental price. This covers damage to the vehicle with a deductible. Additional coverage options are available for purchase.'
+      }
+    ]
+  },
+  {
+    id: 'airport-transfers',
+    title: 'Airport Transfer Policies',
+    policies: [
+      {
+        title: 'Flight Monitoring',
+        description: 'We monitor all flight arrivals in real-time and adjust pickup times accordingly at no extra charge.'
+      },
+      {
+        title: 'Meeting Point',
+        description: 'For airport pickups, our driver will meet you at the arrivals hall holding a sign with your name. Detailed meeting instructions will be provided in your booking confirmation.'
+      },
+      {
+        title: 'Luggage Allowance',
+        description: 'Each vehicle has a specific luggage capacity. Please inform us in advance if you have excess luggage so we can accommodate accordingly.'
+      }
+    ]
+  }
+];
+---
+
+<MainLayout 
+  title="Our Policies | Ultika Car Rental & Transportation Services"
+  description="Learn about Ultika's policies for car rentals, chauffeur services, and airport transfers in North Macedonia. Understand our terms for bookings, cancellations, and payments."
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Policies</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        We strive to provide transparent and fair policies for all our services. Please review the information below to understand our terms and conditions.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Policies Navigation -->
+  <section class="section py-10 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-4">
+        {policyCategories.map(category => (
+          <a 
+            href={`#${category.id}`} 
+            class="px-6 py-2 rounded-full border border-gray-300 hover:border-black transition-colors duration-200 focus:outline-none"
+          >
+            {category.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Policies Content -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="space-y-16">
+        {policyCategories.map(category => (
+          <div id={category.id} class="scroll-mt-20 mb-12">
+            <SectionTitle
+              title={category.title}
+              alignment="left"
+            />
+            
+            <div class="mt-8 space-y-8">
+              {category.policies.map(policy => (
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                  <h3 class="text-xl font-bold mb-2">{policy.title}</h3>
+                  <p class="text-gray-600">{policy.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Additional Information -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Additional Information"
+        subtitle="Important details about our policies"
+      />
+      
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold mb-6">Policy Updates</h3>
+          <p class="text-gray-600 mb-6">
+            Our policies are regularly reviewed and may be updated to reflect changes in our operations or legal requirements. The most current policies will always be available on our website.
+          </p>
+          
+          <h3 class="text-2xl font-bold mb-6">Special Requests</h3>
+          <p class="text-gray-600 mb-6">
+            We understand that you may have specific requirements for your transportation needs. We are happy to accommodate special requests whenever possible. Please contact us directly to discuss your requirements.
+          </p>
+          
+          <h3 class="text-2xl font-bold mb-6">Dispute Resolution</h3>
+          <p class="text-gray-600">
+            We are committed to providing excellent service and resolving any issues that may arise. If you have a concern or complaint, please contact our customer service team immediately. We will make every effort to resolve the matter to your satisfaction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Frequently Asked Questions"
+        subtitle="Common questions about our policies"
+      />
+      
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="bg-white shadow-md rounded-lg divide-y divide-gray-200">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">What if I need to cancel my booking?</h3>
+            <p class="text-gray-600">
+              Cancellations made at least 24 hours in advance will receive a full refund. Cancellations made less than 24 hours before the scheduled service may be subject to a cancellation fee of up to 50% of the total booking value.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">How do I confirm my booking?</h3>
+            <p class="text-gray-600">
+              Once you make a reservation, you will receive a confirmation email with all your booking details. If you don't receive this email, please contact our customer service team immediately.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">What happens if my flight is delayed?</h3>
+            <p class="text-gray-600">
+              We monitor all flights in real-time and adjust our pickup schedule accordingly. There is no additional charge for flight delays, and our driver will be waiting for you when you arrive.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">What forms of payment do you accept?</h3>
+            <p class="text-gray-600">
+              We accept cash (MKD and EUR), major credit cards (Visa, MasterCard, American Express), and bank transfers. For corporate clients, we also offer invoicing options.
+            </p>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Is insurance included in the rental price?</h3>
+            <p class="text-gray-600">
+              Yes, basic insurance is included in all self-drive rentals. This covers damage to the vehicle with a deductible. Additional coverage options are available for purchase to reduce or eliminate the deductible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Have Additional Questions?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Our team is ready to assist you with any questions or concerns about our policies. Contact us for personalized assistance.
+      </p>
+      <a href="/contact" class="btn btn-gold text-black">Contact Us</a>
+    </div>
+  </section>
+</MainLayout>
