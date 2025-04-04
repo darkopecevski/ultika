@@ -1,0 +1,40 @@
+---
+// Logo component for Ultika
+// Will be replaced with actual logo later
+
+export interface Props {
+  width?: number;
+  height?: number;
+  color?: string;
+}
+
+const { 
+  width = 40, 
+  height = 40, 
+  color = "black" 
+} = Astro.props;
+---
+
+<div class="logo">
+  <!-- Temporary SVG logo - will be replaced with actual logo -->
+  <svg 
+    width={width} 
+    height={height} 
+    viewBox="0 0 40 40" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="40" height="40" rx="8" fill={color === "white" ? "white" : "black"} />
+    <path 
+      d="M14 11V23C14 25 15 27 20 27C25 27 26 25 26 23V11H30V23C30 28 26 30 20 30C14 30 10 28 10 23V11H14Z" 
+      fill={color === "white" ? "black" : "white"} 
+    />
+  </svg>
+</div>
+
+<style>
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+</style>

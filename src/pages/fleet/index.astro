@@ -1,0 +1,253 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import VehicleCard from '../../components/VehicleCard.astro';
+
+// Vehicle data
+const chauffeurVehicles = [
+  {
+    name: 'Mercedes-Benz E-Class',
+    type: 'chauffeur',
+    description: 'Premium sedan offering exceptional comfort and style for business trips and special occasions.',
+    features: ['Leather Interior', 'Climate Control', 'WiFi Available', 'Bottled Water', 'Professional Driver', 'Corporate Booking'],
+    capacity: '3 Passengers + Luggage'
+  },
+  {
+    name: 'Mercedes-Benz V-Class',
+    type: 'chauffeur',
+    description: 'Spacious luxury van perfect for group transfers, airport shuttles, and corporate events.',
+    features: ['Leather Interior', 'Climate Control', 'WiFi Available', 'Extra Luggage Space', 'Professional Driver', 'Group Transport'],
+    capacity: '7 Passengers + Luggage'
+  },
+  {
+    name: 'Mercedes-Benz S-Class',
+    type: 'chauffeur',
+    description: 'The pinnacle of luxury and comfort, perfect for VIP transfers and executive transport.',
+    features: ['Premium Leather', 'Advanced Climate Control', 'WiFi Available', 'Refreshments', 'Professional Driver', 'VIP Service'],
+    capacity: '3 Passengers + Luggage'
+  }
+];
+
+const selfDriveVehicles = [
+  {
+    name: 'Skoda Octavia',
+    type: 'self-drive',
+    description: 'Reliable and comfortable sedan for self-drive rental with excellent fuel efficiency.',
+    features: ['Air Conditioning', 'Bluetooth Audio', 'GPS Navigation', 'Fuel Efficient', 'Automatic', 'Cruise Control'],
+    capacity: '4 Passengers + Luggage'
+  },
+  {
+    name: 'Opel Astra Sedan',
+    type: 'self-drive',
+    description: 'Compact sedan offering good comfort and economy for business or leisure travel.',
+    features: ['Air Conditioning', 'Bluetooth Audio', 'GPS Navigation', 'Fuel Efficient', 'Manual/Automatic', 'Cruise Control'],
+    capacity: '4 Passengers + Luggage'
+  }
+];
+---
+
+<MainLayout 
+  title="Our Fleet | Ultika Car Rental & Transportation Services"
+  description="Discover our premium fleet of chauffeur-driven Mercedes-Benz luxury vehicles and self-drive rental cars available in North Macedonia."
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Premium Fleet</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Experience luxury and comfort with our meticulously maintained fleet of premium vehicles, available with professional chauffeurs or for self-drive rental.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Chauffeur Driven Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Chauffeur Driven Vehicles"
+        subtitle="Premium vehicles with professional drivers"
+        alignment="center"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {chauffeurVehicles.map(vehicle => (
+          <VehicleCard
+            name={vehicle.name}
+            type={vehicle.type}
+            description={vehicle.description}
+            features={vehicle.features}
+            capacity={vehicle.capacity}
+          />
+        ))}
+      </div>
+      
+      <!-- Chauffeur Service Benefits -->
+      <div class="mt-16 bg-gray-50 p-8 rounded-lg">
+        <h3 class="text-2xl font-bold mb-6">Benefits of Our Chauffeur Service</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Professional Drivers</h4>
+              <p class="text-gray-600">Experienced, courteous, and professionally trained drivers who know the region well.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Punctuality</h4>
+              <p class="text-gray-600">We value your time. Our drivers are always on time, every time.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Premium Experience</h4>
+              <p class="text-gray-600">Enjoy the luxury of relaxing while our chauffeurs handle the driving.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Self-Drive Section -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Self-Drive Rental Cars"
+        subtitle="Quality vehicles for your personal driving needs"
+        alignment="center"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
+        {selfDriveVehicles.map(vehicle => (
+          <VehicleCard
+            name={vehicle.name}
+            type={vehicle.type}
+            description={vehicle.description}
+            features={vehicle.features}
+            capacity={vehicle.capacity}
+          />
+        ))}
+      </div>
+      
+      <!-- Self-Drive Benefits -->
+      <div class="mt-16 bg-white p-8 rounded-lg shadow-md">
+        <h3 class="text-2xl font-bold mb-6">Self-Drive Rental Benefits</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Freedom & Flexibility</h4>
+              <p class="text-gray-600">Explore North Macedonia at your own pace and on your own schedule.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Well-Maintained Vehicles</h4>
+              <p class="text-gray-600">Our fleet is regularly serviced and maintained to ensure reliability and safety.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Affordable Rates</h4>
+              <p class="text-gray-600">Competitive pricing with various rental packages to suit your needs.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">24/7 Support</h4>
+              <p class="text-gray-600">Our customer support team is available around the clock to assist you during your rental period.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Rental Process -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Simple Rental Process"
+        subtitle="Getting on the road with Ultika is easy"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-4">1</div>
+          <h4 class="text-xl font-bold mb-2">Choose Your Vehicle</h4>
+          <p class="text-gray-600">Browse our fleet and select the perfect vehicle for your needs.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-4">2</div>
+          <h4 class="text-xl font-bold mb-2">Contact Us</h4>
+          <p class="text-gray-600">Reach out via phone, email, or our contact form to check availability.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-4">3</div>
+          <h4 class="text-xl font-bold mb-2">Confirm Booking</h4>
+          <p class="text-gray-600">We'll confirm your booking and provide all necessary details.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-4">4</div>
+          <h4 class="text-xl font-bold mb-2">Enjoy Your Ride</h4>
+          <p class="text-gray-600">Pick up your vehicle or meet your chauffeur and enjoy your journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Book Your Premium Vehicle?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Contact us today to check availability and reserve your preferred vehicle.
+      </p>
+      <a href="/contact" class="btn btn-gold text-black px-8 py-4 text-lg font-bold">Contact Us Now</a>
+    </div>
+  </section>
+</MainLayout>

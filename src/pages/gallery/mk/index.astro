@@ -1,0 +1,313 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+
+// Gallery categories in Macedonian
+const categories = [
+  { id: 'all', name: 'Сите Фотографии' },
+  { id: 'vehicles', name: 'Нашата Флота' },
+  { id: 'services', name: 'Услуги' },
+  { id: 'events', name: 'Настани' },
+  { id: 'locations', name: 'Локации' }
+];
+
+// Gallery items in Macedonian - these would be replaced with actual images later
+const galleryItems = [
+  {
+    id: 1,
+    title: 'Mercedes-Benz E-Class',
+    description: 'Луксузен седан за бизнис превоз',
+    category: 'vehicles',
+    thumbnail: '/images/placeholders/gallery-thumb-1.jpg',
+    fullImage: '/images/placeholders/gallery-full-1.jpg',
+  },
+  {
+    id: 2,
+    title: 'Mercedes-Benz V-Class',
+    description: 'Просторен комби за групен превоз',
+    category: 'vehicles',
+    thumbnail: '/images/placeholders/gallery-thumb-2.jpg',
+    fullImage: '/images/placeholders/gallery-full-2.jpg',
+  },
+  {
+    id: 3,
+    title: 'Аеродромски Трансфер',
+    description: 'Професионална услуга за аеродромски превоз',
+    category: 'services',
+    thumbnail: '/images/placeholders/gallery-thumb-3.jpg',
+    fullImage: '/images/placeholders/gallery-full-3.jpg',
+  },
+  {
+    id: 4,
+    title: 'Тура низ Скопје',
+    description: 'Истражување на прекрасниот град Скопје',
+    category: 'locations',
+    thumbnail: '/images/placeholders/gallery-thumb-4.jpg',
+    fullImage: '/images/placeholders/gallery-full-4.jpg',
+  },
+  {
+    id: 5,
+    title: 'Корпоративен Настан',
+    description: 'Превоз за корпоративни собири',
+    category: 'events',
+    thumbnail: '/images/placeholders/gallery-thumb-5.jpg',
+    fullImage: '/images/placeholders/gallery-full-5.jpg',
+  },
+  {
+    id: 6,
+    title: 'Свадбен Превоз',
+    description: 'Елегантни возила за вашиот посебен ден',
+    category: 'events',
+    thumbnail: '/images/placeholders/gallery-thumb-6.jpg',
+    fullImage: '/images/placeholders/gallery-full-6.jpg',
+  },
+  {
+    id: 7,
+    title: 'Skoda Octavia',
+    description: 'Сигурен седан за самостојно возење',
+    category: 'vehicles',
+    thumbnail: '/images/placeholders/gallery-thumb-7.jpg',
+    fullImage: '/images/placeholders/gallery-full-7.jpg',
+  },
+  {
+    id: 8,
+    title: 'Охридско Езеро',
+    description: 'Превоз до Охридско Езеро',
+    category: 'locations',
+    thumbnail: '/images/placeholders/gallery-thumb-8.jpg',
+    fullImage: '/images/placeholders/gallery-full-8.jpg',
+  },
+  {
+    id: 9,
+    title: 'Opel Astra',
+    description: 'Компактен седан за самостојно возење',
+    category: 'vehicles',
+    thumbnail: '/images/placeholders/gallery-thumb-9.jpg',
+    fullImage: '/images/placeholders/gallery-full-9.jpg',
+  },
+  {
+    id: 10,
+    title: 'Бизнис Услуга',
+    description: 'Премиум услуга со шофер за бизнис професионалци',
+    category: 'services',
+    thumbnail: '/images/placeholders/gallery-thumb-10.jpg',
+    fullImage: '/images/placeholders/gallery-full-10.jpg',
+  },
+  {
+    id: 11,
+    title: 'Ноќна Тура низ Градот',
+    description: 'Истражете го Скопје навечер',
+    category: 'services',
+    thumbnail: '/images/placeholders/gallery-thumb-11.jpg',
+    fullImage: '/images/placeholders/gallery-full-11.jpg',
+  },
+  {
+    id: 12,
+    title: 'Mercedes-Benz S-Class',
+    description: 'Врвен луксуз за ВИП превоз',
+    category: 'vehicles',
+    thumbnail: '/images/placeholders/gallery-thumb-12.jpg',
+    fullImage: '/images/placeholders/gallery-full-12.jpg',
+  },
+];
+---
+
+<MainLayout 
+  title="Галерија | Ultika Изнајмување Автомобили и Транспортни Услуги"
+  description="Прегледајте ја нашата галерија на премиум возила, транспортни услуги и настани. Погледнете ја нашата луксузна Mercedes флота и професионалните услуги со шофер во Северна Македонија."
+  lang="mk"
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Нашата Галерија</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Прегледајте ја нашата колекција на слики кои ја прикажуваат нашата премиум флота, транспортни услуги и прекрасните локации кои ги опслужуваме во Северна Македонија.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Gallery Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <!-- Filter Categories -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        {categories.map(category => (
+          <button 
+            class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-black transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+            data-category={category.id}
+          >
+            {category.name}
+          </button>
+        ))}
+      </div>
+      
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+        {galleryItems.map(item => (
+          <div class="gallery-item" data-category={item.category}>
+            <div class="relative overflow-hidden rounded-lg shadow-md group h-72">
+              <!-- Image Placeholder -->
+              <div class="placeholder-image w-full h-full flex items-center justify-center bg-gray-200">
+                <span class="text-gray-500">Placeholder: 600×400 Image</span>
+              </div>
+              
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 flex flex-col justify-end p-6 transition-opacity duration-300">
+                <h3 class="text-white text-xl font-bold">{item.title}</h3>
+                <p class="text-gray-300 mt-2">{item.description}</p>
+                <button 
+                  class="mt-4 px-4 py-2 bg-[#D4AF37] text-black rounded-full text-sm font-medium hover:bg-opacity-90 transition-colors duration-200 view-image-btn"
+                  data-image={item.fullImage}
+                  data-title={item.title}
+                  data-description={item.description}
+                >
+                  Погледнете Слика
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Empty State (shown when no images match the filter) -->
+      <div id="empty-state" class="hidden text-center py-16">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <h3 class="text-xl font-bold mb-2">Не се Пронајдени Слики</h3>
+        <p class="text-gray-600">Нема слики во оваа категорија. Ве молиме изберете друг филтер.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Image Modal -->
+  <div id="image-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-80 modal-overlay"></div>
+    
+    <div class="relative bg-white rounded-lg max-w-4xl w-full mx-4 z-10">
+      <!-- Close Button -->
+      <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-black">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <!-- Modal Content -->
+      <div class="p-4">
+        <!-- Image Placeholder -->
+        <div class="placeholder-image w-full h-96 flex items-center justify-center bg-gray-200 rounded-t-lg">
+          <span class="text-gray-500">Placeholder: 1200×800 Full Image</span>
+        </div>
+        
+        <!-- Image Info -->
+        <div class="p-6">
+          <h3 id="modal-title" class="text-2xl font-bold mb-2"></h3>
+          <p id="modal-description" class="text-gray-600"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Доживејте ги Нашите Премиум Услуги</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Подготвени ли сте да го доживеете луксузот и удобноста на нашите премиум транспортни услуги?
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/fleet" class="btn btn-gold text-black">Истражете ја Нашата Флота</a>
+        <a href="/mk/contact" class="btn btn-secondary text-white border-white hover:bg-white hover:text-black">Контактирајте нѐ</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const emptyState = document.getElementById('empty-state');
+    const galleryGrid = document.getElementById('gallery-grid');
+    
+    // Set 'All Photos' as active by default
+    document.querySelector('[data-category="all"]').classList.add('bg-black', 'text-white');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Reset active state for all buttons
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-black', 'text-white');
+        });
+        
+        // Set active state for clicked button
+        button.classList.add('bg-black', 'text-white');
+        
+        const selectedCategory = button.getAttribute('data-category');
+        let hasVisibleItems = false;
+        
+        galleryItems.forEach(item => {
+          const itemCategory = item.getAttribute('data-category');
+          
+          if (selectedCategory === 'all' || selectedCategory === itemCategory) {
+            item.classList.remove('hidden');
+            hasVisibleItems = true;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+        
+        // Toggle empty state
+        if (hasVisibleItems) {
+          emptyState.classList.add('hidden');
+          galleryGrid.classList.remove('hidden');
+        } else {
+          emptyState.classList.remove('hidden');
+          galleryGrid.classList.add('hidden');
+        }
+      });
+    });
+    
+    // Image modal functionality
+    const imageModal = document.getElementById('image-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const closeModal = document.getElementById('close-modal');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const viewButtons = document.querySelectorAll('.view-image-btn');
+    
+    // Open modal when view buttons are clicked
+    viewButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const image = button.getAttribute('data-image');
+        const title = button.getAttribute('data-title');
+        const description = button.getAttribute('data-description');
+        
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        // In a real implementation, we would set the image source here
+        
+        imageModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    });
+    
+    // Close modal
+    const closeModalFunc = () => {
+      imageModal.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore scrolling
+    };
+    
+    closeModal.addEventListener('click', closeModalFunc);
+    modalOverlay.addEventListener('click', closeModalFunc);
+    
+    // Close modal when Escape key is pressed
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModalFunc();
+      }
+    });
+  });
+</script>

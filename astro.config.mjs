@@ -1,11 +1,38 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-
-import tailwindcss from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://ultika.mk',
+  integrations: [tailwind({
+    // Configure the Tailwind integration
+    config: { path: './tailwind.config.js' },
+  })],
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'mk'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
+  build: {
+    inlineStylesheets: 'auto',
+  },
   vite: {
-    plugins: [tailwindcss()]
-  }
+    optimizeDeps: {
+      exclude: [],
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'landing': ['./src/pages/index.astro'],
+          },
+        },
+      },
+    },
+    ssr: {
+      noExternal: ['@fontsource/*'],
+    },
+  },
 });

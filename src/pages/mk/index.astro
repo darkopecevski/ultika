@@ -1,0 +1,246 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import VehicleCard from '../../components/VehicleCard.astro';
+
+// Services data in Macedonian
+const services = [
+  {
+    title: 'Аеродромски Трансфери',
+    description: 'Сигурен и точен превоз до и од аеродромите во Северна Македонија. Уживајте во безгрижно патување со нашите професионални возачи.',
+    icon: 'airport',
+    url: '/mk/services/airport-transfers',
+  },
+  {
+    title: 'Бизнис Превоз',
+    description: 'Премиум услуга со шофер за бизнис професионалци. Направете траен впечаток со нашите луксузни седани Mercedes E-класа.',
+    icon: 'executive',
+    url: '/mk/services/executive-transportation',
+  },
+  {
+    title: 'Изнајмување Возила',
+    description: 'Истражете ја Северна Македонија во свое темпо со нашите модерни и добро одржувани возила под наем. Достапни се флексибилни услови за изнајмување.',
+    icon: 'selfdrive',
+    url: '/mk/services/self-drive-rental',
+  },
+  {
+    title: 'Свадбен Превоз',
+    description: 'Направете го вашиот посебен ден совршен со нашите елегантни услуги за свадбен превоз. Луксузни возила кои го дополнуваат вашиот свадбен стил.',
+    icon: 'wedding',
+    url: '/mk/services/wedding-transportation',
+  },
+  {
+    title: 'Корпоративни Услуги',
+    description: 'Прилагодени транспортни решенија за компании. Од бизнис трансфери до превоз на вработени, ги покриваме сите ваши деловни потреби.',
+    icon: 'corporate',
+    url: '/mk/services/corporate-services',
+  }
+];
+
+// Featured vehicles data in Macedonian
+const featuredVehicles = [
+  {
+    name: 'Mercedes-Benz E-Class',
+    type: 'chauffeur',
+    description: 'Премиум седан кој нуди исклучителна удобност и стил за деловни патувања и посебни прилики.',
+    features: ['Кожен Ентериер', 'Климатизација', 'WiFi', 'Вода во Шише'],
+    capacity: '3 Патници + Багаж'
+  },
+  {
+    name: 'Mercedes-Benz V-Class',
+    type: 'chauffeur',
+    description: 'Просторен луксузен комби совршен за групни трансфери, аеродромски шатл превоз и корпоративни настани.',
+    features: ['Кожен Ентериер', 'Климатизација', 'WiFi', 'Дополнителен Простор за Багаж'],
+    capacity: '7 Патници + Багаж'
+  },
+  {
+    name: 'Skoda Octavia',
+    type: 'self-drive',
+    description: 'Сигурен и удобен седан за изнајмување со одлична економичност на гориво.',
+    features: ['Клима Уред', 'Bluetooth Аудио', 'GPS Навигација', 'Економичност'],
+    capacity: '4 Патници + Багаж'
+  }
+];
+
+// Testimonials data in Macedonian
+const testimonials = [
+  {
+    text: "Ultika обезбеди исклучителна услуга за нашето деловно патување. Шоферот беше професионален, точен, а Мерцедесот беспрекорен.",
+    author: "Мартин С.",
+    company: "Корпоративен Клиент"
+  },
+  {
+    text: "Моето семејство и јас го користевме Ultika за нашите аеродромски трансфери во Скопје. Услугата беше беспрекорна и го направи нашиот одмор безгрижен од почеток до крај.",
+    author: "Ема К.",
+    company: "Турист"
+  },
+  {
+    text: "Го ангажиравме Ultika за транспорт на денот на нашата свадба. Вниманието кон деталите беше импресивно, а возилата беа прекрасно презентирани.",
+    author: "Александра и Никола",
+    company: "Свадбени Клиенти"
+  }
+];
+---
+
+<MainLayout 
+  title="Премиум Изнајмување Автомобили и Транспортни Услуги во Северна Македонија"
+  description="Ultika нуди луксузно изнајмување автомобили, услуги со шофер и аеродромски трансфери во Скопје и низ цела Северна Македонија. Доживејте премиум транспорт со нашата Мерцедес флота."
+  lang="mk"
+>
+  <!-- Hero Section -->
+  <Hero
+    title="Премиум Транспорт во Северна Македонија"
+    subtitle="Доживејте луксуз, сигурност и исклучителна услуга со нашата флота од премиум возила и професионални возачи."
+    ctaText="Истражете ги Нашите Услуги"
+    ctaLink="#services"
+  />
+
+  <!-- Services Section -->
+  <section id="services" class="section bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Нашите Услуги"
+        subtitle="Откријте ја нашата палета на премиум транспортни решенија"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.slice(0, 3).map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            url={service.url}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {services.slice(3, 5).map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            url={service.url}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-12 text-center">
+        <a href="/mk/services" class="btn btn-primary">Погледнете ги Сите Услуги</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <SectionTitle
+            title="За Ultika"
+            subtitle="Вашиот доверлив транспортен партнер во Северна Македонија"
+            alignment="left"
+          />
+          
+          <p class="text-lg mb-6">
+            Ultika се специјализира за премиум транспортни услуги низ цела Северна Македонија. Со нашата флота од луксузни Мерцедес возила и професионални возачи, гарантираме дека секое патување ги надминува очекувањата.
+          </p>
+          
+          <p class="text-lg mb-6">
+            Без разлика дали ви требаат аеродромски трансфери, бизнис превоз или изнајмување возила, нашата посветеност на квалитетот и задоволството на клиентите нè издвојува.
+          </p>
+          
+          <div class="grid grid-cols-3 gap-6 mt-10">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-[#D4AF37] mb-2">5+</div>
+              <div class="text-sm text-gray-600">Години Искуство</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-[#D4AF37] mb-2">10+</div>
+              <div class="text-sm text-gray-600">Премиум Возила</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-[#D4AF37] mb-2">1000+</div>
+              <div class="text-sm text-gray-600">Задоволни Клиенти</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="placeholder-image w-full h-96 flex items-center justify-center bg-gray-200 rounded-lg shadow-md">
+            <span class="text-gray-500">Placeholder: 800×600 About Image</span>
+          </div>
+          
+          <!-- Decorative element -->
+          <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Fleet Section -->
+  <section class="section bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Нашата Премиум Флота"
+        subtitle="Откријте ја нашата палета на луксузни возила"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredVehicles.map(vehicle => (
+          <VehicleCard
+            name={vehicle.name}
+            type={vehicle.type}
+            description={vehicle.description}
+            features={vehicle.features}
+            capacity={vehicle.capacity}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-12 text-center">
+        <a href="/mk/fleet" class="btn btn-primary">Погледнете ја Целата Флота</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Искуства на Клиенти"
+        subtitle="Што велат нашите клиенти за нас"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {testimonials.map(testimonial => (
+          <div class="bg-gray-900 p-6 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37] mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="mb-6 text-gray-300">{testimonial.text}</p>
+            <div>
+              <div class="font-bold">{testimonial.author}</div>
+              <div class="text-sm text-gray-400">{testimonial.company}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-gradient-to-r from-black to-gray-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Подготвени да Доживеете Премиум Транспорт?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Контактирајте нè денес за да резервирате ваша луксузна транспортна услуга во Северна Македонија.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/contact" class="btn btn-gold text-black">Контактирајте нè</a>
+        <a href="/mk/fleet" class="btn btn-secondary text-white border-white hover:bg-white hover:text-black">Истражете ја Нашата Флота</a>
+      </div>
+    </div>
+  </section>

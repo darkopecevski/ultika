@@ -1,11 +1,246 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import VehicleCard from '../components/VehicleCard.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Services data
+const services = [
+  {
+    title: 'Airport Transfers',
+    description: 'Reliable and punctual transportation to and from airports across North Macedonia. Enjoy a stress-free journey with our professional drivers.',
+    icon: 'airport',
+    url: '/services/airport-transfers',
+  },
+  {
+    title: 'Executive Transportation',
+    description: 'Premium chauffeur service for business professionals. Make a lasting impression with our luxury Mercedes E-class sedans.',
+    icon: 'executive',
+    url: '/services/executive-transportation',
+  },
+  {
+    title: 'Self-Drive Car Rental',
+    description: 'Explore North Macedonia at your own pace with our modern and well-maintained rental vehicles. Flexible rental terms available.',
+    icon: 'selfdrive',
+    url: '/services/self-drive-rental',
+  },
+  {
+    title: 'Wedding Transportation',
+    description: 'Make your special day perfect with our elegant wedding transportation services. Luxury vehicles to complement your wedding style.',
+    icon: 'wedding',
+    url: '/services/wedding-transportation',
+  },
+  {
+    title: 'Corporate Services',
+    description: 'Tailored transportation solutions for businesses. From executive transfers to employee shuttles, we\'ve got your business needs covered.',
+    icon: 'corporate',
+    url: '/services/corporate-services',
+  }
+];
+
+// Featured vehicles data
+const featuredVehicles = [
+  {
+    name: 'Mercedes-Benz E-Class',
+    type: 'chauffeur',
+    description: 'Premium sedan offering exceptional comfort and style for business trips and special occasions.',
+    features: ['Leather Interior', 'Climate Control', 'WiFi Available', 'Bottled Water'],
+    capacity: '3 Passengers + Luggage'
+  },
+  {
+    name: 'Mercedes-Benz V-Class',
+    type: 'chauffeur',
+    description: 'Spacious luxury van perfect for group transfers, airport shuttles, and corporate events.',
+    features: ['Leather Interior', 'Climate Control', 'WiFi Available', 'Extra Luggage Space'],
+    capacity: '7 Passengers + Luggage'
+  },
+  {
+    name: 'Skoda Octavia',
+    type: 'self-drive',
+    description: 'Reliable and comfortable sedan for self-drive rental with excellent fuel efficiency.',
+    features: ['Air Conditioning', 'Bluetooth Audio', 'GPS Navigation', 'Fuel Efficient'],
+    capacity: '4 Passengers + Luggage'
+  }
+];
+
+// Testimonials data
+const testimonials = [
+  {
+    text: "Ultika provided exceptional service for our business trip. The chauffeur was professional, punctual, and the Mercedes was immaculate.",
+    author: "Martin S.",
+    company: "Corporate Client"
+  },
+  {
+    text: "My family and I used Ultika for our airport transfers in Skopje. The service was flawless and made our vacation stress-free from start to finish.",
+    author: "Emma K.",
+    company: "Tourist"
+  },
+  {
+    text: "We hired Ultika for our wedding day transportation. The attention to detail was impressive and the vehicles were beautifully presented.",
+    author: "Alexandra & Nikola",
+    company: "Wedding Clients"
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout 
+  title="Premium Car Rental & Transportation Services in North Macedonia"
+  description="Ultika offers luxury car rental, chauffeur services, and airport transfers in Skopje and throughout North Macedonia. Experience premium transportation with our Mercedes fleet."
+>
+  <!-- Hero Section -->
+  <Hero
+    title="Premium Transportation in North Macedonia"
+    subtitle="Experience luxury, reliability, and exceptional service with our fleet of premium vehicles and professional drivers."
+    ctaText="Explore Our Services"
+    ctaLink="#services"
+  />
+
+  <!-- Services Section -->
+  <section id="services" class="section bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Our Services"
+        subtitle="Discover our range of premium transportation solutions"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.slice(0, 3).map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            url={service.url}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {services.slice(3, 5).map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            url={service.url}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-12 text-center">
+        <a href="/services" class="btn btn-primary">View All Services</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <SectionTitle
+            title="About Ultika"
+            subtitle="Your trusted transportation partner in North Macedonia"
+            alignment="left"
+          />
+          
+          <p class="text-lg mb-6">
+            Ultika specializes in premium transportation services throughout North Macedonia. With our fleet of luxury Mercedes vehicles and professional drivers, we ensure every journey exceeds expectations.
+          </p>
+          
+          <p class="text-lg mb-6">
+            Whether you need airport transfers, executive transportation, or self-drive rental cars, our commitment to quality and customer satisfaction sets us apart.
+          </p>
+          
+          <div class="grid grid-cols-3 gap-6 mt-10">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-[#D4AF37] mb-2">5+</div>
+              <div class="text-sm text-gray-600">Years Experience</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-[#D4AF37] mb-2">10+</div>
+              <div class="text-sm text-gray-600">Premium Vehicles</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-[#D4AF37] mb-2">1000+</div>
+              <div class="text-sm text-gray-600">Happy Clients</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="placeholder-image w-full h-96 flex items-center justify-center bg-gray-200 rounded-lg shadow-md">
+            <span class="text-gray-500">Placeholder: 800×600 About Image</span>
+          </div>
+          
+          <!-- Decorative element -->
+          <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Fleet Section -->
+  <section class="section bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Our Premium Fleet"
+        subtitle="Discover our range of luxury vehicles"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredVehicles.map(vehicle => (
+          <VehicleCard
+            name={vehicle.name}
+            type={vehicle.type}
+            description={vehicle.description}
+            features={vehicle.features}
+            capacity={vehicle.capacity}
+          />
+        ))}
+      </div>
+      
+      <div class="mt-12 text-center">
+        <a href="/fleet" class="btn btn-primary">View Full Fleet</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Client Testimonials"
+        subtitle="What our clients say about us"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {testimonials.map(testimonial => (
+          <div class="bg-gray-900 p-6 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37] mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="mb-6 text-gray-300">{testimonial.text}</p>
+            <div>
+              <div class="font-bold">{testimonial.author}</div>
+              <div class="text-sm text-gray-400">{testimonial.company}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-gradient-to-r from-black to-gray-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Experience Premium Transportation?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Contact us today to book your luxury transportation service in North Macedonia.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn btn-gold text-black">Contact Us</a>
+        <a href="/fleet" class="btn btn-secondary text-white border-white hover:bg-white hover:text-black">Explore Our Fleet</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

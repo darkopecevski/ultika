@@ -1,0 +1,30 @@
+---
+// Get current URL pathname
+const currentPath = Astro.url.pathname;
+
+// Determine current language based on path
+const isEnglish = !currentPath.startsWith('/mk');
+
+// If we're on the MK version, we need to strip '/mk' from the path when switching to EN
+// If we're on the EN version, we need to add '/mk' to the path when switching to MK
+const enPath = isEnglish ? currentPath : currentPath.replace(/^\/mk/, '');
+const mkPath = isEnglish ? `/mk${currentPath}` : currentPath;
+---
+
+<div class="language-switcher flex items-center space-x-1">
+  <a 
+    href={enPath} 
+    class={`text-sm px-2 py-1 rounded ${isEnglish ? 'font-bold text-black' : 'text-gray-400'}`}
+    aria-label="Switch to English"
+  >
+    EN
+  </a>
+  <span class="text-gray-300">|</span>
+  <a 
+    href={mkPath} 
+    class={`text-sm px-2 py-1 rounded ${!isEnglish ? 'font-bold text-black' : 'text-gray-400'}`}
+    aria-label="Switch to Macedonian"
+  >
+    MK
+  </a>
+</div>

@@ -1,0 +1,33 @@
+---
+// Section Title component for consistent section headings
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  alignment?: 'left' | 'center' | 'right';
+}
+
+const { 
+  title, 
+  subtitle, 
+  alignment = 'center'
+} = Astro.props;
+
+const alignmentClasses = {
+  left: 'text-left',
+  center: 'text-center mx-auto',
+  right: 'text-right ml-auto'
+};
+
+const alignClass = alignmentClasses[alignment];
+---
+
+<div class={`section-title max-w-3xl mb-12 ${alignClass}`}>
+  <h2 class="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
+  
+  {subtitle && (
+    <p class="text-xl text-gray-600">{subtitle}</p>
+  )}
+  
+  <div class="w-24 h-1 bg-[#D4AF37] mt-6 mb-2 rounded-full" class:list={[alignment === 'center' ? 'mx-auto' : alignment === 'right' ? 'ml-auto' : '']}></div>
+</div>

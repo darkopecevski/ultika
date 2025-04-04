@@ -1,0 +1,58 @@
+---
+// Hero component for Ultika homepage
+
+export interface Props {
+  title: string;
+  subtitle: string;
+  ctaText: string;
+  ctaLink: string;
+  imageUrl?: string;
+}
+
+const { 
+  title, 
+  subtitle, 
+  ctaText, 
+  ctaLink,
+  imageUrl = '/images/placeholders/hero-bg.jpg'
+} = Astro.props;
+---
+
+<section class="relative h-screen max-h-[800px] min-h-[500px] bg-black text-white overflow-hidden">
+  <!-- Background image placeholder -->
+  <div class="absolute inset-0 z-0">
+    <div class="placeholder-image w-full h-full flex items-center justify-center bg-gradient-to-r from-black to-gray-800">
+      <span class="text-lg text-gray-400">Placeholder: 1920×800 Hero Image</span>
+    </div>
+  </div>
+  
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+  
+  <!-- Content -->
+  <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+    <div class="max-w-2xl">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+        {title}
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-gray-200">
+        {subtitle}
+      </p>
+      <a 
+        href={ctaLink} 
+        class="btn btn-gold text-black px-8 py-4 font-bold text-lg transition-all duration-300 hover:shadow-lg"
+      >
+        {ctaText}
+      </a>
+    </div>
+  </div>
+  
+  <!-- Scroll down indicator -->
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+    <a href="#services" aria-label="Scroll to services">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </a>
+  </div>
+</section>
