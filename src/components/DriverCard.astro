@@ -1,0 +1,53 @@
+---
+// Driver Card Component
+
+export interface Props {
+  name: string;
+  photo: string;
+  yearsOfExperience: number;
+  languages: string[];
+}
+
+const { 
+  name, 
+  photo, 
+  yearsOfExperience, 
+  languages 
+} = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
+  <div class="h-64 w-full overflow-hidden">
+    <img 
+      src={photo} 
+      alt={`${name} profile`} 
+      class="w-full h-full object-cover object-center"
+      onerror="this.onerror=null; this.src='/images/placeholders/driver-placeholder.svg'"
+    />
+  </div>
+  
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-2">{name}</h3>
+    
+    <div class="mb-4">
+      <div class="text-sm text-gray-500 mb-1">YEARS OF EXPERIENCE</div>
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+        </svg>
+        <span>{yearsOfExperience} Years</span>
+      </div>
+    </div>
+    
+    <div>
+      <div class="text-sm text-gray-500 mb-1">LANGUAGES</div>
+      <div class="flex flex-wrap gap-2">
+        {languages.map((lang) => (
+          <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
+            {lang}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

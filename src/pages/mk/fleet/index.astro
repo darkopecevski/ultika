@@ -1,0 +1,254 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+import VehicleCard from '../../../components/VehicleCard.astro';
+
+// Vehicle data in Macedonian
+const chauffeurVehicles = [
+  {
+    name: 'Mercedes-Benz E-Class',
+    type: 'chauffeur',
+    description: 'Премиум седан кој нуди исклучителна удобност и стил за деловни патувања и посебни прилики.',
+    features: ['Кожен Ентериер', 'Климатизација', 'WiFi', 'Вода во Шише', 'Професионален Возач', 'Корпоративни Резервации'],
+    capacity: '3 Патници + Багаж'
+  },
+  {
+    name: 'Mercedes-Benz V-Class',
+    type: 'chauffeur',
+    description: 'Просторен луксузен комби совршен за групни трансфери, аеродромски шатл превоз и корпоративни настани.',
+    features: ['Кожен Ентериер', 'Климатизација', 'WiFi', 'Дополнителен Простор за Багаж', 'Професионален Возач', 'Групен Транспорт'],
+    capacity: '7 Патници + Багаж'
+  },
+  {
+    name: 'Mercedes-Benz S-Class',
+    type: 'chauffeur',
+    description: 'Врвот на луксузот и удобноста, совршен за ВИП трансфери и извршен превоз.',
+    features: ['Премиум Кожа', 'Напредна Климатизација', 'WiFi', 'Освежувања', 'Професионален Возач', 'ВИП Услуга'],
+    capacity: '3 Патници + Багаж'
+  }
+];
+
+const selfDriveVehicles = [
+  {
+    name: 'Skoda Octavia',
+    type: 'self-drive',
+    description: 'Сигурен и удобен седан за изнајмување со одлична економичност на гориво.',
+    features: ['Клима Уред', 'Bluetooth Аудио', 'GPS Навигација', 'Економичност', 'Автоматик', 'Cruise Control'],
+    capacity: '4 Патници + Багаж'
+  },
+  {
+    name: 'Opel Astra Sedan',
+    type: 'self-drive',
+    description: 'Компактен седан кој нуди добра удобност и економичност за деловни или туристички патувања.',
+    features: ['Клима Уред', 'Bluetooth Аудио', 'GPS Навигација', 'Економичност', 'Рачен/Автоматик', 'Cruise Control'],
+    capacity: '4 Патници + Багаж'
+  }
+];
+---
+
+<MainLayout 
+  title="Нашата Флота | Ultika Изнајмување Автомобили и Транспортни Услуги"
+  description="Откријте ја нашата премиум флота од луксузни возила Mercedes-Benz со шофер и возила за самостојно возење достапни во Северна Македонија."
+  lang="mk"
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Нашата Премиум Флота</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Доживејте луксуз и удобност со нашата прецизно одржувана флота од премиум возила, достапни со професионални возачи или за самостојно возење.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Chauffeur Driven Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Возила со Шофер"
+        subtitle="Премиум возила со професионални возачи"
+        alignment="center"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {chauffeurVehicles.map(vehicle => (
+          <VehicleCard
+            name={vehicle.name}
+            type={vehicle.type}
+            description={vehicle.description}
+            features={vehicle.features}
+            capacity={vehicle.capacity}
+          />
+        ))}
+      </div>
+      
+      <!-- Chauffeur Service Benefits -->
+      <div class="mt-16 bg-gray-50 p-8 rounded-lg">
+        <h3 class="text-2xl font-bold mb-6">Придобивки од Услугата со Шофер</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Професионални Возачи</h4>
+              <p class="text-gray-600">Искусни, љубезни и професионално обучени возачи кои добро го познаваат регионот.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Точност</h4>
+              <p class="text-gray-600">Ги цениме вашето време. Нашите возачи секогаш се точни.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Премиум Искуство</h4>
+              <p class="text-gray-600">Уживајте во луксузот додека нашите возачи се грижат за возењето.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Self-Drive Section -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Возила за Самостојно Возење"
+        subtitle="Квалитетни возила за вашите лични потреби"
+        alignment="center"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
+        {selfDriveVehicles.map(vehicle => (
+          <VehicleCard
+            name={vehicle.name}
+            type={vehicle.type}
+            description={vehicle.description}
+            features={vehicle.features}
+            capacity={vehicle.capacity}
+          />
+        ))}
+      </div>
+      
+      <!-- Self-Drive Benefits -->
+      <div class="mt-16 bg-white p-8 rounded-lg shadow-md">
+        <h3 class="text-2xl font-bold mb-6">Придобивки од Изнајмувањето</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Слобода и Флексибилност</h4>
+              <p class="text-gray-600">Истражете ја Северна Македонија според сопствено темпо и распоред.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Добро Одржувани Возила</h4>
+              <p class="text-gray-600">Нашата флота редовно се сервисира и одржува за да се обезбеди доверливост и безбедност.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Достапни Цени</h4>
+              <p class="text-gray-600">Конкурентни цени со различни пакети за изнајмување за да ги задоволат вашите потреби.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="mr-4 text-[#D4AF37]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-2">Поддршка 24/7</h4>
+              <p class="text-gray-600">Нашиот тим за корисничка поддршка е достапен 24 часа за да ви помогне за време на изнајмувањето.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Rental Process -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Едноставен Процес на Изнајмување"
+        subtitle="Да тргнете на пат со Ultika е лесно"
+      />
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-4">1</div>
+          <h4 class="text-xl font-bold mb-2">Изберете Возило</h4>
+          <p class="text-gray-600">Прегледајте ја нашата флота и изберете го возилото кое најдобро одговара на вашите потреби.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-4">2</div>
+          <h4 class="text-xl font-bold mb-2">Контактирајте Нè</h4>
+          <p class="text-gray-600">Јавете ни се преку телефон, е-пошта или контакт формата за да проверите достапност.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-4">3</div>
+          <h4 class="text-xl font-bold mb-2">Потврдете Резервација</h4>
+          <p class="text-gray-600">Ние ќе ја потврдиме вашата резервација и ќе ви ги обезбедиме сите потребни детали.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-4">4</div>
+          <h4 class="text-xl font-bold mb-2">Уживајте во Возењето</h4>
+          <p class="text-gray-600">Подигнете го возилото или сретнете го вашиот возач и уживајте во патувањето.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Подготвени да Резервирате Премиум Возило?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Контактирајте нè денес за да ја проверите достапноста и да го резервирате вашето посакувано возило.
+      </p>
+      <a href="/mk/contact" class="btn btn-gold text-black px-8 py-4 text-lg font-bold">Контактирајте Нè Сега</a>
+    </div>
+  </section>
+</MainLayout>

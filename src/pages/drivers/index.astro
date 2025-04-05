@@ -1,0 +1,95 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import DriverCard from '../../components/DriverCard.astro';
+import { drivers } from '../../data/drivers';
+
+---
+
+<MainLayout 
+  title="Our Drivers | Ultika Car Rental & Transportation Services"
+  description="Meet our professional and experienced drivers who ensure a safe, comfortable, and exceptional transportation experience in North Macedonia."
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Professional Drivers</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Our team of skilled and multilingual drivers are committed to providing you with the highest standard of transportation services.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Drivers Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Meet Our Team"
+        subtitle="Experienced professionals dedicated to your comfort and safety"
+      />
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {drivers.map(driver => (
+          <DriverCard
+            name={driver.name}
+            photo={driver.photo}
+            yearsOfExperience={driver.yearsOfExperience}
+            languages={driver.languages}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Driver Commitment Section -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Our Commitment to Excellence</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Each of our drivers undergoes rigorous training and continuous professional development. They are not just drivers, but professional ambassadors of our brand, dedicated to ensuring your journey is safe, comfortable, and memorable.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <div class="text-[#D4AF37] mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Professional Training</h3>
+            <p class="text-gray-600">Continuous learning and skill enhancement</p>
+          </div>
+          <div>
+            <div class="text-[#D4AF37] mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Language Skills</h3>
+            <p class="text-gray-600">Multilingual communication expertise</p>
+          </div>
+          <div>
+            <div class="text-[#D4AF37] mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Customer Focus</h3>
+            <p class="text-gray-600">Dedicated to your comfort and satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience Premium Transportation</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Book your journey with our professional drivers and enjoy a safe, comfortable, and exceptional transportation experience.
+      </p>
+      <a href="/contact" class="btn btn-gold text-black">Book Now</a>
+    </div>
+  </section>
+</MainLayout>

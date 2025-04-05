@@ -1,0 +1,97 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+import DriverCard from '../../../components/DriverCard.astro';
+import { drivers } from '../../../data/drivers';
+
+---
+
+<MainLayout 
+  title="Наши Возачи | Ultika Изнајмување Автомобили и Транспортни Услуги"
+  description="Запознајте ги нашите професионални и искусни возачи кои обезбедуваат безбеден, удобен и исклучителен транспортен доживјај во Северна Македонија."
+  lang="mk"
+>
+  <!-- Hero Section -->
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Наши Професионални Возачи</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Нашиот тим на вешти и повеќејазични возачи се посветени на обезбедување на најви висок стандард на транспортни услуги.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Drivers Section -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Запознајте Го Нашиот Тим"
+        subtitle="Искусни професионалци посветени на вашата удобност и безбедност"
+      />
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {drivers.map(driver => (
+          <DriverCard
+            name={driver.name}
+            photo={driver.photo}
+            yearsOfExperience={driver.yearsOfExperience}
+            languages={driver.languages}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Driver Commitment Section -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Наша Посветеност на Извонредноста</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Секој од нашите возачи поминува строга обука и континуиран професионален развој. Тие не се само возачи, туку професионални амбасадори на нашиот бренд, посветени да обезбедат безбедно, удобно и незаборавно патување.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <div class="text-[#D4AF37] mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 
+18 0 9 9 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Професионална Обука</h3>
+            <p class="text-gray-600">Континуирано учење и надградба на вештините</p>
+          </div>
+          <div>
+            <div class="text-[#D4AF37] mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Јазични Вештини</h3>
+            <p class="text-gray-600">Експертиза во повеќејазична комуникација</p>
+          </div>
+          <div>
+            <div class="text-[#D4AF37] mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Фокус кон Клиентите</h3>
+            <p class="text-gray-600">Посветени на вашата удобност и задоволство</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Доживејте Премиум Транспорт</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Резервирајте го вашето патување со нашите професионални возачи и уживајте во безбеден, удобен и исклучителен транспортен доживјај.
+      </p>
+      <a href="/mk/contact" class="btn btn-gold text-black">Резервирајте Сега</a>
+    </div>
+  </section>
+</MainLayout>

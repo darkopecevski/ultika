@@ -4,29 +4,55 @@ import Logo from './Logo.astro';
 // Get current year for copyright
 const currentYear = new Date().getFullYear();
 
-// Footer links
-const serviceLinks = [
-  { name: 'Airport Transfers', url: '/services/airport-transfers' },
-  { name: 'Executive Transportation', url: '/services/executive-transportation' },
-  { name: 'Self-Drive Car Rental', url: '/services/self-drive-rental' },
-  { name: 'Wedding Transportation', url: '/services/wedding-transportation' },
-  { name: 'Corporate Services', url: '/services/corporate-services' }
-];
+// Determine current language
+const currentPath = Astro.url.pathname;
+const isEnglish = !currentPath.startsWith('/mk');
 
-const quickLinks = [
-  { name: 'About Us', url: '/about' },
-  { name: 'Fleet', url: '/fleet' },
-  { name: 'Gallery', url: '/gallery' },
-  { name: 'Contact', url: '/contact' },
-  { name: 'Policies', url: '/policies' }
-];
+// Footer links for both languages
+const serviceLinks = {
+  en: [
+    { name: 'Airport Transfers', url: '/services/airport-transfers' },
+    { name: 'Executive Transportation', url: '/services/executive-transportation' },
+    { name: 'Self-Drive Car Rental', url: '/services/self-drive-rental' },
+    { name: 'Wedding Transportation', url: '/services/wedding-transportation' },
+    { name: 'Corporate Services', url: '/services/corporate-services' }
+  ],
+  mk: [
+    { name: 'Аеродромски Трансфери', url: '/mk/services/airport-transfers' },
+    { name: 'Бизнис Превоз', url: '/mk/services/executive-transportation' },
+    { name: 'Изнајмување Возила', url: '/mk/services/self-drive-rental' },
+    { name: 'Свадбен Превоз', url: '/mk/services/wedding-transportation' },
+    { name: 'Корпоративни Услуги', url: '/mk/services/corporate-services' }
+  ]
+};
 
-// Social media links
+const quickLinks = {
+  en: [
+    { name: 'Home', url: '/' },
+    { name: 'Fleet', url: '/fleet' },
+    { name: 'Gallery', url: '/gallery' },
+    { name: 'Contact', url: '/contact' },
+    { name: 'Policies', url: '/policies' }
+  ],
+  mk: [
+    { name: 'Дома', url: '/mk' },
+    { name: 'Флота', url: '/mk/fleet' },
+    { name: 'Галерија', url: '/mk/gallery' },
+    { name: 'Контакт', url: '/mk/contact' },
+    { name: 'Политики', url: '/mk/policies' }
+  ]
+};
+
+// Social media links (same for both languages)
 const socialLinks = [
   { name: 'Facebook', url: 'https://facebook.com/', icon: 'facebook' },
   { name: 'Instagram', url: 'https://instagram.com/', icon: 'instagram' },
   { name: 'LinkedIn', url: 'https://linkedin.com/', icon: 'linkedin' }
 ];
+
+// Get current language's links
+const currentServiceLinks = serviceLinks[isEnglish ? 'en' : 'mk'];
+const currentQuickLinks = quickLinks[isEnglish ? 'en' : 'mk'];
 ---
 
 <footer class="bg-black text-white pt-12 pb-6">
@@ -39,7 +65,9 @@ const socialLinks = [
           <span class="ml-2 text-xl font-bold">Ultika</span>
         </div>
         <p class="text-gray-400 mb-4">
-          Premium car rental and transportation services in North Macedonia.
+          {isEnglish 
+            ? 'Premium car rental and transportation services in North Macedonia.'
+            : 'Премиум услуги за изнајмување автомобили и транспорт во Северна Македонија.'}
         </p>
         <div class="flex space-x-4">
           {socialLinks.map((social) => (
@@ -72,9 +100,11 @@ const socialLinks = [
       
       <!-- Services -->
       <div>
-        <h3 class="text-lg font-bold mb-4">Our Services</h3>
+        <h3 class="text-lg font-bold mb-4">
+          {isEnglish ? 'Our Services' : 'Нашите Услуги'}
+        </h3>
         <ul class="space-y-2">
-          {serviceLinks.map((link) => (
+          {currentServiceLinks.map((link) => (
             <li>
               <a 
                 href={link.url}
@@ -89,9 +119,11 @@ const socialLinks = [
       
       <!-- Quick Links -->
       <div>
-        <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+        <h3 class="text-lg font-bold mb-4">
+          {isEnglish ? 'Quick Links' : 'Брзи Линкови'}
+        </h3>
         <ul class="space-y-2">
-          {quickLinks.map((link) => (
+          {currentQuickLinks.map((link) => (
             <li>
               <a 
                 href={link.url}
@@ -106,13 +138,15 @@ const socialLinks = [
       
       <!-- Contact Info -->
       <div>
-        <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+        <h3 class="text-lg font-bold mb-4">
+          {isEnglish ? 'Contact Us' : 'Контактирајте Нè'}
+        </h3>
         <ul class="space-y-3 text-gray-400">
           <li class="flex items-start">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
             </svg>
-            <span>Skopje, North Macedonia</span>
+            <span>{isEnglish ? 'Skopje, North Macedonia' : 'Скопје, Северна Македонија'}</span>
           </li>
           <li class="flex items-start">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 text-[#D4AF37]" viewBox="0 0 20 20" fill="currentColor">
@@ -133,10 +167,16 @@ const socialLinks = [
     
     <!-- Copyright & Legal -->
     <div class="pt-6 mt-6 border-t border-gray-800 text-center sm:text-left sm:flex sm:justify-between text-sm text-gray-400">
-      <p>&copy; {currentYear} Ultika. All rights reserved.</p>
+      <p>{isEnglish 
+        ? `© ${currentYear} Ultika. All rights reserved.`
+        : `© ${currentYear} Ultika. Сите права се задржани.`}</p>
       <div class="mt-2 sm:mt-0">
-        <a href="/privacy-policy" class="hover:text-white mr-4">Privacy Policy</a>
-        <a href="/terms-of-service" class="hover:text-white">Terms of Service</a>
+        <a href={isEnglish ? '/privacy-policy' : '/mk/privacy-policy'} class="hover:text-white mr-4">
+          {isEnglish ? 'Privacy Policy' : 'Политика за Приватност'}
+        </a>
+        <a href={isEnglish ? '/terms-of-service' : '/mk/terms-of-service'} class="hover:text-white">
+          {isEnglish ? 'Terms of Service' : 'Услови за Користење'}
+        </a>
       </div>
     </div>
   </div>
