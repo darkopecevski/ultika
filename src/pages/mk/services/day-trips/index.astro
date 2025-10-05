@@ -1,0 +1,310 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Еднодневни Патувања и Тури',
+  description: 'Откриjте ја убавината на Северна Македонија со нашите водени еднодневни патувања и приватни тури.',
+  heroImage: '/images/cars/vclassside2.jpg',
+  features: [
+    {
+      title: 'Приватни Тури',
+      description: 'Прилагодени програми направени според вашите интереси и распоред.'
+    },
+    {
+      title: 'Експертни Локални Водичи',
+      description: 'Знаењиви водичи кои споделуваат увиди во културата, историјата и скриените бисери.'
+    },
+    {
+      title: 'Удобен Превоз',
+      description: 'Патувајте во луксузни Mercedes возила со климатска контрола и Wi-Fi.'
+    },
+    {
+      title: 'Флексибилни Распореди',
+      description: 'Времиња на тргнување и траење приспособени според вашите преференции.'
+    },
+    {
+      title: 'Сеопфатни Пакети',
+      description: 'Превоз, водич и влезници вклучени во една цена.'
+    },
+    {
+      title: 'Мали Групи',
+      description: 'Интимни искуства со персонализирано внимание за вас и вашето друштво.'
+    }
+  ],
+  popularDestinations: [
+    {
+      name: 'Охрид и Охридското Езеро',
+      duration: 'Цел Ден (8-10 часа)',
+      description: 'Посетете го UNESCO локалитетот Охрид, истражувајте древни цркви, уживајте во езерски погледи и откријте го Стариот Град.',
+      highlights: ['Охридски Стар Град', 'Св. Јован Канео', 'Античкиот Театар', 'Крстарење со Охридското Езеро (опционално)']
+    },
+    {
+      name: 'Матка Кањон',
+      duration: 'Полудневно (4-5 часа)',
+      description: 'Истражете го зашеметувачкиот Матка Кањон со неговите средновековни манастири, печини и кристално чисти води.',
+      highlights: ['Возење со чамец до Врело Пештера', 'Манастир Св. Андреја', 'Патеки за пешачење низ кањонот', 'Кајакање (опционално)']
+    },
+    {
+      name: 'Винска Тура - Тиквешки Регион',
+      duration: 'Цел Ден (8-9 часа)',
+      description: 'Откријте го премиум винскиот регион на Македонија со посети на традиционални винарии и дегустации на вино.',
+      highlights: ['3-4 посети на винарии', 'Сесии на дегустација на вино', 'Традиционален ручек', 'Тура низ лозјата']
+    },
+    {
+      name: 'Национален Парк Маврово',
+      duration: 'Цел Ден (9-10 часа)',
+      description: 'Доживејте нетакната природа, планински села и убавото Мавровско Езеро.',
+      highlights: ['Мавровско Езеро', 'Манастир Бигорски', 'Планински села', 'Локална кујна']
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Еднодневни Патувања и Тури | Ултика Водени Тури Северна Македонија"
+  description="Приватни водени еднодневни патувања и тури во Северна Македонија. Посетете Охрид, Матка Кањон, винските региони и националните паркови со професионални водичи и луксузен превоз."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Истражувајте ја Северна Македонија во Удобност"
+          subtitle="Приватни водени тури со луксузен превоз"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            Северна Македонија е земја на древна историја, зашеметувачка природна убавина и богато културно наследство.
+            Нашите приватни еднодневни патувања и тури нудат совршен начин да ги откриете главните забележителности
+            на земјата без грижа за планирање или навигација. Од брегот на Охридското Езеро под заштита на UNESCO до
+            драматските пејзажи на Матка Кањон, од светски класни винарии до нетакнати национални паркови – ќе ве
+            однесеме таму во стил и удобност.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Секоја тура е водена од искусни локални водичи кои ги оживуваат приказните на Македонија. Патувајте во
+            нашите луксузни Mercedes возила, уживајте во персонализирано внимание и создавајте незаборавни спомени.
+            Без разлика дали се интересирате за историја, природа, вино или култура, ќе ви прилагодиме совршено
+            еднодневно патување за вас.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Зошто да ги Изберете Нашите Еднодневни Патувања"
+        subtitle="Премиум искуства на тури со внимание на детали"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Популарни Еднодневни Патувања"
+        subtitle="Внимателно избрани тури до најубавите дестинации на Македонија"
+      />
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 max-w-6xl mx-auto">
+        {service.popularDestinations.map(destination => (
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold">{destination.name}</h3>
+                <span class="text-sm text-gray-500 whitespace-nowrap ml-4">{destination.duration}</span>
+              </div>
+              <p class="text-gray-700 mb-4">{destination.description}</p>
+
+              <h4 class="font-bold text-sm text-gray-800 mb-2">Забележителности:</h4>
+              <ul class="space-y-2">
+                {destination.highlights.map(highlight => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 mr-2 text-[#D4AF37] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm text-gray-700">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 p-6 bg-gray-50 rounded-lg max-w-4xl mx-auto">
+        <h3 class="text-xl font-bold mb-4">Достапни Прилагодени Тури</h3>
+        <p class="text-gray-700 mb-4">
+          Не гледате точно она што го барате? Специјализирани сме за создавање прилагодени програми врз основа на вашите
+          интереси. Без разлика дали сакате да истражувате археолошки локалитети, да посетите локални занаетчии, да
+          пешачите низ планините или да откриете села надвор од главните патеки, ќе ви дизајнираме совршена тура за вас.
+        </p>
+        <a href="/mk/contact" class="text-[#D4AF37] font-semibold hover:underline">Контактирајте не за да ја планираме вашата прилагодена тура →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Што е Вклучено"
+          subtitle="Сè што ви треба за совршено еднодневно патување"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Вклучено во Сите Тури
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Приватен луксузен превоз со возило
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Професионален водич кој зборува англиски
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Подигање и оставање од хотел
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Флаширана вода и освежителни пијалаци
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Сите трошоци за гориво и паркинг
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Wi-Fi во возилото
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Не е Вклучено
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Влезници (освен ако не е наведено)</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Оброци и пијалаци (освен винските тури)</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Опционални активности (возења со чамец, итн.)</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Лични трошоци и сувенири</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Напојници (опционално)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-blue-50 border-l-4 border-[#D4AF37] rounded">
+          <p class="text-sm text-gray-700">
+            <strong>Напомена:</strong> Сите тури може да се прилагодат да вклучуваат или исклучуваат специфични услуги.
+            Контактирајте не за детална понуда врз основа на вашите преференции.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Подготвени да ја Истражувате Северна Македонија?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Резервирајте го вашето приватно еднодневно патување денес и откријте ја убавината, историјата и културата на Македонија со експертни водичи.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/contact" class="btn btn-gold text-black">Побарајте Понуда за Тура</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Јавете се +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

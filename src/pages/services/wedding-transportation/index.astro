@@ -1,0 +1,276 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Wedding Transportation',
+  description: 'Make your special day even more memorable with our luxury wedding transportation service.',
+  heroImage: '/images/cars/vclass14.jpg',
+  features: [
+    {
+      title: 'Red Carpet Service',
+      description: 'We roll out the red carpet for the bride and groom, adding that extra touch of elegance.'
+    },
+    {
+      title: 'Decorated Vehicles',
+      description: 'Our vehicles are beautifully decorated with ribbons, flowers, and customized decorations.'
+    },
+    {
+      title: 'Professional Chauffeurs',
+      description: 'Experienced drivers in formal attire who understand the importance of your special day.'
+    },
+    {
+      title: 'Multiple Vehicles',
+      description: 'Transport the entire wedding party with our fleet of luxury vehicles.'
+    },
+    {
+      title: 'Flexible Scheduling',
+      description: 'Full-day availability with flexible pickup and drop-off times to match your schedule.'
+    },
+    {
+      title: 'Complimentary Champagne',
+      description: 'Celebrate with complimentary champagne service for the newlyweds.'
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Wedding Transportation | Ultika Luxury Wedding Cars"
+  description="Premium wedding transportation service in North Macedonia. Luxury Mercedes vehicles, red carpet service, and professional chauffeurs for your special day."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Arrive in Style on Your Special Day"
+          subtitle="Luxury wedding transportation that matches the elegance of your celebration"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            Your wedding day is one of the most important days of your life, and every detail should be perfect.
+            At Ultika, we provide premium wedding transportation services that add elegance, style, and comfort
+            to your celebration. From the bride's arrival at the ceremony to the newlyweds' departure for their
+            honeymoon, we ensure every moment is special.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Our fleet of immaculate Mercedes-Benz vehicles, professional chauffeurs in formal attire, and
+            personalized service create unforgettable memories. We understand that timing is crucial on your
+            wedding day, and our experienced team ensures everything runs smoothly and on schedule.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Wedding Transportation Features"
+        subtitle="Premium services to make your day unforgettable"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle Fleet -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Our Wedding Fleet"
+        subtitle="Luxury vehicles perfect for your special day"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/eclassfront1.jpg" alt="Mercedes-Benz E-Class Wedding Car" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Mercedes-Benz E-Class</h3>
+            <p class="text-gray-600 mb-4">Elegant sedan perfect for the bride and groom.</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Spacious and luxurious interior
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Beautifully decorated with ribbons and flowers
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Red carpet service included
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/vclassfront3.jpg" alt="Mercedes-Benz V-Class Wedding Transport" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Mercedes-Benz V-Class</h3>
+            <p class="text-gray-600 mb-4">Spacious luxury van for the wedding party and family.</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Up to 7 passengers comfortably
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Perfect for bridesmaids and groomsmen
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Climate-controlled luxury interior
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wedding Packages -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Wedding Packages"
+          subtitle="Flexible options to suit your needs"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Essential</div>
+            <h3 class="text-xl font-bold mb-2">Ceremony & Reception</h3>
+            <p class="text-gray-600">Transportation for the bride and groom between ceremony and reception venues.</p>
+            <p class="text-sm text-gray-500 mt-4">Up to 4 hours</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md text-center border-2 border-[#D4AF37]">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Premium</div>
+            <h3 class="text-xl font-bold mb-2">Full Day Service</h3>
+            <p class="text-gray-600">Complete transportation coverage from preparation to departure, including photo locations.</p>
+            <p class="text-sm text-gray-500 mt-4">Up to 10 hours</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Deluxe</div>
+            <h3 class="text-xl font-bold mb-2">Wedding Party Package</h3>
+            <p class="text-gray-600">Multiple vehicles for the entire wedding party, including family and VIP guests.</p>
+            <p class="text-sm text-gray-500 mt-4">Customizable</p>
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-white rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">What's Included</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Professional chauffeur in formal attire
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Vehicle decoration (ribbons, flowers)
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Red carpet service
+              </li>
+            </ul>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Complimentary champagne for newlyweds
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Flexible scheduling
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Multiple stops for photo sessions
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Make Your Wedding Day Perfect</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Contact us today to discuss your wedding transportation needs and receive a personalized quote.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn btn-gold text-black">Request a Quote</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Call +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

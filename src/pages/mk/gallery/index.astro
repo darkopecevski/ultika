@@ -2,8 +2,8 @@
 import MainLayout from '../../../layouts/MainLayout.astro';
 import SectionTitle from '../../../components/SectionTitle.astro';
 
-// Gallery categories in Macedonian
-const categories = [
+// Gallery categories in Macedonian - will be filtered to show only categories with images
+const allCategories = [
   { id: 'all', name: 'Сите Фотографии' },
   { id: 'vehicles', name: 'Нашата Флота' },
   { id: 'services', name: 'Услуги' },
@@ -11,105 +11,141 @@ const categories = [
   { id: 'locations', name: 'Локации' }
 ];
 
-// Gallery items in Macedonian - these would be replaced with actual images later
+// Gallery items in Macedonian
 const galleryItems = [
   {
     id: 1,
     title: 'Mercedes-Benz E-Class',
     description: 'Луксузен седан за бизнис превоз',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-1.jpg',
-    fullImage: '/images/placeholders/gallery-full-1.jpg',
+    thumbnail: '/images/cars/eclassfront1s.jpg',
+    fullImage: '/images/cars/eclassfront1.jpg',
   },
   {
     id: 2,
     title: 'Mercedes-Benz V-Class',
     description: 'Просторен комби за групен превоз',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-2.jpg',
-    fullImage: '/images/placeholders/gallery-full-2.jpg',
+    thumbnail: '/images/cars/vclassside2.jpg',
+    fullImage: '/images/cars/vclassside2.jpg',
   },
   {
     id: 3,
-    title: 'Аеродромски Трансфер',
-    description: 'Професионална услуга за аеродромски превоз',
-    category: 'services',
-    thumbnail: '/images/placeholders/gallery-thumb-3.jpg',
-    fullImage: '/images/placeholders/gallery-full-3.jpg',
+    title: 'Mercedes-Benz V-Class',
+    description: 'Преден поглед на нашиот премиум V-Class',
+    category: 'vehicles',
+    thumbnail: '/images/cars/vclassfront3.jpg',
+    fullImage: '/images/cars/vclassfront3.jpg',
   },
   {
     id: 4,
-    title: 'Тура низ Скопје',
-    description: 'Истражување на прекрасниот град Скопје',
-    category: 'locations',
-    thumbnail: '/images/placeholders/gallery-thumb-4.jpg',
-    fullImage: '/images/placeholders/gallery-full-4.jpg',
+    title: 'Mercedes-Benz E-Class',
+    description: 'Премиум бизнис седан',
+    category: 'vehicles',
+    thumbnail: '/images/cars/eclassfront4.jpg',
+    fullImage: '/images/cars/eclassfront4.jpg',
   },
   {
     id: 5,
-    title: 'Корпоративен Настан',
-    description: 'Превоз за корпоративни собири',
-    category: 'events',
-    thumbnail: '/images/placeholders/gallery-thumb-5.jpg',
-    fullImage: '/images/placeholders/gallery-full-5.jpg',
+    title: 'Mercedes-Benz E-Class',
+    description: 'Елегантен и софистициран дизајн',
+    category: 'vehicles',
+    thumbnail: '/images/cars/eclassfront5.jpg',
+    fullImage: '/images/cars/eclassfront5.jpg',
   },
   {
     id: 6,
-    title: 'Свадбен Превоз',
-    description: 'Елегантни возила за вашиот посебен ден',
-    category: 'events',
-    thumbnail: '/images/placeholders/gallery-thumb-6.jpg',
-    fullImage: '/images/placeholders/gallery-full-6.jpg',
+    title: 'Ентериер на V-Class',
+    description: 'Луксузен и просторен ентериер',
+    category: 'vehicles',
+    thumbnail: '/images/cars/vclassinterior6.jpg',
+    fullImage: '/images/cars/vclassinterior6.jpg',
   },
   {
     id: 7,
-    title: 'Skoda Octavia',
-    description: 'Сигурен седан за самостојно возење',
+    title: 'Ентериер на E-Class',
+    description: 'Премиум удобност и технологија',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-7.jpg',
-    fullImage: '/images/placeholders/gallery-full-7.jpg',
+    thumbnail: '/images/cars/eclassinterior7.jpg',
+    fullImage: '/images/cars/eclassinterior7.jpg',
   },
   {
     id: 8,
-    title: 'Охридско Езеро',
-    description: 'Превоз до Охридско Езеро',
-    category: 'locations',
-    thumbnail: '/images/placeholders/gallery-thumb-8.jpg',
-    fullImage: '/images/placeholders/gallery-full-8.jpg',
+    title: 'Ентериер на E-Class',
+    description: 'Софистициран дизајн на кабината',
+    category: 'vehicles',
+    thumbnail: '/images/cars/eclassinterior8.jpg',
+    fullImage: '/images/cars/eclassinterior8.jpg',
   },
   {
     id: 9,
-    title: 'Opel Astra',
-    description: 'Компактен седан за самостојно возење',
+    title: 'Skoda Octavia',
+    description: 'Сигурен седан за самостојно возење',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-9.jpg',
-    fullImage: '/images/placeholders/gallery-full-9.jpg',
+    thumbnail: '/images/cars/octavia9.jpg',
+    fullImage: '/images/cars/octavia9.jpg',
   },
   {
     id: 10,
-    title: 'Бизнис Услуга',
-    description: 'Премиум услуга со шофер за бизнис професионалци',
-    category: 'services',
-    thumbnail: '/images/placeholders/gallery-thumb-10.jpg',
-    fullImage: '/images/placeholders/gallery-full-10.jpg',
+    title: 'Skoda Octavia',
+    description: 'Удобна и ефикасна',
+    category: 'vehicles',
+    thumbnail: '/images/cars/octavia10.jpg',
+    fullImage: '/images/cars/octavia10.jpg',
   },
   {
     id: 11,
-    title: 'Ноќна Тура низ Градот',
-    description: 'Истражете го Скопје навечер',
-    category: 'services',
-    thumbnail: '/images/placeholders/gallery-thumb-11.jpg',
-    fullImage: '/images/placeholders/gallery-full-11.jpg',
+    title: 'Целосна Флота',
+    description: 'Нашиот целосен асортиман на премиум возила',
+    category: 'vehicles',
+    thumbnail: '/images/cars/allfront12.jpg',
+    fullImage: '/images/cars/allfront12.jpg',
   },
   {
     id: 12,
-    title: 'Mercedes-Benz S-Class',
-    description: 'Врвен луксуз за ВИП превоз',
+    title: 'Заден Поглед на Флотата',
+    description: 'Професионални транспортни решенија',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-12.jpg',
-    fullImage: '/images/placeholders/gallery-full-12.jpg',
+    thumbnail: '/images/cars/allback13.jpg',
+    fullImage: '/images/cars/allback13.jpg',
+  },
+  {
+    id: 13,
+    title: 'Mercedes-Benz V-Class',
+    description: 'Совршено за групни трансфери',
+    category: 'vehicles',
+    thumbnail: '/images/cars/vclass14.jpg',
+    fullImage: '/images/cars/vclass14.jpg',
+  },
+  {
+    id: 14,
+    title: 'Ентериер на V-Class',
+    description: 'Простран и удобен ентериер',
+    category: 'vehicles',
+    thumbnail: '/images/cars/vclassinterior15.jpg',
+    fullImage: '/images/cars/vclassinterior15.jpg',
+  },
+  {
+    id: 15,
+    title: 'Нашата Флота',
+    description: 'Премиум возила на ваша услуга',
+    category: 'vehicles',
+    thumbnail: '/images/cars/all16.jpg',
+    fullImage: '/images/cars/all16.jpg',
+  },
+  {
+    id: 16,
+    title: 'Skoda Octavia',
+    description: 'Модерна и практична опција за изнајмување',
+    category: 'vehicles',
+    thumbnail: '/images/cars/octavia17.jpg',
+    fullImage: '/images/cars/octavia17.jpg',
   },
 ];
+
+// Filter categories to only show those that have images
+const usedCategories = new Set(galleryItems.map(item => item.category));
+const categories = allCategories.filter(cat => cat.id === 'all' || usedCategories.has(cat.id));
 ---
 
 <MainLayout 
@@ -147,16 +183,19 @@ const galleryItems = [
         {galleryItems.map(item => (
           <div class="gallery-item" data-category={item.category}>
             <div class="relative overflow-hidden rounded-lg shadow-md group h-72">
-              <!-- Image Placeholder -->
-              <div class="placeholder-image w-full h-full flex items-center justify-center bg-gray-200">
-                <span class="text-gray-500">Placeholder: 600×400 Image</span>
-              </div>
-              
+                <!-- Gallery Thumbnail Image -->
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+
               <!-- Overlay -->
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 flex flex-col justify-end p-6 transition-opacity duration-300">
                 <h3 class="text-white text-xl font-bold">{item.title}</h3>
                 <p class="text-gray-300 mt-2">{item.description}</p>
-                <button 
+                <button
                   class="mt-4 px-4 py-2 bg-[#D4AF37] text-black rounded-full text-sm font-medium hover:bg-opacity-90 transition-colors duration-200 view-image-btn"
                   data-image={item.fullImage}
                   data-title={item.title}
@@ -195,11 +234,15 @@ const galleryItems = [
       
       <!-- Modal Content -->
       <div class="p-4">
-        <!-- Image Placeholder -->
-        <div class="placeholder-image w-full h-96 flex items-center justify-center bg-gray-200 rounded-t-lg">
-          <span class="text-gray-500">Placeholder: 1200×800 Full Image</span>
-        </div>
-        
+        <!-- Modal Full Image -->
+        <img
+          id="modal-image"
+          src=""
+          alt="Full Image"
+          class="w-full h-96 object-cover rounded-t-lg bg-gray-200"
+          style="display: none;"
+        />
+
         <!-- Image Info -->
         <div class="p-6">
           <h3 id="modal-title" class="text-2xl font-bold mb-2"></h3>
@@ -284,11 +327,18 @@ const galleryItems = [
         const image = button.getAttribute('data-image');
         const title = button.getAttribute('data-title');
         const description = button.getAttribute('data-description');
-        
+
         modalTitle.textContent = title;
         modalDescription.textContent = description;
-        // In a real implementation, we would set the image source here
-        
+
+        // Set modal image src, alt, and show it
+        const modalImage = document.getElementById('modal-image');
+        if (modalImage) {
+          modalImage.src = image;
+          modalImage.alt = title;
+          modalImage.style.display = '';
+        }
+
         imageModal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
       });

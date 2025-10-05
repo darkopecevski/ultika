@@ -35,4 +35,7 @@ export default defineConfig({
       noExternal: ['@fontsource/*'],
     },
   },
+  devToolbar: {
+    enabled: true
+  }
 });

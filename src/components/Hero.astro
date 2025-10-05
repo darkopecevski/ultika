@@ -19,13 +19,15 @@ const {
 ---
 
 <section class="relative h-screen max-h-[800px] min-h-[500px] bg-black text-white overflow-hidden">
-  <!-- Background image placeholder -->
+  <!-- Background image -->
   <div class="absolute inset-0 z-0">
-    <div class="placeholder-image w-full h-full flex items-center justify-center bg-gradient-to-r from-black to-gray-800">
-      <span class="text-lg text-gray-400">Placeholder: 1920×800 Hero Image</span>
-    </div>
+    <img
+      src={imageUrl}
+      alt="Ultika Premium Fleet"
+      class="w-full h-full object-cover"
+    />
   </div>
-  
+
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
   

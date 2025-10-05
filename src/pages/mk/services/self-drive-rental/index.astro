@@ -1,0 +1,365 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Изнајмување за Самостојно Возење',
+  description: 'Истражувајте ја Македонија по свој темпо со нашата флота од добро одржувани возила.',
+  heroImage: '/images/cars/octavia17.jpg',
+  features: [
+    {
+      title: 'Флексибилни Периоди на Изнајмување',
+      description: 'Дневно, неделно или месечно изнајмување достапно за да одговара на вашите планови.'
+    },
+    {
+      title: 'Комплетно Осигурување',
+      description: 'Сеопфатна заштита на осигурувањето вклучена за ваш мир.'
+    },
+    {
+      title: 'Новите Модели',
+      description: 'Модерни, добро одржувани возила со редовна услуга и контроли на безбедноста.'
+    },
+    {
+      title: 'Бесплатни Километри',
+      description: 'Неограничена километража на сите изнајмувања за слободно истражување.'
+    },
+    {
+      title: 'Поддршка 24/7',
+      description: 'Помош на патот достапна во секое време за време на вашето изнајмување.'
+    },
+    {
+      title: 'Лесно Подигање и Враќање',
+      description: 'Згодни локации вклучувајќи услуга подигање и враќање на аеродром.'
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Изнајмување за Самостојно Возење | Ултика Изнајмување Возила"
+  description="Изнајмете модерно возило и истражувајте ја Северна Македонија по свој темпо. Флексибилни периоди на изнајмување, комплетно осигурување и поддршка 24/7."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Истражувајте ја Македонија по Ваш Начин"
+          subtitle="Слобода и флексибилност со нашите добро одржувани возила за изнајмување"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            Понекогаш најдобриот начин да се доживее Македонија е на отворен пат, патувајќи по свој распоред.
+            Нашата услуга за изнајмување за самостојно возење ви дава слобода да истражувате, да се запрете каде што сакате,
+            и да ја откривате убавината на земјата по ваше темпо. Од динамичниот Скопје до спокојниот Охрид и сè помеѓу нив,
+            вашето патување започнува со доверливо возило од нашата флота.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Ние нудиме модерни, добро одржувани возила погодни за секаков тип на патување – бизнис патувања, семејни одмори,
+            или соло авантури. Со транспарентни цени, флексибилни периоди на изнајмување, и сеопфатно осигурување вклучено,
+            можете да возите со доверба и да уживате во патувањето.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Карактеристики на Изнајмувањето"
+        subtitle="Сè што ви треба за слободно патување"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle Fleet -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Нашата Флота за Изнајмување"
+        subtitle="Модерни, доверливи возила за секоја потреба"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/octavia9.jpg" alt="Škoda Octavia Седан" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Škoda Octavia Седан</h3>
+            <p class="text-gray-600 mb-4">Удобен и економичен седан совршен за бизнис и градско возење.</p>
+
+            <div class="mb-4">
+              <h4 class="font-bold text-sm text-gray-800 mb-2">Спецификации:</h4>
+              <ul class="space-y-1 text-sm text-gray-700">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  До 5 патници
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Автоматска трансмисија
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Климатска контрола
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Простран багажник
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-sm text-gray-800 mb-2">Вклучено:</h4>
+              <ul class="space-y-1 text-sm text-gray-700">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Неограничена километража
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Комплетно осигурување
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Поддршка 24/7
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/octavia17.jpg" alt="Škoda Octavia Караван" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Škoda Octavia Караван</h3>
+            <p class="text-gray-600 mb-4">Простран караван идеален за семејни патувања и авантури со повеќе багаж.</p>
+
+            <div class="mb-4">
+              <h4 class="font-bold text-sm text-gray-800 mb-2">Спецификации:</h4>
+              <ul class="space-y-1 text-sm text-gray-700">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  До 5 патници
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Автоматска трансмисија
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Климатска контрола
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Огромен простор за багаж
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-sm text-gray-800 mb-2">Вклучено:</h4>
+              <ul class="space-y-1 text-sm text-gray-700">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Неограничена километража
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Комплетно осигурување
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  Поддршка 24/7
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rental Terms -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Услови за Изнајмување"
+          subtitle="Едноставни, транспарентни правила"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4">Барања</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <div>
+                  <strong>Минимална возраст:</strong> 21 година (25+ за премиум возила)
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <div>
+                  <strong>Возачка дозвола:</strong> Важечка возачка дозвола во посед најмалку 1 година
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <div>
+                  <strong>Идентификација:</strong> Важечка лична карта или пасош
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <div>
+                  <strong>Кредитна картичка:</strong> Потребна за безбедносен депозит
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4">Што е Вклучено</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Сеопфатно осигурување
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Неограничена километража
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Помош на патот 24/7
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Бесплатни дополнителни возачи
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                GPS навигација (на барање)
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Детски седишта (на барање)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-white rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Безбедносен Депозит</h3>
+          <p class="text-gray-700">
+            Безбедносен депозит се бара при подигање на возилото и ќе биде блокиран на вашата кредитна картичка.
+            Депозитот целосно се враќа при враќање на возилото во добра состојба. Износот варира во зависност од типот на возилото.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Подготвени да Започнете со Вашата Авантура?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Резервирајте го вашето возило денес и започнете да ја истражувате убавината на Македонија.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/contact" class="btn btn-gold text-black">Побарајте Понуда</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Јавете се +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

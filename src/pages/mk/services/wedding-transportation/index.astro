@@ -1,0 +1,276 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Свадбен Превоз',
+  description: 'Направете го вашиот посебен ден уште попаметлив со нашата луксузна услуга за свадбен превоз.',
+  heroImage: '/images/cars/vclass14.jpg',
+  features: [
+    {
+      title: 'Услуга со Црвен Тепих',
+      description: 'Го распоставуваме црвениот тепих за невестата и младоженецот, додавајќи дополнителен допир на елеганција.'
+    },
+    {
+      title: 'Украсени Возила',
+      description: 'Нашите возила се убаво украсени со ленти, цвеќиња и прилагодени декорации.'
+    },
+    {
+      title: 'Професионални Шофери',
+      description: 'Искусни возачи во формална облека кои ја разбираат важноста на вашиот посебен ден.'
+    },
+    {
+      title: 'Повеќе Возила',
+      description: 'Превезете го целото свадбено друштво со нашата флота од луксузни возила.'
+    },
+    {
+      title: 'Флексибилно Распоредување',
+      description: 'Целодневна достапност со флексибилни времиња за подигање и оставање по ваш распоред.'
+    },
+    {
+      title: 'Бесплатно Шампањ',
+      description: 'Празнувајте со бесплатна услуга на шампањ за младенците.'
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Свадбен Превоз | Ултика Луксузни Свадбени Автомобили"
+  description="Премиум услуга за свадбен превоз во Северна Македонија. Луксузни Mercedes возила, услуга со црвен тепих и професионални шофери за вашиот посебен ден."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Пристигнете со Стил на Вашиот Посебен Ден"
+          subtitle="Луксузен свадбен превоз кој се совпаѓа со елеганцијата на вашата прослава"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            Вашиот свадбен ден е еден од најважните денови во вашиот живот и секој детал треба да биде совршен.
+            Во Ултика, обезбедуваме премиум услуги за свадбен превоз кои додаваат елеганција, стил и удобност
+            на вашата прослава. От пристигнувањето на невестата на церемонијата до заминувањето на младенците за нивниот
+            меден месец, обезбедуваме секој момент да биде посебен.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Нашата флота од беспрекорни Mercedes-Benz возила, професионални шофери во формална облека и
+            персонализирана услуга создаваат незаборавни спомени. Ја разбираме важноста на времето на вашиот
+            свадбен ден и нашиот искусен тим обезбедува сè да тече мазно и по распоред.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Карактеристики на Свадбениот Превоз"
+        subtitle="Премиум услуги за да го направите вашиот ден незаборавен"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle Fleet -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Нашата Свадбена Флота"
+        subtitle="Луксузни возила совршени за вашиот посебен ден"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/eclassfront1.jpg" alt="Mercedes-Benz E-Class Свадбен Автомобил" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Mercedes-Benz E-Class</h3>
+            <p class="text-gray-600 mb-4">Елегантен седан совршен за невестата и младоженецот.</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Просторен и луксузен ентериер
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Убаво украсено со ленти и цвеќиња
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Услуга со црвен тепих вклучена
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/vclassfront3.jpg" alt="Mercedes-Benz V-Class Свадбен Превоз" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Mercedes-Benz V-Class</h3>
+            <p class="text-gray-600 mb-4">Просторен луксузен ван за свадбеното друштво и семејството.</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                До 7 патници удобно
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Совршено за кумови и девојките
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Климатски контролиран луксузен ентериер
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wedding Packages -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Свадбени Пакети"
+          subtitle="Флексибилни опции кои одговараат на вашите потреби"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Основен</div>
+            <h3 class="text-xl font-bold mb-2">Церемонија и Прослава</h3>
+            <p class="text-gray-600">Превоз за невестата и младоженецот помеѓу местата за церемонијата и прославата.</p>
+            <p class="text-sm text-gray-500 mt-4">До 4 часа</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md text-center border-2 border-[#D4AF37]">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Премиум</div>
+            <h3 class="text-xl font-bold mb-2">Целодневна Услуга</h3>
+            <p class="text-gray-600">Комплетна покриеност на превозот од подготовката до заминувањето, вклучувајќи локации за фотографии.</p>
+            <p class="text-sm text-gray-500 mt-4">До 10 часа</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Делукс</div>
+            <h3 class="text-xl font-bold mb-2">Пакет за Свадбено Друштво</h3>
+            <p class="text-gray-600">Повеќе возила за целото свадбено друштво, вклучувајќи семејство и VIP гости.</p>
+            <p class="text-sm text-gray-500 mt-4">Прилагодливо</p>
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-white rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Што е Вклучено</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Професионален шофер во формална облека
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Украсување на возилото (ленти, цвеќиња)
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Услуга со црвен тепих
+              </li>
+            </ul>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Бесплатно шампањ за младенците
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Флексибилно распоредување
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Повеќе запирања за фото сесии
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Направете го Вашиот Свадбен Ден Совршен</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Контактирајте не денес за да ги дискутираме вашите потреби за свадбен превоз и примете персонализирана понуда.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/contact" class="btn btn-gold text-black">Побарајте Понуда</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Јавете се +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

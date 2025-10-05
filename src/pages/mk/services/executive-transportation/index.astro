@@ -1,0 +1,240 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Извршен Превоз',
+  description: 'Премиум шофер услуга за бизнис професионалци и VIP клиенти.',
+  heroImage: '/images/cars/eclassfront1.jpg',
+  features: [
+    {
+      title: 'Професионални Шофери',
+      description: 'Искусни, дискретни возачи обучени за стандардите на извршните услуги.'
+    },
+    {
+      title: 'Луксузна Mercedes Флота',
+      description: 'Беспрекорни E-Class и V-Class возила со премиум погодности.'
+    },
+    {
+      title: 'Wi-Fi и Освежителни Пијалаци',
+      description: 'Останете поврзани и освежени со бесплатен Wi-Fi и пијалаци.'
+    },
+    {
+      title: 'Приватност и Дискреција',
+      description: 'Комплетна доверливост и професионална услуга во секое време.'
+    },
+    {
+      title: 'Флексибилно Распоредување',
+      description: 'Достапни почасовни, полудневни или целодневни тарифи за вашите потреби.'
+    },
+    {
+      title: 'Корпоративни Сметки',
+      description: 'Прилагодено фактурирање и извештаи за корпоративни клиенти.'
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Извршен Превоз | Ултика Премиум Шофер Услуга"
+  description="Премиум услуга за извршен превоз во Северна Македонија. Професионални шофери, луксузни Mercedes возила и VIP третман за бизнис професионалци."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Патувајте Како Извршен Директор"
+          subtitle="Премиум шофер услуга дизајнирана за бизнис професионалци"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            Во светот на бизнисот, секој детал е важен. Нашата услуга за извршен превоз е дизајнирана за
+            професионалци кои бараат извонредност, точност и дискреција. Без разлика дали одите на важна
+            средба, забавувате клиенти или ви треба доверлив превоз за време на вашата бизнис патувања, нашата премиум
+            услуга обезбедува да пристигнете во стил и навреме.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Нашата флота од луксузни Mercedes-Benz возила обезбедува совршена мобилна канцелариска средина. Останете
+            продуктивни со бесплатен Wi-Fi, или едноставно релаксирајте во удобноста на нашите премиум кожни ентериери.
+            Нашите професионално обучени шофери ја разбираат важноста на доверливоста и ќе ја обезбедат вашата приватност
+            за време на целото патување.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Карактеристики на Извршната Услуга"
+        subtitle="Сè што ви треба за професионален превоз"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle Fleet -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Нашата Извршна Флота"
+        subtitle="Премиум Mercedes-Benz возила за секоја прилика"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/eclassfront5.jpg" alt="Mercedes-Benz E-Class" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Mercedes-Benz E-Class</h3>
+            <p class="text-gray-600 mb-4">Премиум седан идеален за индивидуални извршни директори и мали групи.</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                До 3 патници
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Премиум кожен ентериер
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Wi-Fi и климатска контрола
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/vclassfront3.jpg" alt="Mercedes-Benz V-Class" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Mercedes-Benz V-Class</h3>
+            <p class="text-gray-600 mb-4">Просторен луксузен ван совршен за извршни групи и тимски превоз.</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                До 7 патници
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Просторна кабина со конференциски седишта
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Дополнителен простор за багаж
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Options -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Флексибилни Опции за Резервација"
+          subtitle="Изберете ја услугата која одговара на вашиот распоред"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Почасовно</div>
+            <h3 class="text-xl font-bold mb-2">По Час</h3>
+            <p class="text-gray-600">Совршено за средби, настани или кратки патувања низ градот.</p>
+            <p class="text-sm text-gray-500 mt-4">Минимум 3 часа</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md text-center border-2 border-[#D4AF37]">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Полудневно</div>
+            <h3 class="text-xl font-bold mb-2">Полудневна Услуга</h3>
+            <p class="text-gray-600">Идеално за бизнис средби, посети на локации или повеќе закажани термини.</p>
+            <p class="text-sm text-gray-500 mt-4">До 5 часа</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Целодневно</div>
+            <h3 class="text-xl font-bold mb-2">Целодневен Чартер</h3>
+            <p class="text-gray-600">Комплетен ден на ваше располагање за конференции, настани или бизнис патувања.</p>
+            <p class="text-sm text-gray-500 mt-4">До 10 часа</p>
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-white rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Корпоративни Сметки</h3>
+          <p class="text-gray-700 mb-4">
+            Нудиме прилагодени корпоративни сметки со месечно фактурирање, детални извештаи и посветен менаџмент на сметката.
+            Совршено за компании кои имаат редовни потреби за извршен превоз.
+          </p>
+          <a href="/mk/contact" class="text-[#D4AF37] font-semibold hover:underline">Контактирајте не за поставување на корпоративна сметка →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Доживејте Премиум Извршен Превоз</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Резервирајте ја вашата шофер услуга денес и патувајте како вистински извршен директор.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/contact" class="btn btn-gold text-black">Побарајте Понуда</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Јавете се +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

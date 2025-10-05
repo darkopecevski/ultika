@@ -10,21 +10,24 @@ const chauffeurVehicles = [
     type: 'chauffeur',
     description: 'Premium sedan offering exceptional comfort and style for business trips and special occasions.',
     features: ['Leather Interior', 'Climate Control', 'WiFi Available', 'Bottled Water', 'Professional Driver', 'Corporate Booking'],
-    capacity: '3 Passengers + Luggage'
+    capacity: '3 Passengers + Luggage',
+    imageUrl: '/images/cars/eclassfront1.jpg'
   },
   {
     name: 'Mercedes-Benz V-Class',
     type: 'chauffeur',
     description: 'Spacious luxury van perfect for group transfers, airport shuttles, and corporate events.',
     features: ['Leather Interior', 'Climate Control', 'WiFi Available', 'Extra Luggage Space', 'Professional Driver', 'Group Transport'],
-    capacity: '7 Passengers + Luggage'
+    capacity: '7 Passengers + Luggage',
+    imageUrl: '/images/cars/vclass14.jpg'
   },
   {
-    name: 'Mercedes-Benz S-Class',
+    name: 'Mercedes-Benz E-Class Premium',
     type: 'chauffeur',
-    description: 'The pinnacle of luxury and comfort, perfect for VIP transfers and executive transport.',
+    description: 'Enhanced executive sedan with premium features for VIP transfers and business travel.',
     features: ['Premium Leather', 'Advanced Climate Control', 'WiFi Available', 'Refreshments', 'Professional Driver', 'VIP Service'],
-    capacity: '3 Passengers + Luggage'
+    capacity: '3 Passengers + Luggage',
+    imageUrl: '/images/cars/eclassfront4.jpg'
   }
 ];
 
@@ -34,14 +37,16 @@ const selfDriveVehicles = [
     type: 'self-drive',
     description: 'Reliable and comfortable sedan for self-drive rental with excellent fuel efficiency.',
     features: ['Air Conditioning', 'Bluetooth Audio', 'GPS Navigation', 'Fuel Efficient', 'Automatic', 'Cruise Control'],
-    capacity: '4 Passengers + Luggage'
+    capacity: '4 Passengers + Luggage',
+    imageUrl: '/images/cars/octavia10.jpg'
   },
   {
-    name: 'Opel Astra Sedan',
+    name: 'Skoda Octavia Wagon',
     type: 'self-drive',
-    description: 'Compact sedan offering good comfort and economy for business or leisure travel.',
-    features: ['Air Conditioning', 'Bluetooth Audio', 'GPS Navigation', 'Fuel Efficient', 'Manual/Automatic', 'Cruise Control'],
-    capacity: '4 Passengers + Luggage'
+    description: 'Spacious wagon offering excellent versatility and comfort for family or business travel.',
+    features: ['Air Conditioning', 'Bluetooth Audio', 'GPS Navigation', 'Fuel Efficient', 'Extra Cargo Space', 'Cruise Control'],
+    capacity: '4 Passengers + Extra Luggage',
+    imageUrl: '/images/cars/octavia9.jpg'
   }
 ];
 ---
@@ -77,6 +82,7 @@ const selfDriveVehicles = [
             description={vehicle.description}
             features={vehicle.features}
             capacity={vehicle.capacity}
+            imageUrl={vehicle.imageUrl}
           />
         ))}
       </div>
@@ -143,6 +149,7 @@ const selfDriveVehicles = [
             description={vehicle.description}
             features={vehicle.features}
             capacity={vehicle.capacity}
+            imageUrl={vehicle.imageUrl}
           />
         ))}
       </div>

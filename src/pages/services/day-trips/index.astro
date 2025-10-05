@@ -1,0 +1,308 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Day Trips & Tours',
+  description: 'Discover the beauty of North Macedonia with our guided day trips and private tours.',
+  heroImage: '/images/cars/vclassside2.jpg',
+  features: [
+    {
+      title: 'Private Tours',
+      description: 'Customized itineraries tailored to your interests and schedule.'
+    },
+    {
+      title: 'Expert Local Guides',
+      description: 'Knowledgeable guides who share insights into culture, history, and hidden gems.'
+    },
+    {
+      title: 'Comfortable Transport',
+      description: 'Travel in luxury Mercedes vehicles with climate control and Wi-Fi.'
+    },
+    {
+      title: 'Flexible Schedules',
+      description: 'Start times and duration adjusted to fit your preferences.'
+    },
+    {
+      title: 'All-Inclusive Packages',
+      description: 'Transportation, guide, and entrance fees included in one price.'
+    },
+    {
+      title: 'Small Groups',
+      description: 'Intimate experiences with personalized attention for you and your party.'
+    }
+  ],
+  popularDestinations: [
+    {
+      name: 'Ohrid & Lake Ohrid',
+      duration: 'Full Day (8-10 hours)',
+      description: 'Visit the UNESCO World Heritage site of Ohrid, explore ancient churches, enjoy lakeside views, and discover the Old Town.',
+      highlights: ['Ohrid Old Town', 'St. John at Kaneo', 'Ancient Theatre', 'Lake Ohrid cruise (optional)']
+    },
+    {
+      name: 'Matka Canyon',
+      duration: 'Half Day (4-5 hours)',
+      description: 'Explore the stunning Matka Canyon with its medieval monasteries, caves, and crystal-clear waters.',
+      highlights: ['Boat ride to Vrelo Cave', 'St. Andrew Monastery', 'Canyon hiking trails', 'Kayaking (optional)']
+    },
+    {
+      name: 'Wine Tour - Tikveš Region',
+      duration: 'Full Day (8-9 hours)',
+      description: 'Discover Macedonia\'s premier wine region with visits to traditional wineries and wine tasting.',
+      highlights: ['3-4 winery visits', 'Wine tasting sessions', 'Traditional lunch', 'Vineyards tour']
+    },
+    {
+      name: 'Mavrovo National Park',
+      duration: 'Full Day (9-10 hours)',
+      description: 'Experience pristine nature, mountain villages, and the beautiful Mavrovo Lake.',
+      highlights: ['Mavrovo Lake', 'Bigorski Monastery', 'Mountain villages', 'Local cuisine']
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Day Trips & Tours | Ultika Guided Tours North Macedonia"
+  description="Private guided day trips and tours in North Macedonia. Visit Ohrid, Matka Canyon, wine regions, and national parks with professional guides and luxury transport."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Explore North Macedonia in Comfort"
+          subtitle="Private guided tours with luxury transportation"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            North Macedonia is a land of ancient history, stunning natural beauty, and rich cultural heritage. Our private
+            day trips and tours offer the perfect way to discover the country's highlights without the hassle of planning
+            or navigating. From the UNESCO-listed shores of Lake Ohrid to the dramatic landscapes of Matka Canyon, from
+            world-class wineries to pristine national parks – we'll take you there in style and comfort.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Each tour is led by experienced local guides who bring Macedonia's stories to life. Travel in our luxury
+            Mercedes vehicles, enjoy personalized attention, and create unforgettable memories. Whether you're interested
+            in history, nature, wine, or culture, we'll customize the perfect day trip for you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Why Choose Our Day Trips"
+        subtitle="Premium tour experiences with attention to detail"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Popular Day Trips"
+        subtitle="Carefully curated tours to Macedonia's finest destinations"
+      />
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 max-w-6xl mx-auto">
+        {service.popularDestinations.map(destination => (
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-2xl font-bold">{destination.name}</h3>
+                <span class="text-sm text-gray-500 whitespace-nowrap ml-4">{destination.duration}</span>
+              </div>
+              <p class="text-gray-700 mb-4">{destination.description}</p>
+
+              <h4 class="font-bold text-sm text-gray-800 mb-2">Highlights:</h4>
+              <ul class="space-y-2">
+                {destination.highlights.map(highlight => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 mr-2 text-[#D4AF37] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm text-gray-700">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 p-6 bg-gray-50 rounded-lg max-w-4xl mx-auto">
+        <h3 class="text-xl font-bold mb-4">Custom Tours Available</h3>
+        <p class="text-gray-700 mb-4">
+          Don't see exactly what you're looking for? We specialize in creating custom itineraries based on your interests.
+          Whether you want to explore archaeological sites, visit local artisans, hike in the mountains, or discover
+          off-the-beaten-path villages, we'll design the perfect tour for you.
+        </p>
+        <a href="/contact" class="text-[#D4AF37] font-semibold hover:underline">Contact us to plan your custom tour →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="What's Included"
+          subtitle="Everything you need for a perfect day trip"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Included in All Tours
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Private luxury vehicle transportation
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Professional English-speaking guide
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Hotel pickup and drop-off
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Bottled water and refreshments
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                All fuel and parking fees
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Wi-Fi in vehicle
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Not Included
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Entrance fees (unless specified)</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Meals and drinks (except wine tours)</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Optional activities (boat rides, etc.)</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Personal expenses and souvenirs</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-3 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">Gratuities (optional)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-blue-50 border-l-4 border-[#D4AF37] rounded">
+          <p class="text-sm text-gray-700">
+            <strong>Note:</strong> All tours can be customized to include or exclude specific services.
+            Contact us for a detailed quote based on your preferences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Explore North Macedonia?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Book your private day trip today and discover the beauty, history, and culture of Macedonia with expert guides.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn btn-gold text-black">Request a Tour Quote</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Call +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

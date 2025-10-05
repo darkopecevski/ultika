@@ -46,21 +46,24 @@ const featuredVehicles = [
     type: 'chauffeur',
     description: 'Премиум седан кој нуди исклучителна удобност и стил за деловни патувања и посебни прилики.',
     features: ['Кожен Ентериер', 'Климатизација', 'WiFi', 'Вода во Шише'],
-    capacity: '3 Патници + Багаж'
+    capacity: '3 Патници + Багаж',
+    imageUrl: '/images/cars/eclassfront5.jpg'
   },
   {
     name: 'Mercedes-Benz V-Class',
     type: 'chauffeur',
     description: 'Просторен луксузен комби совршен за групни трансфери, аеродромски шатл превоз и корпоративни настани.',
     features: ['Кожен Ентериер', 'Климатизација', 'WiFi', 'Дополнителен Простор за Багаж'],
-    capacity: '7 Патници + Багаж'
+    capacity: '7 Патници + Багаж',
+    imageUrl: '/images/cars/vclassfront3.jpg'
   },
   {
     name: 'Skoda Octavia',
     type: 'self-drive',
     description: 'Сигурен и удобен седан за изнајмување со одлична економичност на гориво.',
     features: ['Клима Уред', 'Bluetooth Аудио', 'GPS Навигација', 'Економичност'],
-    capacity: '4 Патници + Багаж'
+    capacity: '4 Патници + Багаж',
+    imageUrl: '/images/cars/octavia17.jpg'
   }
 ];
 
@@ -95,6 +98,7 @@ const testimonials = [
     subtitle="Доживејте луксуз, сигурност и исклучителна услуга со нашата флота од премиум возила и професионални возачи."
     ctaText="Истражете ги Нашите Услуги"
     ctaLink="#services"
+    imageUrl="/images/cars/allfront12.jpg"
   />
 
   <!-- Services Section -->
@@ -169,10 +173,12 @@ const testimonials = [
         </div>
         
         <div class="relative">
-          <div class="placeholder-image w-full h-96 flex items-center justify-center bg-gray-200 rounded-lg shadow-md">
-            <span class="text-gray-500">Placeholder: 800×600 About Image</span>
-          </div>
-          
+          <img
+            src="/images/cars/vclassside2.jpg"
+            alt="Ultika Mercedes-Benz V-Class"
+            class="w-full h-96 object-cover rounded-lg shadow-md"
+          />
+
           <!-- Decorative element -->
           <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
         </div>
@@ -196,6 +202,7 @@ const testimonials = [
             description={vehicle.description}
             features={vehicle.features}
             capacity={vehicle.capacity}
+            imageUrl={vehicle.imageUrl}
           />
         ))}
       </div>
@@ -240,7 +247,7 @@ const testimonials = [
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="/mk/contact" class="btn btn-gold text-black">Контактирајте нè</a>
-        <a href="/mk/fleet" class="btn btn-secondary text-white border-white hover:bg-white hover:text-black">Истражете ја Нашата Флота</a>
+        <a href="/mk/fleet" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">Истражете ја Нашата Флота</a>
       </div>
     </div>
   </section>

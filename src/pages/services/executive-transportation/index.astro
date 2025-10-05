@@ -1,0 +1,239 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Executive Transportation',
+  description: 'Premium chauffeur service for business professionals and VIP clients.',
+  heroImage: '/images/cars/eclassfront1.jpg',
+  features: [
+    {
+      title: 'Professional Chauffeurs',
+      description: 'Experienced, discreet drivers trained in executive service standards.'
+    },
+    {
+      title: 'Luxury Mercedes Fleet',
+      description: 'Immaculate E-Class and V-Class vehicles with premium amenities.'
+    },
+    {
+      title: 'Wi-Fi & Refreshments',
+      description: 'Stay connected and refreshed with complimentary Wi-Fi and beverages.'
+    },
+    {
+      title: 'Privacy & Discretion',
+      description: 'Complete confidentiality and professional service at all times.'
+    },
+    {
+      title: 'Flexible Scheduling',
+      description: 'Hourly, half-day, or full-day rates available to suit your needs.'
+    },
+    {
+      title: 'Corporate Accounts',
+      description: 'Customized billing and reporting for corporate clients.'
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Executive Transportation | Ultika Premium Chauffeur Service"
+  description="Premium executive transportation service in North Macedonia. Professional chauffeurs, luxury Mercedes vehicles, and VIP treatment for business professionals."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Travel Like an Executive"
+          subtitle="Premium chauffeur service designed for business professionals"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            In the world of business, every detail matters. Our executive transportation service is designed for
+            professionals who demand excellence, punctuality, and discretion. Whether you're heading to an important
+            meeting, entertaining clients, or need reliable transportation during your business trip, our premium
+            service ensures you arrive in style and on time.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Our fleet of luxury Mercedes-Benz vehicles provides the perfect mobile office environment. Stay productive
+            with complimentary Wi-Fi, or simply relax in the comfort of our premium leather interiors. Our professionally
+            trained chauffeurs understand the importance of confidentiality and will ensure your privacy throughout the journey.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Executive Service Features"
+        subtitle="Everything you need for professional transportation"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle Fleet -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Our Executive Fleet"
+        subtitle="Premium Mercedes-Benz vehicles for every occasion"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/eclassfront5.jpg" alt="Mercedes-Benz E-Class" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Mercedes-Benz E-Class</h3>
+            <p class="text-gray-600 mb-4">Premium sedan ideal for individual executives and small groups.</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Up to 3 passengers
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Premium leather interior
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Wi-Fi & climate control
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/vclassfront3.jpg" alt="Mercedes-Benz V-Class" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Mercedes-Benz V-Class</h3>
+            <p class="text-gray-600 mb-4">Spacious luxury van perfect for executive groups and team transport.</p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Up to 7 passengers
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Spacious cabin with conference seating
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Extra luggage space
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Options -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Flexible Booking Options"
+          subtitle="Choose the service that fits your schedule"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Hourly</div>
+            <h3 class="text-xl font-bold mb-2">By the Hour</h3>
+            <p class="text-gray-600">Perfect for meetings, events, or short trips around the city.</p>
+            <p class="text-sm text-gray-500 mt-4">Minimum 3 hours</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md text-center border-2 border-[#D4AF37]">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Half-Day</div>
+            <h3 class="text-xl font-bold mb-2">Half-Day Service</h3>
+            <p class="text-gray-600">Ideal for business meetings, site visits, or multiple appointments.</p>
+            <p class="text-sm text-gray-500 mt-4">Up to 5 hours</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div class="text-4xl font-bold text-[#D4AF37] mb-2">Full-Day</div>
+            <h3 class="text-xl font-bold mb-2">Full-Day Charter</h3>
+            <p class="text-gray-600">Complete day at your disposal for conferences, events, or business travel.</p>
+            <p class="text-sm text-gray-500 mt-4">Up to 10 hours</p>
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-white rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Corporate Accounts</h3>
+          <p class="text-gray-700 mb-4">
+            We offer customized corporate accounts with monthly billing, detailed reporting, and dedicated account management.
+            Perfect for companies that need regular executive transportation services.
+          </p>
+          <a href="/contact" class="text-[#D4AF37] font-semibold hover:underline">Contact us to set up a corporate account →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience Premium Executive Transportation</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Book your chauffeur service today and travel like a true executive.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn btn-gold text-black">Request a Quote</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Call +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

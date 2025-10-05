@@ -1,0 +1,309 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Self-Drive Car Rental',
+  description: 'Explore North Macedonia at your own pace with our modern and well-maintained rental vehicles.',
+  heroImage: '/images/cars/octavia17.jpg'
+};
+---
+
+<MainLayout
+  title="Self-Drive Car Rental | Ultika Rent a Car"
+  description="Rent a car in North Macedonia with Ultika. Well-maintained Skoda vehicles, comprehensive insurance, GPS navigation, and 24/7 roadside assistance included."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Freedom to Explore"
+          subtitle="Quality vehicles for your North Macedonia adventure"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            Discover North Macedonia on your own terms with our self-drive car rental service. Whether you're here for
+            business or leisure, our fleet of well-maintained vehicles gives you the freedom to explore the beautiful
+            landscapes, historic cities, and hidden gems of this remarkable country at your own pace.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            All our rental vehicles are regularly serviced, thoroughly cleaned, and come with comprehensive insurance
+            for your peace of mind. With flexible rental periods and competitive rates, exploring North Macedonia has
+            never been easier or more affordable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Available Vehicles -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Our Rental Fleet"
+        subtitle="Modern and reliable vehicles for every need"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/octavia10.jpg" alt="Skoda Octavia" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Skoda Octavia Sedan</h3>
+            <p class="text-gray-600 mb-4">Comfortable sedan perfect for business trips or family vacations.</p>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="flex items-center text-sm text-gray-700">
+                <svg class="w-5 h-5 mr-2 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                4-5 Passengers
+              </div>
+              <div class="flex items-center text-sm text-gray-700">
+                <svg class="w-5 h-5 mr-2 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                </svg>
+                Large Trunk
+              </div>
+              <div class="flex items-center text-sm text-gray-700">
+                <svg class="w-5 h-5 mr-2 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Automatic/Manual
+              </div>
+              <div class="flex items-center text-sm text-gray-700">
+                <svg class="w-5 h-5 mr-2 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                </svg>
+                Fuel Efficient
+              </div>
+            </div>
+            <div class="border-t pt-4">
+              <p class="text-sm text-gray-600 mb-2"><strong>Included:</strong></p>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>✓ Air conditioning & Bluetooth</li>
+                <li>✓ GPS Navigation available</li>
+                <li>✓ Comprehensive insurance</li>
+                <li>✓ 24/7 roadside assistance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="/images/cars/octavia9.jpg" alt="Skoda Octavia Wagon" class="w-full h-64 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Skoda Octavia Wagon</h3>
+            <p class="text-gray-600 mb-4">Extra space for luggage and equipment, ideal for longer trips.</p>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="flex items-center text-sm text-gray-700">
+                <svg class="w-5 h-5 mr-2 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                4-5 Passengers
+              </div>
+              <div class="flex items-center text-sm text-gray-700">
+                <svg class="w-5 h-5 mr-2 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                </svg>
+                Extra Large Cargo
+              </div>
+              <div class="flex items-center text-sm text-gray-700">
+                <svg class="w-5 h-5 mr-2 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Automatic/Manual
+              </div>
+              <div class="flex items-center text-sm text-gray-700">
+                <svg class="w-5 h-5 mr-2 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                </svg>
+                Fuel Efficient
+              </div>
+            </div>
+            <div class="border-t pt-4">
+              <p class="text-sm text-gray-600 mb-2"><strong>Included:</strong></p>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>✓ Air conditioning & Bluetooth</li>
+                <li>✓ GPS Navigation available</li>
+                <li>✓ Comprehensive insurance</li>
+                <li>✓ 24/7 roadside assistance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rental Features -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="What's Included"
+        subtitle="Comprehensive rental package for worry-free driving"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Full Insurance</h3>
+          <p class="text-gray-600 text-sm">Comprehensive coverage included in all rentals</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">GPS Navigation</h3>
+          <p class="text-gray-600 text-sm">Available upon request at no extra charge</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">24/7 Support</h3>
+          <p class="text-gray-600 text-sm">Round-the-clock roadside assistance</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Fair Pricing</h3>
+          <p class="text-gray-600 text-sm">Competitive rates with no hidden fees</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rental Terms -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Rental Terms & Requirements"
+          subtitle="Simple and transparent rental process"
+        />
+
+        <div class="bg-white p-8 rounded-lg shadow-md mt-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4">Requirements</h3>
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 mt-0.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  Minimum age: 21 years
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 mt-0.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  Valid driver's license (held for 2+ years)
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 mt-0.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  Valid passport or ID
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 mt-0.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  Credit card for security deposit
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold mb-4">Flexible Options</h3>
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 mt-0.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  Daily, weekly, and monthly rates
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 mt-0.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  Airport pickup/drop-off available
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 mt-0.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  One-way rentals possible
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 mt-0.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  Additional driver option
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+            <p class="text-sm text-gray-600">
+              <strong>Security Deposit:</strong> A refundable security deposit is required at pickup. The amount varies
+              by vehicle model and is fully refunded upon return of the vehicle in the same condition.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Hit the Road?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Reserve your rental car today and start exploring North Macedonia.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn btn-gold text-black">Reserve a Vehicle</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Call +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

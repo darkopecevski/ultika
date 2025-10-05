@@ -10,21 +10,24 @@ const chauffeurVehicles = [
     type: 'chauffeur',
     description: 'Премиум седан кој нуди исклучителна удобност и стил за деловни патувања и посебни прилики.',
     features: ['Кожен Ентериер', 'Климатизација', 'WiFi', 'Вода во Шише', 'Професионален Возач', 'Корпоративни Резервации'],
-    capacity: '3 Патници + Багаж'
+    capacity: '3 Патници + Багаж',
+    imageUrl: '/images/cars/eclassfront1.jpg'
   },
   {
     name: 'Mercedes-Benz V-Class',
     type: 'chauffeur',
     description: 'Просторен луксузен комби совршен за групни трансфери, аеродромски шатл превоз и корпоративни настани.',
     features: ['Кожен Ентериер', 'Климатизација', 'WiFi', 'Дополнителен Простор за Багаж', 'Професионален Возач', 'Групен Транспорт'],
-    capacity: '7 Патници + Багаж'
+    capacity: '7 Патници + Багаж',
+    imageUrl: '/images/cars/vclass14.jpg'
   },
   {
-    name: 'Mercedes-Benz S-Class',
+    name: 'Mercedes-Benz E-Class Premium',
     type: 'chauffeur',
-    description: 'Врвот на луксузот и удобноста, совршен за ВИП трансфери и извршен превоз.',
+    description: 'Подобрен бизнис седан со премиум карактеристики за ВИП трансфери и деловни патувања.',
     features: ['Премиум Кожа', 'Напредна Климатизација', 'WiFi', 'Освежувања', 'Професионален Возач', 'ВИП Услуга'],
-    capacity: '3 Патници + Багаж'
+    capacity: '3 Патници + Багаж',
+    imageUrl: '/images/cars/eclassfront4.jpg'
   }
 ];
 
@@ -34,14 +37,16 @@ const selfDriveVehicles = [
     type: 'self-drive',
     description: 'Сигурен и удобен седан за изнајмување со одлична економичност на гориво.',
     features: ['Клима Уред', 'Bluetooth Аудио', 'GPS Навигација', 'Економичност', 'Автоматик', 'Cruise Control'],
-    capacity: '4 Патници + Багаж'
+    capacity: '4 Патници + Багаж',
+    imageUrl: '/images/cars/octavia10.jpg'
   },
   {
-    name: 'Opel Astra Sedan',
+    name: 'Skoda Octavia Комби',
     type: 'self-drive',
-    description: 'Компактен седан кој нуди добра удобност и економичност за деловни или туристички патувања.',
-    features: ['Клима Уред', 'Bluetooth Аудио', 'GPS Навигација', 'Економичност', 'Рачен/Автоматик', 'Cruise Control'],
-    capacity: '4 Патници + Багаж'
+    description: 'Просторен комби кој нуди одлична разновидност и удобност за семејно или деловно патување.',
+    features: ['Клима Уред', 'Bluetooth Аудио', 'GPS Навигација', 'Економичност', 'Дополнителен Простор за Багаж', 'Cruise Control'],
+    capacity: '4 Патници + Дополнителен Багаж',
+    imageUrl: '/images/cars/octavia9.jpg'
   }
 ];
 ---
@@ -78,6 +83,7 @@ const selfDriveVehicles = [
             description={vehicle.description}
             features={vehicle.features}
             capacity={vehicle.capacity}
+            imageUrl={vehicle.imageUrl}
           />
         ))}
       </div>
@@ -144,6 +150,7 @@ const selfDriveVehicles = [
             description={vehicle.description}
             features={vehicle.features}
             capacity={vehicle.capacity}
+            imageUrl={vehicle.imageUrl}
           />
         ))}
       </div>

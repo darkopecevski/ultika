@@ -46,21 +46,24 @@ const featuredVehicles = [
     type: 'chauffeur',
     description: 'Premium sedan offering exceptional comfort and style for business trips and special occasions.',
     features: ['Leather Interior', 'Climate Control', 'WiFi Available', 'Bottled Water'],
-    capacity: '3 Passengers + Luggage'
+    capacity: '3 Passengers + Luggage',
+    imageUrl: '/images/cars/eclassfront5.jpg'
   },
   {
     name: 'Mercedes-Benz V-Class',
     type: 'chauffeur',
     description: 'Spacious luxury van perfect for group transfers, airport shuttles, and corporate events.',
     features: ['Leather Interior', 'Climate Control', 'WiFi Available', 'Extra Luggage Space'],
-    capacity: '7 Passengers + Luggage'
+    capacity: '7 Passengers + Luggage',
+    imageUrl: '/images/cars/vclassfront3.jpg'
   },
   {
     name: 'Skoda Octavia',
     type: 'self-drive',
     description: 'Reliable and comfortable sedan for self-drive rental with excellent fuel efficiency.',
     features: ['Air Conditioning', 'Bluetooth Audio', 'GPS Navigation', 'Fuel Efficient'],
-    capacity: '4 Passengers + Luggage'
+    capacity: '4 Passengers + Luggage',
+    imageUrl: '/images/cars/octavia17.jpg'
   }
 ];
 
@@ -94,6 +97,7 @@ const testimonials = [
     subtitle="Experience luxury, reliability, and exceptional service with our fleet of premium vehicles and professional drivers."
     ctaText="Explore Our Services"
     ctaLink="#services"
+    imageUrl="/images/cars/allfront12.jpg"
   />
 
   <!-- Services Section -->
@@ -168,10 +172,12 @@ const testimonials = [
         </div>
         
         <div class="relative">
-          <div class="placeholder-image w-full h-96 flex items-center justify-center bg-gray-200 rounded-lg shadow-md">
-            <span class="text-gray-500">Placeholder: 800×600 About Image</span>
-          </div>
-          
+          <img
+            src="/images/cars/vclassside2.jpg"
+            alt="Ultika Mercedes-Benz V-Class"
+            class="w-full h-96 object-cover rounded-lg shadow-md"
+          />
+
           <!-- Decorative element -->
           <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
         </div>
@@ -195,6 +201,7 @@ const testimonials = [
             description={vehicle.description}
             features={vehicle.features}
             capacity={vehicle.capacity}
+            imageUrl={vehicle.imageUrl}
           />
         ))}
       </div>
@@ -239,7 +246,7 @@ const testimonials = [
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="/contact" class="btn btn-gold text-black">Contact Us</a>
-        <a href="/fleet" class="btn btn-secondary text-white border-white hover:bg-white hover:text-black">Explore Our Fleet</a>
+        <a href="/fleet" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">Explore Our Fleet</a>
       </div>
     </div>
   </section>

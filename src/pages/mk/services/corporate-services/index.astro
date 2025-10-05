@@ -1,0 +1,370 @@
+---
+import MainLayout from '../../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Корпоративни Услуги',
+  description: 'Сеопфатни транспортни решенија прилагодени за бизниси и корпоративни клиенти.',
+  heroImage: '/images/cars/eclassfront5.jpg',
+  features: [
+    {
+      title: 'Посветен Менаџер на Сметката',
+      description: 'Една контакт точка за управување со сите ваши потреби за корпоративен превоз.'
+    },
+    {
+      title: 'Месечно Фактурирање',
+      description: 'Консолидирано фактурирање со детални извештаи за лесно управување со трошоци.'
+    },
+    {
+      title: 'Приоритетна Резервација',
+      description: 'Гарантирана достапност на возило со приоритетна резервација за корпоративни клиенти.'
+    },
+    {
+      title: 'Управување со Флота',
+      description: 'Прилагодени решенија за флота за компании кои бараат редовни транспортни услуги.'
+    },
+    {
+      title: 'Извештаи за Патувања',
+      description: 'Детални извештаи за патувањата и аналитика за следење на трошоците и усогласеност.'
+    },
+    {
+      title: 'Поддршка 24/7',
+      description: 'Постојана корисничка служба за итни потреби за бизнис патувања.'
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Корпоративни Услуги | Ултика Бизнис Транспортни Решенија"
+  description="Професионални корпоративни транспортни услуги во Северна Македонија. Управување со флота, извршен превоз и бизнис патувања со посветен менаџмент на сметката."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Транспортни Решенија за Модерни Бизниси"
+          subtitle="Оптимизирајте го вашето корпоративно патување со нашите премиум услуги"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            Во денешната забрзана бизнис средина, доверливиот превоз е од суштинско значење. Програмата за Корпоративни
+            Услуги на Ултика е дизајнирана да ги задоволи уникатните потреби на бизнисите, од мали стартапи до големи
+            корпорации. Обезбедуваме сеопфатни транспортни решенија кои му помагаат на вашиот тим да остане продуктивен,
+            да пристигне навреме и да направи вистински впечаток.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Нашата корпоративна програма нуди оптимизирано резервирање, консолидирано фактурирање и посветена поддршка
+            за да го направи управувањето со потребите за превоз на вашата компанија лесно. Без разлика дали ви требаат
+            редовни аеродромски трансфери, извршен превоз за VIP клиенти или комплетно решение за управување со флота,
+            имаме експертиза и ресурси да обезбедиме исклучителна услуга.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Придобивки од Корпоративната Програма"
+        subtitle="Премиум карактеристики дизајнирани за бизнис ефикасност"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Types -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Корпоративни Транспортни Услуги"
+        subtitle="Флексибилни решенија за секоја бизнис потреба"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Извршен Превоз</h3>
+          <p class="text-gray-700 mb-4">
+            Премиум шофер услуга за извршни директори, членови на одборот и VIP клиенти. Нашите професионални возачи
+            обезбедуваат дискретен, доверлив превоз во луксузни Mercedes возила.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Почасовни, полудневни и целодневни тарифи
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Професионални шофери во бизнис облека
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Wi-Fi, освежителни пијалаци и мобилни канцелариски погодности
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Аеродромски Трансфери</h3>
+          <p class="text-gray-700 mb-4">
+            Доверлив аеродромски превоз за вработени, клиенти и бизнис посетители. Услуга посрет и поздрав,
+            следење на летови и беспрекорна координација за патување без стрес.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Следење на летови во реално време вклучено
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Бесплатно време на чекање за доцнења
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Персонализиран посрет и поздрав со табла со име
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Превоз за Настани</h3>
+          <p class="text-gray-700 mb-4">
+            Групен превоз за конференции, корпоративни настани, тимска изградба и бизнис собири.
+            Повеќе возила координирани за беспрекорна групна логистика.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Повеќе возила за големи групи
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Координирана логистика и распоред
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Флексибилно распоредување за настани од повеќе денови
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Управување со Флота</h3>
+          <p class="text-gray-700 mb-4">
+            Комплетни решенија за флота за компании со редовни потреби за превоз. Прилагодени пакети со
+            посветени возила, возачи и сеопфатно управување.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Посветени возила за вашата компанија
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Месечни договори со заштеда на трошоци
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Сеопфатни извештаи и аналитика
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Започнување"
+        subtitle="Едноставен процес на вклучување за корпоративни клиенти"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+          <h3 class="text-lg font-bold mb-2">Контактирајте Не</h3>
+          <p class="text-gray-600">Јавете се да ги дискутираме потребите и барањата за превоз на вашата компанија.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+          <h3 class="text-lg font-bold mb-2">Прилагодена Понуда</h3>
+          <p class="text-gray-600">Создаваме прилагоден пакет со транспарентни цени за вашиот бизнис.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+          <h3 class="text-lg font-bold mb-2">Поставување на Сметката</h3>
+          <p class="text-gray-600">Брзо вклучување со посветен менаџер на сметката и пристап до портал за резервации.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+          <h3 class="text-lg font-bold mb-2">Започнете со Услугата</h3>
+          <p class="text-gray-600">Започнете да користите премиум корпоративен превоз со приоритетна поддршка.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Зошто да Ја Изберете Ултика за Корпоративни Услуги"
+          subtitle="Предностите на партнерството со нас"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Контрола на Трошоците и Транспарентност</h3>
+              <p class="text-gray-600">Консолидирано фактурирање, детални извештаи и предвидливи месечни трошоци го прават управувањето со буџетот лесно.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Доверливост и Професионализам</h3>
+              <p class="text-gray-600">Точна услуга, професионални возачи и премиум возила обезбедуваат вашиот тим и клиенти да патуваат во удобност.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Поедноставено Управување</h3>
+              <p class="text-gray-600">Еден менаџер на сметката, една фактура, еден систем за резервации - поедноставено управување со корпоративен превоз.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Скалабилност</h3>
+              <p class="text-gray-600">Лесно скалирајте ги услугите нагоре или надолу според потребите на вашиот бизнис, од едно возење до комплетно управување со флота.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Подготвени да го Оптимизирате Вашиот Корпоративен Превоз?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Контактирајте не денес за да ги дискутираме потребите на вашиот бизнис и примете прилагодена корпоративна понуда.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/contact" class="btn btn-gold text-black">Побарајте Корпоративна Понуда</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Јавете се +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,370 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Corporate Services',
+  description: 'Comprehensive transportation solutions tailored for businesses and corporate clients.',
+  heroImage: '/images/cars/eclassfront5.jpg',
+  features: [
+    {
+      title: 'Dedicated Account Manager',
+      description: 'A single point of contact to manage all your corporate transportation needs.'
+    },
+    {
+      title: 'Monthly Billing',
+      description: 'Consolidated invoicing with detailed reporting for easy expense management.'
+    },
+    {
+      title: 'Priority Booking',
+      description: 'Guaranteed vehicle availability with priority reservation for corporate clients.'
+    },
+    {
+      title: 'Fleet Management',
+      description: 'Custom fleet solutions for companies requiring regular transportation services.'
+    },
+    {
+      title: 'Travel Reports',
+      description: 'Detailed journey reports and analytics for cost tracking and compliance.'
+    },
+    {
+      title: '24/7 Support',
+      description: 'Round-the-clock customer service for urgent business travel needs.'
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Corporate Services | Ultika Business Transportation Solutions"
+  description="Professional corporate transportation services in North Macedonia. Fleet management, executive transport, and business travel solutions with dedicated account management."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Transportation Solutions for Modern Businesses"
+          subtitle="Streamline your corporate travel with our premium services"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            In today's fast-paced business environment, reliable transportation is essential. Ultika's Corporate
+            Services program is designed to meet the unique needs of businesses, from small startups to large
+            corporations. We provide comprehensive transportation solutions that help your team stay productive,
+            arrive on time, and make the right impression.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            Our corporate program offers streamlined booking, consolidated billing, and dedicated support to make
+            managing your company's transportation needs effortless. Whether you need regular airport transfers,
+            executive transportation for VIP clients, or a complete fleet management solution, we have the expertise
+            and resources to deliver exceptional service.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Corporate Program Benefits"
+        subtitle="Premium features designed for business efficiency"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Types -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Corporate Transportation Services"
+        subtitle="Flexible solutions for every business need"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Executive Transportation</h3>
+          <p class="text-gray-700 mb-4">
+            Premium chauffeur service for executives, board members, and VIP clients. Our professional drivers
+            provide discreet, reliable transportation in luxury Mercedes vehicles.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Hourly, half-day, and full-day rates
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Professional chauffeurs in business attire
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Wi-Fi, refreshments, and mobile office amenities
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Airport Transfers</h3>
+          <p class="text-gray-700 mb-4">
+            Reliable airport transportation for employees, clients, and business visitors. Meet & greet service,
+            flight monitoring, and seamless coordination for stress-free travel.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Real-time flight monitoring included
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Complimentary wait time for delays
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Personalized meet & greet with name sign
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Event Transportation</h3>
+          <p class="text-gray-700 mb-4">
+            Group transportation for conferences, corporate events, team building, and business gatherings.
+            Multiple vehicles coordinated for seamless group logistics.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Multiple vehicles for large groups
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Coordinated logistics and timing
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Flexible scheduling for multi-day events
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Fleet Management</h3>
+          <p class="text-gray-700 mb-4">
+            Complete fleet solutions for companies with regular transportation needs. Custom packages with
+            dedicated vehicles, drivers, and comprehensive management.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Dedicated vehicles for your company
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Monthly contracts with cost savings
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mr-2 text-[#D4AF37] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Comprehensive reporting and analytics
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Getting Started"
+        subtitle="Simple onboarding process for corporate clients"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+          <h3 class="text-lg font-bold mb-2">Contact Us</h3>
+          <p class="text-gray-600">Reach out to discuss your company's transportation needs and requirements.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+          <h3 class="text-lg font-bold mb-2">Custom Proposal</h3>
+          <p class="text-gray-600">We create a tailored package with transparent pricing for your business.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+          <h3 class="text-lg font-bold mb-2">Account Setup</h3>
+          <p class="text-gray-600">Quick onboarding with dedicated account manager and booking portal access.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+          <h3 class="text-lg font-bold mb-2">Start Service</h3>
+          <p class="text-gray-600">Begin using premium corporate transportation with priority support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Why Choose Ultika for Corporate Services"
+          subtitle="The advantages of partnering with us"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Cost Control & Transparency</h3>
+              <p class="text-gray-600">Consolidated billing, detailed reports, and predictable monthly costs make budget management easy.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Reliability & Professionalism</h3>
+              <p class="text-gray-600">Punctual service, professional drivers, and premium vehicles ensure your team and clients travel in comfort.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Simplified Management</h3>
+              <p class="text-gray-600">One account manager, one invoice, one booking system - streamlined corporate transportation management.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Scalability</h3>
+              <p class="text-gray-600">Easily scale services up or down based on your business needs, from single rides to full fleet management.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Streamline Your Corporate Transportation?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Contact us today to discuss your business needs and receive a customized corporate services proposal.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn btn-gold text-black">Request Corporate Proposal</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Call +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

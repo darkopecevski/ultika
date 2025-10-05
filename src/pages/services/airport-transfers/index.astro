@@ -1,0 +1,213 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import SectionTitle from '../../../components/SectionTitle.astro';
+
+const service = {
+  title: 'Airport Transfers',
+  description: 'Reliable and punctual transportation to and from airports across North Macedonia.',
+  heroImage: '/images/cars/vclass14.jpg',
+  features: [
+    {
+      icon: 'meet-greet',
+      title: 'Meet & Greet Service',
+      description: 'Our driver will meet you at the arrivals hall with a personalized name sign.'
+    },
+    {
+      icon: 'flight',
+      title: 'Flight Monitoring',
+      description: 'We track your flight in real-time and adjust pickup times for delays at no extra charge.'
+    },
+    {
+      icon: 'wait',
+      title: 'Free Wait Time',
+      description: 'Complimentary 60 minutes wait time for international flights, 30 minutes for domestic.'
+    },
+    {
+      icon: 'luggage',
+      title: 'Luggage Assistance',
+      description: 'Our drivers help with your luggage from the terminal to the vehicle.'
+    },
+    {
+      icon: 'child-seat',
+      title: 'Child Seats Available',
+      description: 'Free child seats upon request to ensure safe travel for your little ones.'
+    },
+    {
+      icon: 'door-to-door',
+      title: 'Door-to-Door Service',
+      description: 'Complete pickup and drop-off service from your exact location.'
+    }
+  ],
+  pricing: {
+    note: 'Prices vary depending on distance and vehicle type. Contact us for a personalized quote.',
+    examples: [
+      'Skopje Airport to City Center',
+      'Skopje Airport to Ohrid',
+      'Skopje Airport to Pristina',
+      'Group transfers (up to 7 passengers)'
+    ]
+  }
+};
+---
+
+<MainLayout
+  title="Airport Transfers | Ultika Transportation Services"
+  description="Professional airport transfer service in North Macedonia. Reliable, punctual transportation to and from all major airports with meet & greet service."
+>
+  <!-- Hero Section -->
+  <section class="relative h-96 bg-black text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={service.heroImage}
+        alt={service.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
+        <p class="text-xl text-gray-200">{service.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Stress-Free Airport Transportation"
+          subtitle="Start your journey right with our premium airport transfer service"
+        />
+
+        <div class="prose prose-lg max-w-none mt-8">
+          <p class="text-lg text-gray-700">
+            Traveling can be stressful, but your airport transfer doesn't have to be. At Ultika, we provide reliable,
+            comfortable, and punctual airport transportation services across North Macedonia. Whether you're arriving at
+            Skopje Airport or need a transfer to any other destination, our professional drivers and premium vehicles
+            ensure a smooth start or end to your journey.
+          </p>
+
+          <p class="text-lg text-gray-700 mt-4">
+            We understand the importance of timing when it comes to flights. That's why we monitor all flight arrivals
+            in real-time and adjust our pickup times accordingly. If your flight is delayed, we'll be there waiting –
+            no extra charges, no hassle.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Why Choose Our Airport Transfer Service"
+        subtitle="Premium features included in every transfer"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {service.features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-[#D4AF37] bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="How It Works"
+        subtitle="Simple booking process in 4 easy steps"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+          <h3 class="text-lg font-bold mb-2">Book Online or Call</h3>
+          <p class="text-gray-600">Contact us with your flight details and pickup location.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+          <h3 class="text-lg font-bold mb-2">We Monitor Your Flight</h3>
+          <p class="text-gray-600">We track your flight status in real-time for accurate pickup.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+          <h3 class="text-lg font-bold mb-2">Meet Your Driver</h3>
+          <p class="text-gray-600">Your driver meets you at arrivals with a personalized sign.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+          <h3 class="text-lg font-bold mb-2">Relax & Enjoy</h3>
+          <p class="text-gray-600">Sit back and enjoy a comfortable ride to your destination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Info -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionTitle
+          title="Transparent Pricing"
+          subtitle="No hidden fees, no surprises"
+        />
+
+        <div class="bg-white p-8 rounded-lg shadow-md mt-8">
+          <p class="text-lg text-gray-700 mb-6">{service.pricing.note}</p>
+
+          <h3 class="text-xl font-bold mb-4">Popular Routes:</h3>
+          <ul class="space-y-3">
+            {service.pricing.examples.map(example => (
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#D4AF37] mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                {example}
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+            <p class="text-sm text-gray-600">
+              <strong>Note:</strong> All prices include meet & greet service, flight monitoring, free wait time,
+              and luggage assistance. Child seats are provided free of charge upon request.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-black text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Book Your Airport Transfer?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Contact us today for a personalized quote and experience stress-free airport transportation.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contact" class="btn btn-gold text-black">Get a Quote</a>
+        <a href="tel:+38970377925" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          Call +389 70 377 925
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -2,8 +2,8 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 
-// Gallery categories
-const categories = [
+// Gallery categories - will be filtered to show only categories with images
+const allCategories = [
   { id: 'all', name: 'All Photos' },
   { id: 'vehicles', name: 'Our Fleet' },
   { id: 'services', name: 'Services' },
@@ -11,105 +11,141 @@ const categories = [
   { id: 'locations', name: 'Locations' }
 ];
 
-// Gallery items - these would be replaced with actual images later
+// Gallery items
 const galleryItems = [
   {
     id: 1,
     title: 'Mercedes-Benz E-Class',
     description: 'Luxury sedan for executive transportation',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-1.jpg',
-    fullImage: '/images/placeholders/gallery-full-1.jpg',
+    thumbnail: '/images/cars/eclassfront1s.jpg',
+    fullImage: '/images/cars/eclassfront1.jpg',
   },
   {
     id: 2,
     title: 'Mercedes-Benz V-Class',
     description: 'Spacious van for group transportation',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-2.jpg',
-    fullImage: '/images/placeholders/gallery-full-2.jpg',
+    thumbnail: '/images/cars/vclassside2.jpg',
+    fullImage: '/images/cars/vclassside2.jpg',
   },
   {
     id: 3,
-    title: 'Airport Transfer',
-    description: 'Professional airport pickup service',
-    category: 'services',
-    thumbnail: '/images/placeholders/gallery-thumb-3.jpg',
-    fullImage: '/images/placeholders/gallery-full-3.jpg',
+    title: 'Mercedes-Benz V-Class',
+    description: 'Front view of our premium V-Class',
+    category: 'vehicles',
+    thumbnail: '/images/cars/vclassfront3.jpg',
+    fullImage: '/images/cars/vclassfront3.jpg',
   },
   {
     id: 4,
-    title: 'Skopje City Tour',
-    description: 'Exploring the beautiful city of Skopje',
-    category: 'locations',
-    thumbnail: '/images/placeholders/gallery-thumb-4.jpg',
-    fullImage: '/images/placeholders/gallery-full-4.jpg',
+    title: 'Mercedes-Benz E-Class',
+    description: 'Premium executive sedan',
+    category: 'vehicles',
+    thumbnail: '/images/cars/eclassfront4.jpg',
+    fullImage: '/images/cars/eclassfront4.jpg',
   },
   {
     id: 5,
-    title: 'Corporate Event',
-    description: 'Transportation for corporate gatherings',
-    category: 'events',
-    thumbnail: '/images/placeholders/gallery-thumb-5.jpg',
-    fullImage: '/images/placeholders/gallery-full-5.jpg',
+    title: 'Mercedes-Benz E-Class',
+    description: 'Elegant and sophisticated design',
+    category: 'vehicles',
+    thumbnail: '/images/cars/eclassfront5.jpg',
+    fullImage: '/images/cars/eclassfront5.jpg',
   },
   {
     id: 6,
-    title: 'Wedding Transportation',
-    description: 'Elegant vehicles for your special day',
-    category: 'events',
-    thumbnail: '/images/placeholders/gallery-thumb-6.jpg',
-    fullImage: '/images/placeholders/gallery-full-6.jpg',
+    title: 'V-Class Interior',
+    description: 'Luxurious and spacious interior',
+    category: 'vehicles',
+    thumbnail: '/images/cars/vclassinterior6.jpg',
+    fullImage: '/images/cars/vclassinterior6.jpg',
   },
   {
     id: 7,
-    title: 'Skoda Octavia',
-    description: 'Reliable sedan for self-drive rental',
+    title: 'E-Class Interior',
+    description: 'Premium comfort and technology',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-7.jpg',
-    fullImage: '/images/placeholders/gallery-full-7.jpg',
+    thumbnail: '/images/cars/eclassinterior7.jpg',
+    fullImage: '/images/cars/eclassinterior7.jpg',
   },
   {
     id: 8,
-    title: 'Ohrid Lake',
-    description: 'Transportation to Ohrid Lake',
-    category: 'locations',
-    thumbnail: '/images/placeholders/gallery-thumb-8.jpg',
-    fullImage: '/images/placeholders/gallery-full-8.jpg',
+    title: 'E-Class Interior',
+    description: 'Sophisticated cabin design',
+    category: 'vehicles',
+    thumbnail: '/images/cars/eclassinterior8.jpg',
+    fullImage: '/images/cars/eclassinterior8.jpg',
   },
   {
     id: 9,
-    title: 'Opel Astra',
-    description: 'Compact sedan for self-drive rental',
+    title: 'Skoda Octavia',
+    description: 'Reliable sedan for self-drive rental',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-9.jpg',
-    fullImage: '/images/placeholders/gallery-full-9.jpg',
+    thumbnail: '/images/cars/octavia9.jpg',
+    fullImage: '/images/cars/octavia9.jpg',
   },
   {
     id: 10,
-    title: 'Executive Service',
-    description: 'Premium chauffeur service for business professionals',
-    category: 'services',
-    thumbnail: '/images/placeholders/gallery-thumb-10.jpg',
-    fullImage: '/images/placeholders/gallery-full-10.jpg',
+    title: 'Skoda Octavia',
+    description: 'Comfortable and efficient',
+    category: 'vehicles',
+    thumbnail: '/images/cars/octavia10.jpg',
+    fullImage: '/images/cars/octavia10.jpg',
   },
   {
     id: 11,
-    title: 'City Night Tour',
-    description: 'Explore Skopje by night',
-    category: 'services',
-    thumbnail: '/images/placeholders/gallery-thumb-11.jpg',
-    fullImage: '/images/placeholders/gallery-full-11.jpg',
+    title: 'Complete Fleet',
+    description: 'Our full range of premium vehicles',
+    category: 'vehicles',
+    thumbnail: '/images/cars/allfront12.jpg',
+    fullImage: '/images/cars/allfront12.jpg',
   },
   {
     id: 12,
-    title: 'Mercedes-Benz S-Class',
-    description: 'Ultimate luxury for VIP transportation',
+    title: 'Fleet Rear View',
+    description: 'Professional transportation solutions',
     category: 'vehicles',
-    thumbnail: '/images/placeholders/gallery-thumb-12.jpg',
-    fullImage: '/images/placeholders/gallery-full-12.jpg',
+    thumbnail: '/images/cars/allback13.jpg',
+    fullImage: '/images/cars/allback13.jpg',
+  },
+  {
+    id: 13,
+    title: 'Mercedes-Benz V-Class',
+    description: 'Perfect for group transfers',
+    category: 'vehicles',
+    thumbnail: '/images/cars/vclass14.jpg',
+    fullImage: '/images/cars/vclass14.jpg',
+  },
+  {
+    id: 14,
+    title: 'V-Class Interior',
+    description: 'Spacious and comfortable seating',
+    category: 'vehicles',
+    thumbnail: '/images/cars/vclassinterior15.jpg',
+    fullImage: '/images/cars/vclassinterior15.jpg',
+  },
+  {
+    id: 15,
+    title: 'Our Fleet',
+    description: 'Premium vehicles at your service',
+    category: 'vehicles',
+    thumbnail: '/images/cars/all16.jpg',
+    fullImage: '/images/cars/all16.jpg',
+  },
+  {
+    id: 16,
+    title: 'Skoda Octavia',
+    description: 'Modern and practical rental option',
+    category: 'vehicles',
+    thumbnail: '/images/cars/octavia17.jpg',
+    fullImage: '/images/cars/octavia17.jpg',
   },
 ];
+
+// Filter categories to only show those that have images
+const usedCategories = new Set(galleryItems.map(item => item.category));
+const categories = allCategories.filter(cat => cat.id === 'all' || usedCategories.has(cat.id));
 ---
 
 <MainLayout 
@@ -146,10 +182,13 @@ const galleryItems = [
         {galleryItems.map(item => (
           <div class="gallery-item" data-category={item.category}>
             <div class="relative overflow-hidden rounded-lg shadow-md group h-72">
-              <!-- Image Placeholder -->
-              <div class="placeholder-image w-full h-full flex items-center justify-center bg-gray-200">
-                <span class="text-gray-500">Placeholder: 600×400 Image</span>
-              </div>
+                <!-- Gallery Thumbnail Image -->
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
               
               <!-- Overlay -->
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 flex flex-col justify-end p-6 transition-opacity duration-300">
@@ -194,10 +233,14 @@ const galleryItems = [
       
       <!-- Modal Content -->
       <div class="p-4">
-        <!-- Image Placeholder -->
-        <div class="placeholder-image w-full h-96 flex items-center justify-center bg-gray-200 rounded-t-lg">
-          <span class="text-gray-500">Placeholder: 1200×800 Full Image</span>
-        </div>
+        <!-- Modal Full Image -->
+        <img
+          id="modal-image"
+          src=""
+          alt="Full Image"
+          class="w-full h-96 object-cover rounded-t-lg bg-gray-200"
+          style="display: none;"
+        />
         
         <!-- Image Info -->
         <div class="p-6">
@@ -283,11 +326,18 @@ const galleryItems = [
         const image = button.getAttribute('data-image');
         const title = button.getAttribute('data-title');
         const description = button.getAttribute('data-description');
-        
+
         modalTitle.textContent = title;
         modalDescription.textContent = description;
-        // In a real implementation, we would set the image source here
-        
+
+        // Set modal image src, alt, and show it
+        const modalImage = document.getElementById('modal-image');
+        if (modalImage) {
+          modalImage.src = image;
+          modalImage.alt = title;
+          modalImage.style.display = '';
+        }
+
         imageModal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
       });
