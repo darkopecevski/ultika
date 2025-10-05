@@ -13,21 +13,21 @@ const partnerCategories = [
       {
         name: 'Marriott Скопје',
         description: 'Луксузен хотел со пет ѕвезди во срцето на Скопје.',
-        logo: '/images/placeholders/partner-marriott.svg',
+        logo: '/images/partners/marriott.png',
         benefits: ['Преферирани тарифи за гостите на хотелот', 'Директно фактурирање на соба', 'Приоритетна услуга'],
         url: '#'
       },
       {
         name: 'Хотел Александар Палас',
         description: 'Луксузен хотел кој нуди панорамски поглед на Скопје.',
-        logo: '/images/placeholders/partner-aleksandar.svg',
+        logo: '/images/partners/aleksandar-palace.png',
         benefits: ['VIP транспортни пакети', 'Резервации преку хотелскиот консиерж', 'Достапност 24/7'],
         url: '#'
       },
       {
-        name: 'Хотел Арка',
-        description: 'Бутик хотел во Старата Чаршија.',
-        logo: '/images/placeholders/partner-arka.svg',
+        name: 'Лимак Хотел',
+        description: 'Премиум хотел со модерни удобности во Скопје.',
+        logo: '/images/partners/limak.png',
         benefits: ['Специјални тарифи за гостите на хотелот', 'Прилагодени градски тури', 'Аеродромски трансфери'],
         url: '#'
       }
@@ -41,21 +41,21 @@ const partnerCategories = [
       {
         name: 'Македонски Телеком',
         description: 'Водечки телекомуникациски провајдер во Северна Македонија.',
-        logo: '/images/placeholders/partner-telekom.svg',
+        logo: '/images/partners/telekom.svg',
         benefits: ['Корпоративно управување со сметки', 'Услуги за бизнис превоз', 'Услуги за превоз на вработени'],
         url: '#'
       },
       {
-        name: 'Комерцијална Банка',
+        name: 'НЛБ Банка',
         description: 'Голема банкарска институција со филијали низ целата земја.',
-        logo: '/images/placeholders/partner-banka.svg',
+        logo: '/images/partners/nlb.svg',
         benefits: ['VIP услуги за клиенти', 'Координација на транспорт за настани', 'Прилагодени транспортни решенија'],
         url: '#'
       },
       {
         name: 'ЕВН Македонија',
         description: 'Енергетски провајдер кој опслужува бизниси и жители.',
-        logo: '/images/placeholders/partner-evn.svg',
+        logo: '/images/partners/evn.svg',
         benefits: ['Транспорт за теренски тимови', 'Решенија за деловни патувања', 'Специјални корпоративни тарифи'],
         url: '#'
       }
@@ -67,24 +67,24 @@ const partnerCategories = [
     description: 'Соработуваме со туристички агенции и тур-оператори за да го подобриме искуството на посетителите во Северна Македонија.',
     partners: [
       {
-        name: 'Балкан Прајм Турс',
-        description: 'Водечки тур-оператор специјализиран за патувачки искуства на Балканот.',
-        logo: '/images/placeholders/partner-balkan.svg',
+        name: 'Агентур',
+        description: 'Модерна туристичка агенција која нуди персонализирани патувачки решенија до дестинации низ светот.',
+        logo: '/images/partners/agentur.png',
         benefits: ['Интегрирани тур пакети', 'Повеќе-градски итинерари', 'Експертски локални водичи'],
         url: '#'
       },
       {
-        name: 'Македонија Експириенс',
-        description: 'Туристичка агенција фокусирана на автентични културни искуства.',
-        logo: '/images/placeholders/partner-macedonia.svg',
+        name: 'Савана Тревел',
+        description: 'Премиум туристичка агенција специјализирана за туристички и бизнис патувања.',
+        logo: '/images/partners/savana.png',
         benefits: ['Транспорт за културни тури', 'Пакети за вински тури', 'Поддршка за рурален туризам'],
         url: '#'
       },
       {
-        name: 'Адриатик ДМЦ',
-        description: 'Компанија за управување со дестинации за Јадранскиот регион.',
-        logo: '/images/placeholders/partner-adriatic.svg',
-        benefits: ['Прекуграничен транспорт', 'Услуги за патници на крузери', 'Логистика за групни тури'],
+        name: 'Аурора Турс',
+        description: 'Воспоставена туристичка агенција која нуди излезни и влезни патувачки пакети од 1990 година.',
+        logo: '/images/partners/aurora.png',
+        benefits: ['Прекуграничен транспорт', 'Логистика за групни тури', 'Координација на аеродромски трансфери'],
         url: '#'
       }
     ]
@@ -195,7 +195,7 @@ const icons = {
         {partnerCategories[0].partners.map(partner => (
           <div class="bg-white rounded-lg overflow-hidden shadow-md">
             <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
-              <PlaceholderImage width={200} height={100} text={partner.name + " Лого"} type="general" />
+              <img src={partner.logo} alt={partner.name} class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
@@ -236,7 +236,7 @@ const icons = {
         {partnerCategories[1].partners.map(partner => (
           <div class="bg-white rounded-lg overflow-hidden shadow-md">
             <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
-              <PlaceholderImage width={200} height={100} text={partner.name + " Лого"} type="general" />
+              <img src={partner.logo} alt={partner.name} class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
@@ -277,7 +277,7 @@ const icons = {
         {partnerCategories[2].partners.map(partner => (
           <div class="bg-white rounded-lg overflow-hidden shadow-md">
             <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
-              <PlaceholderImage width={200} height={100} text={partner.name + " Лого"} type="general" />
+              <img src={partner.logo} alt={partner.name} class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
@@ -346,11 +346,130 @@ const icons = {
         
         <div class="relative">
           <div class="rounded-lg overflow-hidden shadow-xl">
-            <PlaceholderImage width={600} height={400} text="Можности за Партнерство" type="general" />
+            <img src="/images/partners/partnership-opportunities.jpg" alt="Можности за Партнерство" class="w-full h-full object-cover" />
           </div>
           <!-- Decorative element -->
           <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section py-20">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Сведоштва од Партнери"
+        subtitle="Што кажуваат нашите партнери за соработката со нас"
+      />
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
+                M
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold">Marriott Скопје</h3>
+              <p class="text-sm text-gray-500">Хотелски Партнер</p>
+            </div>
+          </div>
+          <p class="text-gray-600">
+            "Ултика е непроценлив партнер за нашиот хотел, обезбедувајќи на нашите гости сигурен и луксузен превоз. Нивната професионалност и внимание кон деталите се совршено усогласени со нашите стандарди за услуга."
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
+                T
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold">Македонски Телеком</h3>
+              <p class="text-sm text-gray-500">Корпоративен Партнер</p>
+            </div>
+          </div>
+          <p class="text-gray-600">
+            "Нашето корпоративно партнерство со Ултика ги поедностави нашите потреби за бизнис превоз. Нивното посветено управување со сметки и доследен квалитет на услугата ги направија доверлив партнер за нашиот бизнис."
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
+                A
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold">Агентур</h3>
+              <p class="text-sm text-gray-500">Партнер од Туристичката Индустрија</p>
+            </div>
+          </div>
+          <p class="text-gray-600">
+            "Ултика стана суштински партнер за нашата туристичка агенција. Нивните сигурни и удобни транспортни услуги ги подобрија искуствата на нашите клиенти, овозможувајќи ни да нудиме премиум патувачки пакети со доверба."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <SectionTitle
+        title="Најчести Прашања за Партнерство"
+        subtitle="Чести прашања за нашата партнерска програма"
+      />
+
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="bg-white shadow-md rounded-lg divide-y divide-gray-200">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Како да станеме партнер?</h3>
+            <p class="text-gray-600">
+              Процесот на партнерство започнува со почетна консултација за да ги разбереме вашите потреби. Контактирајте го нашиот тим за партнерство за да закажете состанок, и заедно ќе развиеме прилагоден договор за партнерство.
+            </p>
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Дали има трошок за приклучување во партнерската програма?</h3>
+            <p class="text-gray-600">
+              Нема трошок за приклучување во нашата партнерска програма. Фокусираме се на создавање взаемно корисни односи каде двете страни додаваат вредност на нивните клиенти.
+            </p>
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Какви видови бизниси можат да станат партнери?</h3>
+            <p class="text-gray-600">
+              Соработуваме со широк опсег на бизниси, вклучувајќи хотели, туристички агенции, тур-оператори, настани простории, корпоративни клиенти и услуги за планирање на свадби. Ако вашиот бизнис бара транспортни решенија, би сакале да истражиме партнерство.
+            </p>
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Како функционира структурата на провизии?</h3>
+            <p class="text-gray-600">
+              Структурите на провизии варираат врз основа на типот на партнерство и обемот. За партнери од угостителството и туризмот, обично нудиме провизија за резервации упатени преку вашиот бизнис. За корпоративни партнери, фокусираме се на обезбедување преференцијални тарифи и услуги.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-20 bg-gradient-to-r from-black to-gray-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Подготвени да Истражите Партнерство?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Контактирајте го нашиот тим за партнерство денес за да откриете како можеме да соработуваме за да обезбедиме исклучителни транспортни услуги за вашите клиенти.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/mk/contact" class="btn btn-gold text-black">Контактирајте го Тимот за Партнерство</a>
+        <a href="/mk/fleet" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">Истражете ја Нашата Флота</a>
       </div>
     </div>
   </section>

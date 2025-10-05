@@ -13,21 +13,21 @@ const partnerCategories = [
       {
         name: 'Marriott Skopje',
         description: 'Five-star luxury hotel in the heart of Skopje.',
-        logo: '/images/placeholders/partner-marriott.svg',
+        logo: '/images/partners/marriott.png',
         benefits: ['Preferred rates for hotel guests', 'Direct billing to room', 'Priority service'],
         url: '#'
       },
       {
         name: 'Hotel Aleksandar Palace',
         description: 'Upscale hotel offering panoramic views of Skopje.',
-        logo: '/images/placeholders/partner-aleksandar.svg',
+        logo: '/images/partners/aleksandar-palace.png',
         benefits: ['VIP transportation packages', 'Hotel concierge booking', '24/7 availability'],
         url: '#'
       },
       {
-        name: 'Hotel Arka',
-        description: 'Boutique hotel in the Old Bazaar district.',
-        logo: '/images/placeholders/partner-arka.svg',
+        name: 'Limak Hotel',
+        description: 'Premium hotel with modern amenities in Skopje.',
+        logo: '/images/partners/limak.png',
         benefits: ['Special rates for hotel guests', 'Customized city tours', 'Airport transfers'],
         url: '#'
       }
@@ -41,21 +41,21 @@ const partnerCategories = [
       {
         name: 'Makedonski Telekom',
         description: 'Leading telecommunications provider in North Macedonia.',
-        logo: '/images/placeholders/partner-telekom.svg',
+        logo: '/images/partners/telekom.svg',
         benefits: ['Corporate account management', 'Executive transportation services', 'Employee shuttle services'],
         url: '#'
       },
       {
-        name: 'Komercijalna Banka',
+        name: 'NLB Banka',
         description: 'Major banking institution with branches throughout the country.',
-        logo: '/images/placeholders/partner-banka.svg',
+        logo: '/images/partners/nlb.svg',
         benefits: ['VIP client services', 'Event transportation coordination', 'Customized transportation solutions'],
         url: '#'
       },
       {
         name: 'EVN Macedonia',
         description: 'Energy provider serving businesses and residents.',
-        logo: '/images/placeholders/partner-evn.svg',
+        logo: '/images/partners/evn.svg',
         benefits: ['Field team transportation', 'Business travel solutions', 'Special corporate rates'],
         url: '#'
       }
@@ -67,24 +67,24 @@ const partnerCategories = [
     description: 'We collaborate with travel agencies and tour operators to enhance visitor experiences in North Macedonia.',
     partners: [
       {
-        name: 'Balkan Prime Tours',
-        description: 'Leading tour operator specializing in Balkan travel experiences.',
-        logo: '/images/placeholders/partner-balkan.svg',
+        name: 'Agentur',
+        description: 'Modern travel agency offering personalized travel solutions to destinations worldwide.',
+        logo: '/images/partners/agentur.png',
         benefits: ['Integrated tour packages', 'Multi-city itineraries', 'Expert local guides'],
         url: '#'
       },
       {
-        name: 'Macedonia Experience',
-        description: 'Travel agency focused on authentic cultural experiences.',
-        logo: '/images/placeholders/partner-macedonia.svg',
+        name: 'Savana Travel',
+        description: 'Premium travel agency specializing in leisure and business travel arrangements.',
+        logo: '/images/partners/savana.png',
         benefits: ['Cultural tour transportation', 'Wine tour packages', 'Rural tourism support'],
         url: '#'
       },
       {
-        name: 'Adriatic DMC',
-        description: 'Destination management company for the Adriatic region.',
-        logo: '/images/placeholders/partner-adriatic.svg',
-        benefits: ['Cross-border transportation', 'Cruise passenger services', 'Group tour logistics'],
+        name: 'Aurora Tours',
+        description: 'Established travel agency providing outgoing and incoming travel packages since 1990.',
+        logo: '/images/partners/aurora.png',
+        benefits: ['Cross-border transportation', 'Group tour logistics', 'Airport transfer coordination'],
         url: '#'
       }
     ]
@@ -194,7 +194,7 @@ const icons = {
         {partnerCategories[0].partners.map(partner => (
           <div class="bg-white rounded-lg overflow-hidden shadow-md">
             <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
-              <PlaceholderImage width={200} height={100} text={partner.name + " Logo"} type="general" />
+              <img src={partner.logo} alt={partner.name} class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
@@ -235,7 +235,7 @@ const icons = {
         {partnerCategories[1].partners.map(partner => (
           <div class="bg-white rounded-lg overflow-hidden shadow-md">
             <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
-              <PlaceholderImage width={200} height={100} text={partner.name + " Logo"} type="general" />
+              <img src={partner.logo} alt={partner.name} class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
@@ -276,7 +276,7 @@ const icons = {
         {partnerCategories[2].partners.map(partner => (
           <div class="bg-white rounded-lg overflow-hidden shadow-md">
             <div class="h-48 bg-gray-100 flex items-center justify-center p-6">
-              <PlaceholderImage width={200} height={100} text={partner.name + " Logo"} type="general" />
+              <img src={partner.logo} alt={partner.name} class="max-h-full max-w-full object-contain" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">{partner.name}</h3>
@@ -345,7 +345,7 @@ const icons = {
         
         <div class="relative">
           <div class="rounded-lg overflow-hidden shadow-xl">
-            <PlaceholderImage width={600} height={400} text="Partnership Opportunities" type="general" />
+            <img src="/images/partners/partnership-opportunities.jpg" alt="Partnership Opportunities" class="w-full h-full object-cover" />
           </div>
           <!-- Decorative element -->
           <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D4AF37] rounded-lg opacity-20 z-0"></div>
@@ -401,16 +401,16 @@ const icons = {
           <div class="flex items-center mb-4">
             <div class="flex-shrink-0 mr-4">
               <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
-                B
+                A
               </div>
             </div>
             <div>
-              <h3 class="font-bold">Balkan Prime Tours</h3>
+              <h3 class="font-bold">Agentur</h3>
               <p class="text-sm text-gray-500">Travel Industry Partner</p>
             </div>
           </div>
           <p class="text-gray-600">
-            "Working with Ultika has enhanced our tour packages significantly. Their knowledge of the region and ability to provide comfortable transportation for our clients has been a key factor in our successful tours across North Macedonia."
+            "Ultika has become an essential partner for our travel agency. Their reliable and comfortable transportation services have enhanced our clients' experiences, allowing us to offer premium travel packages with confidence."
           </p>
         </div>
       </div>
@@ -468,7 +468,7 @@ const icons = {
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="/contact" class="btn btn-gold text-black">Contact Partnership Team</a>
-        <a href="/fleet" class="btn btn-secondary text-white border-white hover:bg-white hover:text-black">Explore Our Fleet</a>
+        <a href="/fleet" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-300 px-6 py-3 rounded-md font-medium">Explore Our Fleet</a>
       </div>
     </div>
   </section>
