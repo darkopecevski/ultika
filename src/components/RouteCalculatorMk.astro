@@ -1,0 +1,163 @@
+---
+import { destinations, routes, getAllCountries } from '../data/routes';
+
+// Group destinations by country for better UX
+const countries = getAllCountries();
+const destinationsByCountry = countries.map(country => {
+  const dest = destinations.find(d => d.country === country);
+  return {
+    country: dest?.countryMk || country,
+    destinations: destinations.filter(d => d.country === country)
+  };
+});
+---
+
+<div class="bg-white rounded-lg shadow-xl p-8">
+  <h3 class="text-2xl font-bold mb-2">Најдете ја Вашата Рута</h3>
+  <p class="text-gray-600 mb-6">Пребарајте трансфери помеѓу било кои две дестинации</p>
+
+  <form id="route-calculator-mk" class="space-y-6">
+    <!-- From Location -->
+    <div>
+      <label for="from-location-mk" class="block text-sm font-semibold text-gray-700 mb-2">
+        Од
+      </label>
+      <select
+        id="from-location-mk"
+        name="from"
+        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
+        required
+      >
+        <option value="">Изберете почетна точка...</option>
+        {destinationsByCountry.map(({ country, destinations: dests }) => (
+          <optgroup label={country}>
+            {dests.map(dest => (
+              <option value={dest.id}>
+                {dest.nameMk}{dest.nameAlt ? ` (${dest.nameAlt})` : ''}
+              </option>
+            ))}
+          </optgroup>
+        ))}
+      </select>
+    </div>
+
+    <!-- Swap Button -->
+    <div class="flex justify-center">
+      <button
+        type="button"
+        id="swap-locations-mk"
+        class="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
+        title="Замени локации"
+      >
+        <svg class="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- To Location -->
+    <div>
+      <label for="to-location-mk" class="block text-sm font-semibold text-gray-700 mb-2">
+        До
+      </label>
+      <select
+        id="to-location-mk"
+        name="to"
+        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent"
+        required
+      >
+        <option value="">Изберете дестинација...</option>
+        {destinationsByCountry.map(({ country, destinations: dests }) => (
+          <optgroup label={country}>
+            {dests.map(dest => (
+              <option value={dest.id}>
+                {dest.nameMk}{dest.nameAlt ? ` (${dest.nameAlt})` : ''}
+              </option>
+            ))}
+          </optgroup>
+        ))}
+      </select>
+    </div>
+
+    <!-- Search Button -->
+    <button
+      type="submit"
+      class="w-full btn btn-gold text-black py-4 text-lg font-semibold"
+    >
+      Пребарај Рута
+    </button>
+  </form>
+
+  <!-- Popular Routes -->
+  <div class="mt-8 pt-8 border-t border-gray-200">
+    <h4 class="text-lg font-bold mb-4">Популарни Рути</h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {routes.filter(r => r.popular).slice(0, 6).map(route => {
+        const from = destinations.find(d => d.id === route.from);
+        const to = destinations.find(d => d.id === route.to);
+        return (
+          <a
+            href={`/mk/routes/${route.from}-to-${route.to}`}
+            class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 group"
+          >
+            <div class="flex items-center text-sm">
+              <svg class="w-4 h-4 text-[#D4AF37] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+              <span class="font-medium">{from?.nameMk}</span>
+              <span class="mx-2 text-gray-400">→</span>
+              <span class="font-medium">{to?.nameMk}</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-[#D4AF37] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ routesDataMk: routes, destinationsDataMk: destinations }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle form submission
+    const form = document.getElementById('route-calculator-mk');
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const fromSelect = document.getElementById('from-location-mk');
+        const toSelect = document.getElementById('to-location-mk');
+
+        const fromId = fromSelect.value;
+        const toId = toSelect.value;
+
+        if (!fromId || !toId) {
+          return;
+        }
+
+        if (fromId === toId) {
+          alert('Ве молиме изберете различни локации за поаѓање и дестинација.');
+          return;
+        }
+
+        // Always redirect to route page (will be generated dynamically)
+        window.location.href = '/mk/routes/' + fromId + '-to-' + toId;
+      });
+    }
+
+    // Handle swap button
+    const swapBtn = document.getElementById('swap-locations-mk');
+    if (swapBtn) {
+      swapBtn.addEventListener('click', function() {
+        const fromSelect = document.getElementById('from-location-mk');
+        const toSelect = document.getElementById('to-location-mk');
+
+        const temp = fromSelect.value;
+        fromSelect.value = toSelect.value;
+        toSelect.value = temp;
+      });
+    }
+  });
+</script>
