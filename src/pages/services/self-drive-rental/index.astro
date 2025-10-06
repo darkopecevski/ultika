@@ -1,18 +1,34 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 import SectionTitle from '../../../components/SectionTitle.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
 
 const service = {
-  title: 'Self-Drive Car Rental',
-  description: 'Explore North Macedonia at your own pace with our modern and well-maintained rental vehicles.',
+  title: 'Self-Drive Car Rental in Skopje',
+  description: 'Rent a car in Skopje and explore North Macedonia at your own pace with our modern and well-maintained rental vehicles.',
   heroImage: '/images/cars/octavia17.jpg'
 };
+
+const breadcrumbs = [
+  { name: "Home", url: "https://ultika.mk" },
+  { name: "Services", url: "https://ultika.mk/services" },
+  { name: "Self-Drive Rental", url: "https://ultika.mk/services/self-drive-rental" }
+];
 ---
 
 <MainLayout
-  title="Self-Drive Car Rental | Ultika Rent a Car"
-  description="Rent a car in North Macedonia with Ultika. Well-maintained Skoda vehicles, comprehensive insurance, GPS navigation, and 24/7 roadside assistance included."
+  title="Rent a Car Skopje | Self-Drive Car Rental North Macedonia"
+  description="Rent a car in Skopje with Ultika. Modern Skoda vehicles, comprehensive insurance, GPS navigation, and 24/7 roadside assistance. Explore North Macedonia at your own pace."
+  keywords="rent a car Skopje, car rental Macedonia, self drive rental Skopje, Skopje car hire, cheap car rental Macedonia"
 >
+  <ServiceSchema
+    name="Self-Drive Car Rental Service in Skopje"
+    description="Modern rental vehicles with insurance, GPS, and 24/7 roadside assistance"
+    serviceType="Car Rental"
+    lang="en"
+  />
+  <BreadcrumbSchema items={breadcrumbs} />
   <!-- Hero Section -->
   <section class="relative h-96 bg-black text-white overflow-hidden">
     <div class="absolute inset-0 z-0">

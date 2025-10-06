@@ -4,3 +4,5 @@ dist
 .env
 
 CLAUDE.md
+FAVICON_SETUP.md
+SCHEMA_IMPLEMENTATION.md

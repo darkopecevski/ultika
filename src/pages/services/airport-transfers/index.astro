@@ -1,6 +1,8 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 import SectionTitle from '../../../components/SectionTitle.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
 
 const service = {
   title: 'Airport Transfers in Skopje',
@@ -48,6 +50,12 @@ const service = {
     ]
   }
 };
+
+const breadcrumbs = [
+  { name: "Home", url: "https://ultika.mk" },
+  { name: "Services", url: "https://ultika.mk/services" },
+  { name: "Airport Transfers", url: "https://ultika.mk/services/airport-transfers" }
+];
 ---
 
 <MainLayout
@@ -55,6 +63,13 @@ const service = {
   description="Professional Skopje Airport transfer service. Reliable transportation from Skopje Airport to city center and throughout North Macedonia. Meet & greet, flight monitoring included."
   keywords="Skopje airport transfer, airport taxi Skopje, Skopje Airport to city center, airport chauffeur Skopje, SKP airport transfer, Macedonia airport transport"
 >
+  <ServiceSchema
+    name="Skopje Airport Transfer Service"
+    description="Professional airport transfers with meet & greet, flight monitoring and door-to-door service"
+    serviceType="Airport Transfer"
+    lang="en"
+  />
+  <BreadcrumbSchema items={breadcrumbs} />
   <!-- Hero Section -->
   <section class="relative h-96 bg-black text-white overflow-hidden">
     <div class="absolute inset-0 z-0">

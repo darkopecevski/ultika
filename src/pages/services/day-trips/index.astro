@@ -1,10 +1,12 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 import SectionTitle from '../../../components/SectionTitle.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
 
 const service = {
-  title: 'Day Trips & Tours',
-  description: 'Discover the beauty of North Macedonia with our guided day trips and private tours.',
+  title: 'Day Trips & Tours in Macedonia',
+  description: 'Discover the beauty of North Macedonia with our guided day trips, private tours from Skopje to Ohrid, Mavrovo and more.',
   heroImage: '/images/cars/vclassside2.jpg',
   features: [
     {
@@ -59,12 +61,26 @@ const service = {
     }
   ]
 };
+
+const breadcrumbs = [
+  { name: "Home", url: "https://ultika.mk" },
+  { name: "Services", url: "https://ultika.mk/services" },
+  { name: "Day Trips & Tours", url: "https://ultika.mk/services/day-trips" }
+];
 ---
 
 <MainLayout
-  title="Day Trips & Tours | Ultika Guided Tours North Macedonia"
-  description="Private guided day trips and tours in North Macedonia. Visit Ohrid, Matka Canyon, wine regions, and national parks with professional guides and luxury transport."
+  title="Day Trips from Skopje | Guided Tours Ohrid, Mavrovo Macedonia"
+  description="Private guided day trips from Skopje. Visit Ohrid, Matka Canyon, Mavrovo, wine regions with professional guides and luxury Mercedes transport. Custom tours available."
+  keywords="day trips from Skopje, Skopje to Ohrid tour, Macedonia guided tours, private tours Skopje, Mavrovo day trip, Matka Canyon tour"
 >
+  <ServiceSchema
+    name="Day Trips and Tours from Skopje"
+    description="Private guided tours to Ohrid, Mavrovo, wine regions and historical sites"
+    serviceType="Tour Service"
+    lang="en"
+  />
+  <BreadcrumbSchema items={breadcrumbs} />
   <!-- Hero Section -->
   <section class="relative h-96 bg-black text-white overflow-hidden">
     <div class="absolute inset-0 z-0">

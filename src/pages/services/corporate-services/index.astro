@@ -1,10 +1,12 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 import SectionTitle from '../../../components/SectionTitle.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
 
 const service = {
-  title: 'Corporate Services',
-  description: 'Comprehensive transportation solutions tailored for businesses and corporate clients.',
+  title: 'Corporate Transportation Services',
+  description: 'Comprehensive transportation solutions tailored for businesses and corporate clients in North Macedonia.',
   heroImage: '/images/cars/eclassfront5.jpg',
   features: [
     {
@@ -33,12 +35,26 @@ const service = {
     }
   ]
 };
+
+const breadcrumbs = [
+  { name: "Home", url: "https://ultika.mk" },
+  { name: "Services", url: "https://ultika.mk/services" },
+  { name: "Corporate Services", url: "https://ultika.mk/services/corporate-services" }
+];
 ---
 
 <MainLayout
-  title="Corporate Services | Ultika Business Transportation Solutions"
-  description="Professional corporate transportation services in North Macedonia. Fleet management, executive transport, and business travel solutions with dedicated account management."
+  title="Corporate Transportation Skopje | Business Car Service Macedonia"
+  description="Professional corporate transportation services in Skopje and North Macedonia. Fleet management, executive transport, employee shuttles with dedicated account management."
+  keywords="corporate transportation Skopje, business car service Macedonia, company car rental, fleet management Skopje, employee shuttle service"
 >
+  <ServiceSchema
+    name="Corporate Transportation Services in North Macedonia"
+    description="Business transportation solutions with fleet management and dedicated account support"
+    serviceType="Corporate Transportation"
+    lang="en"
+  />
+  <BreadcrumbSchema items={breadcrumbs} />
   <!-- Hero Section -->
   <section class="relative h-96 bg-black text-white overflow-hidden">
     <div class="absolute inset-0 z-0">
