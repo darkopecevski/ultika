@@ -1,0 +1,97 @@
+---
+export interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://ultika.mk/#organization",
+  "name": "Ultika",
+  "alternateName": "Ultika Car Rental & Transportation",
+  "url": "https://ultika.mk",
+  "logo": "https://ultika.mk/images/placeholders/ultika-og-image.jpg",
+  "image": "https://ultika.mk/images/placeholders/ultika-og-image.jpg",
+  "description": lang === 'en'
+    ? "Premium car rental and chauffeur services in North Macedonia. Luxury Mercedes vehicles, airport transfers, executive transportation, and self-drive rentals in Skopje."
+    : "Премиум изнајмување автомобили и услуги со шофер во Северна Македонија. Луксузни Mercedes возила, аеродромски трансфери, бизнис превоз и изнајмување возила во Скопје.",
+  "telephone": "+389-70-123-456",
+  "email": "ultika.mk@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Street Address",
+    "addressLocality": "Skopje",
+    "addressRegion": "Skopje",
+    "postalCode": "1000",
+    "addressCountry": "MK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9973,
+    "longitude": 21.4280
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "priceRange": "€€-€€€",
+  "areaServed": {
+    "@type": "Country",
+    "name": "North Macedonia"
+  },
+  "sameAs": [
+    "https://www.facebook.com/ultika",
+    "https://www.instagram.com/ultika"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Transportation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": lang === 'en' ? "Airport Transfer Service" : "Аеродромски Трансфер",
+          "description": lang === 'en'
+            ? "Professional airport transfer services to and from airports in North Macedonia"
+            : "Професионални аеродромски трансфер услуги до и од аеродромите во Северна Македонија"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": lang === 'en' ? "Executive Transportation" : "Бизнис Превоз",
+          "description": lang === 'en'
+            ? "Premium chauffeur service with luxury Mercedes vehicles"
+            : "Премиум услуга со шофер со луксузни Mercedes возила"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": lang === 'en' ? "Self-Drive Car Rental" : "Изнајмување Возила",
+          "description": lang === 'en'
+            ? "Modern rental vehicles with flexible terms"
+            : "Модерни возила под наем со флексибилни услови"
+        }
+      }
+    ]
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

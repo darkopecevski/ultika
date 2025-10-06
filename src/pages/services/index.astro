@@ -4,6 +4,7 @@ import SectionTitle from '../../components/SectionTitle.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import PlaceholderImage from '../../components/PlaceholderImage.astro';
 import RouteCalculator from '../../components/RouteCalculator.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
 
 // Services data
 const services = [
@@ -128,18 +129,44 @@ const services = [
     `
   }
 ];
+
+// FAQ data for schema
+const faqs = [
+  {
+    question: "How far in advance should I book?",
+    answer: "We recommend booking at least 24-48 hours in advance to ensure availability. For special events, corporate services, or during peak tourist season, earlier booking is advisable."
+  },
+  {
+    question: "What areas do you serve?",
+    answer: "We operate throughout North Macedonia, with a focus on Skopje and major tourist destinations. We also offer cross-border services to neighboring countries upon request."
+  },
+  {
+    question: "What happens if my flight is delayed?",
+    answer: "For airport transfers, we monitor all flight arrivals and adjust pickup times accordingly at no extra charge. Our drivers will wait for you even if your flight is delayed."
+  },
+  {
+    question: "Do you offer child seats?",
+    answer: "Yes, we provide child seats upon request at no additional cost. Please inform us of your requirements when booking so we can ensure the appropriate equipment is available."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept cash (MKD and EUR), major credit cards, and bank transfers. For corporate clients, we also offer invoicing options with unified billing."
+  }
+];
 ---
 
-<MainLayout 
+<MainLayout
   title="Our Services | Ultika Car Rental & Transportation Services"
   description="Discover our premium transportation services in North Macedonia including airport transfers, executive transportation, wedding services, and self-drive car rentals."
+  keywords="car rental services Macedonia, Skopje airport transfer, chauffeur service Skopje, wedding transportation Macedonia, corporate car rental"
 >
+  <FAQSchema faqs={faqs} />
   <!-- Hero Section -->
   <section class="bg-black text-white py-20">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Transportation Services in Skopje & North Macedonia</h1>
       <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        Experience premium transportation solutions tailored to your needs. From airport transfers to wedding transportation, our professional team delivers exceptional service every time.
+        Premium car rental, airport transfers, and chauffeur services in Skopje. From Skopje Airport transfers to luxury Mercedes rentals, our professional team delivers exceptional service throughout North Macedonia.
       </p>
     </div>
   </section>

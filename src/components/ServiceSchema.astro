@@ -1,0 +1,51 @@
+---
+export interface Props {
+  name: string;
+  description: string;
+  serviceType: string;
+  areaServed?: string;
+  provider?: string;
+  lang?: string;
+}
+
+const {
+  name,
+  description,
+  serviceType,
+  areaServed = "North Macedonia",
+  provider = "Ultika",
+  lang = 'en'
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": serviceType,
+  "name": name,
+  "description": description,
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://ultika.mk/#organization",
+    "name": provider
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": areaServed
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": name,
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": name
+        }
+      }
+    ]
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

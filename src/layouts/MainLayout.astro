@@ -7,6 +7,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import LocalBusinessSchema from '../components/LocalBusinessSchema.astro';
 
 export interface Props {
   title: string;
@@ -14,15 +15,22 @@ export interface Props {
   image?: string;
   canonicalURL?: string;
   lang?: string;
+  keywords?: string;
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   image = '/images/placeholders/ultika-og-image.jpg',
   canonicalURL = Astro.url.href,
-  lang = 'en'
+  lang = 'en',
+  keywords = 'car rental North Macedonia, Skopje airport transfer, Mercedes chauffeur service, luxury car rental Skopje, Macedonia transportation, rent a car Skopje'
 } = Astro.props;
+
+// Build alternate language URLs
+const alternateURL = lang === 'en'
+  ? `https://ultika.mk/mk${Astro.url.pathname}`
+  : `https://ultika.mk${Astro.url.pathname.replace('/mk', '')}`;
 ---
 
 <!DOCTYPE html>
@@ -31,6 +39,9 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
     
     <SEO
@@ -55,13 +66,23 @@ const {
       }}
       extend={{
         link: [
-          { rel: 'canonical', href: canonicalURL }
+          { rel: 'canonical', href: canonicalURL },
+          { rel: 'alternate', hreflang: lang === 'en' ? 'mk' : 'en', href: alternateURL },
+          { rel: 'alternate', hreflang: 'x-default', href: `https://ultika.mk${Astro.url.pathname.replace('/mk', '')}` }
         ],
         meta: [
+          { name: 'keywords', content: keywords },
+          { name: 'robots', content: 'index, follow' },
+          { name: 'author', content: 'Ultika' },
           { name: 'theme-color', content: '#000000' },
+          { name: 'geo.region', content: 'MK' },
+          { name: 'geo.placename', content: 'Skopje' },
+          { name: 'geo.position', content: '41.9973;21.4280' },
+          { name: 'ICBM', content: '41.9973, 21.4280' },
         ],
       }}
     />
+    <LocalBusinessSchema lang={lang} />
   </head>
   <body class="flex flex-col min-h-screen bg-white text-gray-900">
     <Header />
